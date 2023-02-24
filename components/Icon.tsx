@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import Image from "next/image";
 
 export type IconProps = {
@@ -11,7 +10,7 @@ export default function Icon({
     alt = "Icon for Minh",
     size = 24,
     className = ""
-}: IconProps): ReactNode {
+}: IconProps) {
     return (
         <Image
             src="/favicon.png"
