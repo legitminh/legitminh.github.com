@@ -27,9 +27,10 @@ function Navigation({ active }: HeaderProps) {
                 <li key={index}>
                     <a
                         href={item.href}
-                        className={`text-sm decoration-0 ${active.toLowerCase() ==
-                            item["name"].toLowerCase() && "font-bold"
-                            }`}
+                        className={`text-sm decoration-0 ${
+                            active.toLowerCase() ==
+                                item["name"].toLowerCase() && "font-bold"
+                        }`}
                     >
                         {item.name}
                     </a>
