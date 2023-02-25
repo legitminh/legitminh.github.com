@@ -15,6 +15,7 @@ export type AchievementProps = {
     madeWith: (string | MadeWithProps)[];
     date: string;
     link?: string;
+    emph?: boolean;
 };
 
 function MadeWith({ name, link, icon }: MadeWithProps) {
@@ -61,10 +62,11 @@ export default function Achievement({
     madeWith,
     date,
     link,
+    emph = false,
 }: AchievementProps) {
     let result = (
         <>
-            <div className="card">
+            <div className={`card ${emph && "emph"}`}>
                 <div className="image">
                     <Image
                         src={image}
@@ -105,14 +107,29 @@ export default function Achievement({
             </div>
             <style jsx>{`
                 .card {
-                    @apply rounded-lg shadow bg-white flex relative;
+                    @apply rounded-lg shadow-sm bg-white flex relative;
                 }
+
                 .image {
                     @apply rounded-lg overflow-clip;
                 }
+
                 .content {
                     @apply flex-1 flex flex-col justify-between
                 }
+
+                .emph {
+                    @apply bg-gradient-to-br from-blue-100 to-indigo-100 shadow;
+                }
+
+                .emph h3 {
+                    @apply text-blue-600;
+                }
+
+                .emph p {
+                    @apply text-blue-400;
+                }
+
                 /* Small */                
                 @media (max-width: 639px) {
                     .card {
@@ -127,6 +144,7 @@ export default function Achievement({
                         @apply px-5;
                     }
                 }
+                /* Large */
                 @media (min-width: 640px) {
                     .card {
                         @apply max-w-lg gap-4;
