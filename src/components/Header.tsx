@@ -22,7 +22,7 @@ function Navigation({ active }: HeaderProps) {
     ];
     const [opened, setOpened] = useState(false);
     const content = (
-        <ul className={`list-none max-sm:space-y-4 sm:flex sm:gap-2`}>
+        <ul className={`list-none max-sm:space-y-4 sm:flex sm:gap-4`}>
             {nav.map((item, index) => (
                 <li key={index}>
                     <a
@@ -63,13 +63,13 @@ function Navigation({ active }: HeaderProps) {
                     </svg>
                     {/* shade */}
                     <div
-                        className={`bg-slate-900/20 fixed top-0 bottom-0 right-0 left-0 backdrop-blur-sm 
+                        className={`bg-slate-900/20 fixed top-0 bottom-0 right-0 left-0 backdrop-blur-sm z-10
                         ${!opened && "hidden"}`}
                         onClick={(e) => setOpened(false)}
                     ></div>
                     {/* dialog */}
                     <div
-                        className={`fixed top-4 right-4 shadow-lg p-6 rounded-lg bg-white z-10 w-full max-w-xs 
+                        className={`fixed top-4 right-4 shadow-lg p-6 rounded-lg bg-white z-20 w-full max-w-xs 
                         ${!opened && "hidden"}`}
                     >
                         {content}
