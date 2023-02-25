@@ -5,8 +5,7 @@ export default function About() {
     return (
         <>
             <Header active="about" />
-            <TOCLayout>
-            </TOCLayout>
+            <TOCLayout></TOCLayout>
         </>
-    )
+    );
 }
