@@ -8,13 +8,13 @@ function TOC(props: {
     className?: string;
 }) {
     let items = props.items,
-        level = props.level || 1,
+        level = props.level || 2,
         ordered = props.ordered || false,
         className = props.className || "";
 
     let result = [];
     const cls =
-        "transition-all no-underline hover:underline text-slate-300 hover:text-slate-500 " +
+        "transition-all no-underline hover:underline text-slate-300 hover:text-slate-500 text-sm font-light " +
         className;
 
     for (let i = 0; i < items.length; i++) {
@@ -89,9 +89,8 @@ export default class StickyNavigation extends React.Component<
         super(props);
         this.state = {
             toc: [],
-            top: 0
+            top: 0,
         };
-
         this.nav = React.createRef();
         this.level = props.level || 6;
         this.ordered = props.ordered || false;
@@ -119,12 +118,12 @@ export default class StickyNavigation extends React.Component<
                 return {
                     id: id,
                     title: e.innerText,
-                    level: parseInt(e.tagName[1])
+                    level: parseInt(e.tagName[1]),
                 };
             });
 
         this.setState({
-            toc: toc
+            toc: toc,
         });
 
         let observer = new IntersectionObserver((entries) => {
@@ -135,27 +134,21 @@ export default class StickyNavigation extends React.Component<
                 if (!nav) return;
 
                 if (entry.intersectionRatio > 0) {
-                    nav.classList.remove("text-slate-300");
+                    nav.classList.remove("text-slate-300", "font-regular");
                     nav.classList.add(
                         "text-slate-500",
-                        "font-medium",
-                        "border-l-4",
-                        "border-slate-500",
+                        "font-light",
                         "pl-4",
                         "-ml-4"
                     );
-                    nav.parentElement!.classList.add("list-none");
                 } else {
-                    nav.classList.add("text-slate-300");
+                    nav.classList.add("text-slate-300", "font-regular");
                     nav.classList.remove(
                         "text-slate-500",
-                        "font-medium",
-                        "border-l-4",
-                        "border-slate-500",
+                        "font-light",
                         "pl-4",
                         "-ml-4"
                     );
-                    nav.parentElement!.classList.remove("list-none");
                 }
             });
         });
@@ -189,11 +182,11 @@ export default class StickyNavigation extends React.Component<
             <aside
                 className={
                     "transition-all sticky mr-6 prose self-start " +
-                    this.className
+                    this.props.className
                 }
                 style={{ top: `${(this.props.top || 0) + this.state.top}px` }}
             >
-                <h2 className="text-slate-300 text-sm uppercase tracking-wide font-semibold mb-4">
+                <h2 className="text-base font-bold text-slate-500 mt-[12px]">
                     Table of Contents
                 </h2>
                 <nav ref={this.nav}>

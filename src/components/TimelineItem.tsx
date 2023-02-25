@@ -21,7 +21,7 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
                     content: "";
                     position: absolute;
                     top: -1.5rem;
-                    bottom: 0;
+                    bottom: -0.5rem;
                     left: -1rem;
                     width: 2px;
                     @apply bg-slate-300;
@@ -29,7 +29,7 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
                 /* place the title */
                 .title {
                     position: absolute;
-                    top: -2.5rem;
+                    top: -3rem;
                     transform: translate(-100%, -50%);
                     @apply text-base font-bold text-slate-500;
                 }

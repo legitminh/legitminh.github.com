@@ -50,7 +50,7 @@ function handleMadeWith(madeWith: (string | MadeWithProps)[]) {
                 {`${item}${index !== madeWith.length - 1 ? "," : ""}`}
             </span>
         ) : (
-            <div key={index}>
+            <div key={index} className="flex">
                 <MadeWith {...item} />
                 {index !== madeWith.length - 1 && (
                     <span className="text-xs text-slate-400 -ml-1">, </span>
@@ -78,7 +78,7 @@ export default function Achievement({
                         alt={title}
                         width={156}
                         height={156}
-                        className="max-sm:w-full sm:h-full object-covers rounded-lg min-h-[10rem]"
+                        className="max-sm:w-full sm:h-full object-cover rounded-lg min-h-[10rem]"
                     />
                 </div>
                 <div className="content">
