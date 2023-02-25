@@ -10,15 +10,12 @@ export default function Timeline({ children, className }: TimelineProps) {
         <>
             <div className={`timeline ${className}`}>{children}</div>
             <style jsx global>{`
-                .timeline {
-                    padding-top: 3rem;
-                }
-
-                 {
-                    /* extend the last line */
-                }
+                /* extend the last line */
                 .timeline .item:last-child::before {
                     bottom: -1rem;
+                }
+                .timeline .item:first-child {
+                    margin-top: 3rem;
                 }
             `}</style>
         </>

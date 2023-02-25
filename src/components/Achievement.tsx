@@ -50,12 +50,12 @@ function handleMadeWith(madeWith: (string | MadeWithProps)[]) {
                 {`${item}${index !== madeWith.length - 1 ? "," : ""}`}
             </span>
         ) : (
-            <>
-                <MadeWith key={index} {...item} />
+            <div key={index}>
+                <MadeWith {...item} />
                 {index !== madeWith.length - 1 && (
                     <span className="text-xs text-slate-400 -ml-1">, </span>
                 )}
-            </>
+            </div>
         )
     );
 }
@@ -78,7 +78,7 @@ export default function Achievement({
                         alt={title}
                         width={156}
                         height={156}
-                        className="max-sm:w-full sm:h-full object-covers"
+                        className="max-sm:w-full sm:h-full object-covers rounded-lg min-h-[10rem]"
                     />
                 </div>
                 <div className="content">

@@ -98,7 +98,7 @@ function Navigation({ active }: HeaderProps) {
 
 export default function Header({ active }: HeaderProps) {
     return (
-        <header className="w-full h-20 flex justify-between items-center shadow px-8 sm:px-14 lg:px-28">
+        <header className="w-full h-20 flex justify-between items-center shadow-sm px-8 sm:px-14 lg:px-28">
             <div className="flex gap-2 items-center">
                 <Logo />
                 <p className="text-base font-normal">Minh Nguyen</p>
