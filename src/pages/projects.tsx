@@ -134,7 +134,6 @@ export default function Projects() {
                 <StickyNavigation className="max-md:hidden" />
             </div>
             <style jsx>{`
-
                 @media (min-width: 1024px) {
                     .layout {
                         display: grid;
