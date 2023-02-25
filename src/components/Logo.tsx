@@ -12,12 +12,13 @@ export default function Logo({
     className = "",
 }: LogoProps) {
     return (
-        <Image
-            src="/logo/minh-icon.svg"
-            alt={alt}
-            width={size}
-            height={size}
-            className={`rounded-full bg-slate-100 p-1 ${className}`}
-        />
+        <div className={`p-2 bg-slate-100 rounded-full ${className}`}>
+            <Image
+                src="/logo/minh-icon.svg"
+                alt={alt}
+                width={size - 8}
+                height={size - 8}
+            />
+        </div>
     );
 }
