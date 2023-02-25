@@ -1,18 +1,18 @@
-import '@/styles/global.scss'
-import type { AppProps } from 'next/app'
-import { Inter } from "next/font/google"
+import "@/styles/global.scss";
+import type { AppProps } from "next/app";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-})
+    subsets: ["latin"],
+    variable: "--font-inter",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <div className={`${inter.variable}`}>
-        <Component {...pageProps} />
-      </div>
-    </>
-  )
+    return (
+        <>
+            <div className={`${inter.variable}`}>
+                <Component {...pageProps} />
+            </div>
+        </>
+    );
 }
