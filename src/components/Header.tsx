@@ -36,6 +36,13 @@ function Navigation({ active }: HeaderProps) {
                     </a>
                 </li>
             ))}
+            <hr className="sm:hidden" />
+            <li>
+                {/* TODO: Add a link */}
+                <button className="rounded text-slate-50 bg-gradient-to-r from-blue-500 to-indigo-500 px-2 py-1 text-sm max-sm:px-4 max-sm:py-2">
+                    Vote Me!
+                </button>
+            </li>
         </ul>
     );
     return (
