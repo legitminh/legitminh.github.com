@@ -1,6 +1,6 @@
 import Achievement from "@/components/Achievement";
 import Header from "@/components/Header";
-import StickyNavigation from "@/components/StickyNavigation";
+import TOCLayout from "@/components/TOCLayout";
 import Timeline from "@/components/Timeline";
 import TimelineItem from "@/components/TimelineItem";
 
@@ -127,22 +127,7 @@ export default function Projects() {
     return (
         <>
             <Header active="projects" />
-            <div className="layout">
-                <main className="bg-slate-100 sticky pt-6 pb-6 top-0 bottom-0 self-start flex flex-col items-center px-4">
-                    {TIME_LINE}
-                </main>
-                <StickyNavigation className="max-md:hidden" />
-            </div>
-            <style jsx>{`
-                @media (min-width: 1024px) {
-                    .layout {
-                        display: grid;
-                        grid-template-columns: 1fr 18rem;
-                        gap: 1rem;
-                        @apply max-w-7xl;
-                    }
-                }
-            `}</style>
+            <TOCLayout>{TIME_LINE}</TOCLayout>
         </>
     );
 }
