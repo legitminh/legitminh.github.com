@@ -47,10 +47,15 @@ function handleMadeWith(madeWith: (string | MadeWithProps)[]) {
     return madeWith.map((item, index) =>
         typeof item === "string" ? (
             <span key={index} className="text-xs text-slate-400">
-                {item}
+                {`${item}${index !== madeWith.length - 1 ? "," : ""}`}
             </span>
         ) : (
-            <MadeWith key={index} {...item} />
+            <>
+                <MadeWith key={index} {...item} />
+                {index !== madeWith.length - 1 && (
+                    <span className="text-xs text-slate-400 -ml-1">, </span>
+                )}
+            </>
         )
     );
 }
@@ -115,7 +120,7 @@ export default function Achievement({
                 }
 
                 .content {
-                    @apply flex-1 flex flex-col justify-between
+                    @apply flex-1 flex flex-col justify-between;
                 }
 
                 .emph {
@@ -130,12 +135,12 @@ export default function Achievement({
                     @apply text-blue-400;
                 }
 
-                /* Small */                
+                /* Small */
                 @media (max-width: 639px) {
                     .card {
                         @apply h-80 w-full max-w-xs flex-col items-center gap-4 pb-5;
                     }
-                    
+
                     .image {
                         @apply h-40 w-full;
                     }
