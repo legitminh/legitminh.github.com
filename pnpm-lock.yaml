@@ -9,6 +9,7 @@ specifiers:
   eslint: 8.34.0
   eslint-config-next: 13.2.1
   next: 13.2.1
+  pnpm: ^7.28.0
   postcss: ^8.4.21
   postcss-flexbugs-fixes: ^5.0.2
   postcss-preset-env: ^8.0.1
@@ -27,6 +28,7 @@ dependencies:
   eslint: 8.34.0
   eslint-config-next: 13.2.1_7kw3g6rralp5ps6mg3uyzz6azm
   next: 13.2.1_wiv434v7erz4aedd5whhdwmpv4
+  pnpm: 7.28.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   recoil: 0.7.6_biqbaboplfbrettd7655fr4n2y
@@ -2328,6 +2330,12 @@ packages:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /pnpm/7.28.0:
+    resolution: {integrity: sha512-nbuY07S2519jEjaV9KLjSFmOwh0b6KIViIdc/RCJkgco8SZa2+ikQQe4N3CfNn5By5BH0dKVbZ8Ox1Mw8wItSA==}
+    engines: {node: '>=14.6'}
+    hasBin: true
+    dev: false
 
   /postcss-attribute-case-insensitive/6.0.2_postcss@8.4.21:
     resolution: {integrity: sha512-IRuCwwAAQbgaLhxQdQcIIK0dCVXg3XDUnzgKD8iwdiYdwU4rMWRWyl/W9/0nA4ihVpq5pyALiHB2veBJ0292pw==}
