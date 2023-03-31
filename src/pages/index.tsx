@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Minh's Homepage</title>
+                <title>Minh&apos;s Homepage</title>
                 <meta
                     name="description"
                     content="The best student ever in the world"
