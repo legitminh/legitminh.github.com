@@ -18,39 +18,39 @@ const TIME_LINE = (
                 description=""
                 madeWith={[
                     {
-                        name: "Pygame",
+                        name: "",
                         icon: "",
                     },
                 ]}
-                date="Late 2021"
+                date=""
             />
             <Achievement
-                image="/images/projects/space-colonizer.png"
-                link="https://minhn.itch.io/space-colonizer"
-                title="Space colonizer"
-                description="A game about colonizing space made with Pygame."
+                image="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png"
+                link="https://discord.gg/gwGQM5MjmY"
+                title="Discord server"
+                description=""
                 madeWith={[
                     {
-                        name: "Pygame",
+                        name: "",
                         icon: "",
                     },
                 ]}
-                date="Late 2021"
+                date=""
             />
             <Achievement
-                image="/images/projects/space-colonizer.png"
-                link="https://minhn.itch.io/space-colonizer"
-                title="Space colonizer"
-                description="A game about colonizing space made with Pygame."
+                image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
+                link="https://www.instagram.com/legitminh/"
+                title="Instagram"
+                description=""
                 madeWith={[
                     {
-                        name: "Pygame",
+                        name: "",
                         icon: "",
                     },
                 ]}
-                date="Late 2021"
+                date=""
             />.
-            <Achievement
+            {/* <Achievement
                 image="/images/projects/space-colonizer.png"
                 link="https://minhn.itch.io/space-colonizer"
                 title="Space colonizer"
@@ -62,7 +62,7 @@ const TIME_LINE = (
                     },
                 ]}
                 date="Late 2021"
-            />
+            /> */}
             
         </TimelineItem>
         {/* <TimelineItem title="2022">
