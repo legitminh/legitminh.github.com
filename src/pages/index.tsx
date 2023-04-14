@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Head from "next/head";
-
+import Image from "next/image"; 
 export default function Home() {
     return (
         <>
@@ -17,7 +17,19 @@ export default function Home() {
                 <link rel="icon" href="/favicon.png" />
             </Head>
             <Header active="home"></Header>
-            <main></main>
+            <main>
+                
+                <center>
+                <img
+                    src="/images/avatar.jpg"
+                    alt="Hello"
+                    width="50%"
+                />
+                <video controls width="50%" height="auto" >
+                    <source src = "/videos/avatar.mp4" type = 'video/mp4'/>
+                </video>
+                </center>
+            </main>
         </>
     );
 }

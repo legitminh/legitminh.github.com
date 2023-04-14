@@ -25,7 +25,7 @@ const TIME_LINE = (
                 date=""
             />
             <Achievement
-                image="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png"
+                image="/images/discord.png"
                 link="https://discord.gg/gwGQM5MjmY"
                 title="Discord server"
                 description=""
@@ -38,7 +38,7 @@ const TIME_LINE = (
                 date=""
             />
             <Achievement
-                image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
+                image="/images/instagram.webp"
                 link="https://www.instagram.com/legitminh/"
                 title="Instagram"
                 description=""
