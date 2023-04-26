@@ -9,7 +9,9 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
     return (
         <>
             <div className="item relative">
-                <h2 className="title">{title}</h2>
+                <center>
+                    <h2 className="title">{title}</h2>
+                </center>
                 <div className="flex flex-col gap-6">{children}</div>
             </div>
             <style jsx>{`
@@ -20,9 +22,9 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
                 .item::before {
                     content: "";
                     position: absolute;
-                    top: -1.5rem;
+                    top: 0rem;
                     bottom: -0.5rem;
-                    left: -1rem;
+                    left: 0rem;
                     width: 2px;
                     @apply bg-slate-300;
                 }
@@ -30,8 +32,13 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
                 .title {
                     position: absolute;
                     top: -3rem;
-                    transform: translate(-100%, -50%);
+                    
+                    //transform: translate(-50%, -50%);
                     @apply text-base font-bold text-slate-500;
+                }
+                /* place the elements */
+                .flex{
+                    transform: translate(5%, 0);
                 }
             `}</style>
         </>

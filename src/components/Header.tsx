@@ -7,7 +7,7 @@ export type HeaderProps = {
 };
 
 function Navigation({ active }: HeaderProps) {
-    function openVoteMe(){window.open("http://stuco.gsmst.org") };
+    function openVoteMe(){window.open("https://instruction.gwinnett.k12.ga.us/d2l/home/2105955") };
     const nav = [
         {
             name: "Home",
@@ -39,12 +39,12 @@ function Navigation({ active }: HeaderProps) {
                 </li>
             ))}
             <hr className="sm:hidden" />
-            <li>
+            {/* <li>
                 <button className="rounded text-slate-50 bg-gradient-to-r from-blue-500 to-indigo-500 px-2 py-1 text-sm max-sm:px-4 max-sm:py-2" onClick = {openVoteMe}>
                     
                     Vote Me!
                 </button>
-            </li>
+            </li> */}
         </ul>
     );
     return (
