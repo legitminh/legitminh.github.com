@@ -21,6 +21,10 @@ function Navigation({ active }: HeaderProps) {
             name: "Projects",
             href: "/projects",
         },
+        {
+            name: "Blog",
+            href: "/blog"
+        }
     ];
     const [opened, setOpened] = useState(false);
     const content = (
