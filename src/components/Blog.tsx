@@ -38,12 +38,7 @@ export default function f( props : {
             >
                 <img
                     src={props.img}
-                    alt="Hello"
-                    height = "100%"
-                    style={{
-                        borderRadius: "0.5rem",
-                        height : "100%",
-                    }}                
+                    alt="Hello"           
                 />
             </div>
         </div>
@@ -54,9 +49,12 @@ export default function f( props : {
                 box-shadow: 0px 0 10px rgba(0, 0, 0, .1);
             }
             .img{
-                width: 100;
-                right: 0;
+                //width: 100%;
+                height: 100%;
+                right: 0px;
+                border-radius: 30px;
             }
+            
             `}
         </style>
         </>
