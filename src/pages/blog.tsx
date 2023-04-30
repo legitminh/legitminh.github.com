@@ -8,12 +8,13 @@ export default function f(){
     return (
         <>
         <Header active = "blog" />
-        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world"} />
-        Hello
         <TOCLayout>
             <Timeline>
                 <TimelineItem title="good">
-                    Hello
+                    <>
+                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world isa mario"} />
+                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world"} />
+                    </>
                 </TimelineItem>
             </Timeline>
         </TOCLayout>
