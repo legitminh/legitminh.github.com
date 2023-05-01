@@ -12,16 +12,12 @@ export default function f(){
             <Timeline>
                 <TimelineItem title="good">
                     <>
-                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world isa mario"} />
+                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world isa mario"} doc={"blogs/#10gradeCampaign.txt"}/>
                         <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world"} />
                     </>
                 </TimelineItem>
             </Timeline>
         </TOCLayout>
-        </>
-        
+        </>   
     )
-        
-    
-    
 }

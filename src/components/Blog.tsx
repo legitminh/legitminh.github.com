@@ -1,21 +1,17 @@
 import { Console } from "console";
 import { Node } from "typescript";
 
-function link(){
-    window.open("https://google.com");
-    console.log("HELO");
-}
-
 export default function f( props : {
     title: string,
     img: string,
-    ct: string
+    ct: string,
+    doc: string,
 }){
-    let {title, ct} = props;
+    let {title, img, ct, doc} = props;
     
     return (
         <>
-        <div className = "box" onClick={link}>
+        <div className = "box" onClick={() => {window.open(doc)}}>
             <div className="imageHolder">
                 <img
                     src={props.img}
