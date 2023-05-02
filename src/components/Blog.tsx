@@ -1,5 +1,7 @@
 import { Console } from "console";
+import { useRef } from "react";
 import { Node } from "typescript";
+import BlogPage from "./BlogPage";
 
 export default function f( props : {
     title: string,
@@ -11,7 +13,7 @@ export default function f( props : {
     
     return (
         <>
-        <div className = "box" onClick={() => {window.open(doc)}}>
+        <div className = "box" onClick={() => window.open(doc)}>
             <div className="imageHolder">
                 <img
                     src={props.img}

@@ -12,8 +12,8 @@ export default function f(){
             <Timeline>
                 <TimelineItem title="good">
                     <>
-                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world isa mario"} doc={"blogs/#10gradeCampaign.txt"}/>
-                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world"} />
+                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world isa mario"} doc={"blogs/10gradeCampaign"}/>
+                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world"} doc={"blogs/10gradeCampaign.txt"}/>
                     </>
                 </TimelineItem>
             </Timeline>
