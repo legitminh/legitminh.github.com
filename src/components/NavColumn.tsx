@@ -7,10 +7,11 @@ export default function NavColumn(props: {
     let [childrenRender, setChildrenRender] = useState(<div></div>);
     
     return (
-            <div className=" flex" onMouseEnter=
+            <div className=" inline-flex" onMouseEnter=
                 
                 {() => setChildrenRender(
-                    <ul className=" h-full bg-slate-300 max-w-full">
+
+                    <ul className=" h-full bg-slate-300 max-w-full absolute">
                         {React.Children.map(props.children,(child)=>{
                             return (
                             <li >
@@ -22,11 +23,10 @@ export default function NavColumn(props: {
                     )
                 } 
                     onMouseLeave={() => setChildrenRender(<div></div>)}>
-                    <div className=" bg-slate-400 h-fit w-full">
+                    <div className=" bg-slate-400 h-fit w-20">
                     {props.title}
                     </div>
                     {childrenRender}
             </div>
     )
-
 }
