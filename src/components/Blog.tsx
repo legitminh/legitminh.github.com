@@ -21,7 +21,6 @@ export default function f( props : {
                 />
             </div>
             <div>
-                
                 <div className="content">
                     <strong className="title">
                         {title}
@@ -39,7 +38,6 @@ export default function f( props : {
                 box-shadow: 0px 0 10px rgba(0, 0, 0, .1);
                 height: 10rem;
                 border-radius: 0.5rem;
-                
             }
             
             img{

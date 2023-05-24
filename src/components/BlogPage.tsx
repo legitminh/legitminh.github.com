@@ -1,3 +1,4 @@
+// the blueprint for a blog page
 import Header from "@/components/Header";
 import { read, readFileSync } from 'fs';
 
