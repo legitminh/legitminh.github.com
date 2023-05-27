@@ -1,29 +1,29 @@
 import Link from "next/link";
 import React from "react";
-import NavColumn from "./NavColumn";
+import NavFolder from "./NavFolder";
 import { title } from "process";
 
 export default function Navbar(){
     return (
-        <div className=" block">
-        <NavColumn title="Math" children={[
-             
-            <NavColumn title="LA" children={[
-                "OceanPalace",
-                "Hollywood"
-            ]}/>, 
-            "ACBA",
-            "Calculus"]}
-        />
-        <NavColumn title="CS" children={[
-             
-             <NavColumn title="AI" children={[
-                 "PNO",
-                 "GPT"
-             ]}/>, 
-             "ACBA",
-             "Calculus"]}
-         />
+        <div className=" bg-slate-400 w-96">
+            <NavFolder title="Math" children={[
+                
+                <NavFolder title="LA" children={[
+                    "OceanPalace",
+                    "Hollywood"
+                ]}/>, 
+                "ACBA",
+                "Calculus"]}
+            />
+            <NavFolder title="CS" children={[
+                
+                <NavFolder title="AI" children={[
+                    "PNO",
+                    "GPT"
+                ]}/>, 
+                "ACBA",
+                "Calculus"]}
+            />
         </div>
     )
 }
