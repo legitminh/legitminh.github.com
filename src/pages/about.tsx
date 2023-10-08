@@ -7,7 +7,7 @@ const TIME_LINE = (
     <Timeline>
         <TimelineItem title = "Credit">
             <>
-            This website is written by Yubo Cao
+            This website is mainly written by Yubo Cao
             </>
         </TimelineItem>
         <TimelineItem title= "Social media">

@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import { read, readFileSync } from 'fs';
 
-export default function(props : {
+export default function f(props : {
     name: string
     content: string
 }){

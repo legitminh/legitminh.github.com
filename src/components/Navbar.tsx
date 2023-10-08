@@ -1,3 +1,4 @@
+//The bar that will be present in web pages. Composed of one master navfolder
 import Link from "next/link";
 import React from "react";
 import NavFolder from "./NavFolder";
@@ -5,25 +6,53 @@ import { title } from "process";
 
 export default function Navbar(){
     return (
-        <div className=" bg-slate-400 w-96">
-            <NavFolder title="Math" children={[
+
+        <NavFolder title="0">
+            <NavFolder title="Math" >
                 
-                <NavFolder title="LA" children={[
-                    "OceanPalace",
-                    "Hollywood"
-                ]}/>, 
-                "ACBA",
-                "Calculus"]}
-            />
-            <NavFolder title="CS" children={[
+                <NavFolder title="LA">
+                    <p>
+                        OceanPalace
+                    </p>
+                    <p>
+                        Hollywood
+                    </p>
+                </NavFolder>
+                <p>
+                    ACBA
+                </p>
+                <p>
+                    Calculus
+                </p>
+                <NavFolder title="MultiCalculus">
+                    <p>
+                        Terraseract
+                    </p>
+                    <p>
+                        PassageOfTime
+                    </p>
+                </NavFolder>
+            </NavFolder>
+            <NavFolder title="CS">
                 
-                <NavFolder title="AI" children={[
-                    "PNO",
-                    "GPT"
-                ]}/>, 
-                "ACBA",
-                "Calculus"]}
-            />
-        </div>
+                <NavFolder title="AI">
+                    <p>
+                        PNO
+                    </p>
+                    <p>
+                        GPT
+                    </p>
+                </NavFolder>
+                <p >
+                    HSBCπV48692121
+                </p>
+                <p>
+                    PNO
+                </p>
+                <p >
+                    英文但中文结构
+                </p>
+            </NavFolder>
+        </NavFolder>
     )
 }
