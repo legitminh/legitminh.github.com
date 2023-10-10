@@ -1,3 +1,4 @@
+// Default path "/"
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
@@ -17,38 +18,32 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.png" />
             </Head>
-            <div className="flex">
+            <Navbar>
+                <div className=" bg-bkg h-max">
+                    
+                    
+                    {/* old header */}
+                    {/* <Header active="home"></Header> */}
+                    
+                    <div className=" w-full h-full p-4 ">
+                        {/*  */}
+                        <div className="flex flex-wrap justify-center items-center gap-4"> 
+                            <div className="flex flex-col gap-1 items-center">
+                                <h1 className="text-6xl font-semibold text-c0">
+                                    Minh
+                                </h1>
+                                <p className="text-xl font-semibold text-c4">
+                                    Welcome to my humble website. Work is underway.<br></br>
+                                    Navigation: Click the home button, 
 
-                <Navbar/>
-                <Header active="home"></Header>
-                
-                <div className="bg-slate-100 w-full h-full p-4">
-
-                    <div className="flex flex-wrap justify-center items-center gap-4">
-                        <div className="flex flex-col gap-1 items-center">
-                            <h1 className="text-6xl font-semibold">
-                                Minh
-                            </h1>
-                            <p className="text-xl font-semibold text-slate-500">
-                                A glorified human being.
-                            </p>
-                        </div>
-                        <div className="flex flex-col items-center gap-2">
-                            <Image
-                                src="/images/avatar.jpg"
-                                alt="Hello"
-                                width="500"
-                                height="400"
-                            />
-                            {/* <video src="/videos/avatar.mp4" width={500} type = 'video/mp4' height="auto">
-                                </video> */}
-                            <video controls width="500" height="auto" >
-                                <source src="/videos/avatar.mp4" type='video/mp4' />
-                            </video>
+                                </p>
+                            </div>
+                            <div className="flex flex-col items-center gap-2">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Navbar>
         </>
 
     )

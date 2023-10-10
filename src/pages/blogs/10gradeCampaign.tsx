@@ -1,7 +1,6 @@
 export default function f(){
     return(
         <>
-        Heljclkjsoi ajjos
         <br/>
         My campaign is 3CS8Yae3xFDd9U2FgpnUTieCYNw3FRqWaisM
         <br/>
