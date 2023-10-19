@@ -15,21 +15,21 @@ const NavFolder = ( props: {
     children: any,
     destination: string,
 }) => {
-    let [color, setColor] = useState("#94a3b8"); //color of object
+    let [color, setColor] = useState("ccBlue"); //color of object
     let [childrenRender, setChildrenRender] = useState(<div></div>);
     let [open, setOpen] = useState(false);
 
     //let current :Array<string>=["0"];
     let selfTitle:any;
     if (props.destination == "" || props.destination == undefined){
-        selfTitle = <p className=" c0">{props.title}</p>;
+        selfTitle = <p className=" text-c0">{props.title}</p>;
     }
     else{
-        selfTitle = <div className="flex">
+        selfTitle = <div className="flex text-c0">
             {/* Full title */}
-            <div className=" c0">{props.title}</div>
+            <div className=" text-c0">{props.title}</div>
             {/* Link segtion */}
-            <div className=" absolute underline c0"><Link  href={props.destination}>{props.title.substring(0,2)}</Link></div>
+            <div className=" absolute underline text-c0"><Link  href={props.destination}>{props.title.substring(0,2)}</Link></div>
             
         </div>;
         
@@ -50,23 +50,22 @@ const NavFolder = ( props: {
 
     return (
             //if mouse is outside of box, then children reder is nothing
-            <div 
+            <div className=" z-10"
             // onMouseLeave={() => setChildrenRender(<div></div>)}
             >
-                <div id="FolderName" tabIndex={0} style={{backgroundColor: color}} className=" inline-block w-20 " 
-                onKeyDown= { 
-                    (event: React.KeyboardEvent)=>{
-                        //console.log(event.code.slice(-1));
-                        // let foundChildren = findChildren(event.code.slice(-1));
-                        // if (foundChildren != "None"){
-                        //     console.log( foundChildren.props.title);
-                        // }
-                    }
-                } 
+                <div id="FolderName" tabIndex={0} className={" inline-block w-20 text-c0 bg-"+color }
+                // onKeyDown= { 
+                //     (event: React.KeyboardEvent)=>{
+                //         console.log(event.code.slice(-1));
+                //         let foundChildren = findChildren(event.code.slice(-1));
+                //         if (foundChildren != "None"){
+                //             console.log( foundChildren.props.title);
+                //         }
+                //     }
+                // } 
                 onMouseEnter= {
-                    () => {
-                        setColor("#00ff00");
-                    }
+                    () => { setColor("c8Blue");
+                    }//becomes this color when hovered
                 }
                 onMouseDown={ //if parent got clicked
                     () => {
@@ -81,7 +80,7 @@ const NavFolder = ( props: {
                                         // child.props.title = "overriddenTitle";
                                         return (
                                             
-                                            <div className= " overflow-scroll bg-slate-300 w-20">
+                                            <div className= " overflow-scroll w-20 bg-ccBlue">
         
                                                 {child}
                                             </div>
@@ -94,16 +93,14 @@ const NavFolder = ( props: {
                     }
                 } 
                 onMouseLeave={
-                    ()=>{ //becomes this color when isn't clicked
-                        setColor("#94a3b8");
-                    }
-                }
-                >
+                    ()=>{ setColor("ccBlue");
+                    }//becomes this color when isn't hovered
+                }> 
                     {selfTitle}
                     {/* always have title in div */}
                 </div>
                 {/* render childrens, variable childrenRender */}
-                <div className=" inline-block absolute top-0 h-full ccBlue" >
+                <div className=" inline-block absolute top-0 h-full" >
                     {childrenRender}
                 </div>
             </div>

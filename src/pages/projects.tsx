@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import TOCLayout from "@/components/TOCLayout";
 import Timeline from "@/components/Timeline";
 import TimelineItem from "@/components/TimelineItem";
+import Navbar from "@/components/Navbar";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 const TIME_LINE = (
     <Timeline>
@@ -126,8 +128,10 @@ const TIME_LINE = (
 export default function Projects() {
     return (
         <>
-            <Header active="projects" />
+            <ThemeWrapper>
+            <Navbar></Navbar>
             <TOCLayout>{TIME_LINE}</TOCLayout>
+            </ThemeWrapper>            
         </>
     );
 }

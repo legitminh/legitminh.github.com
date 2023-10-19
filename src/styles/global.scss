@@ -7,30 +7,30 @@ Collapse :root and :root{@media} into [div.light , div.dark]
 
 * {
     @apply font-mono text-slate-900;
-    color: blue($color: #000000);
+    // color: blue($color: #000000);
 }
 // a {
 //     color: blue;
 // }
-:root {
-    //if user like light theme, these variables are applied, check tailwind config
-    //naming based of degree of purity to mode and color bias base16
-    // --color-f: #ffffff;
+// :root {
+//     //if user like light theme, these variables are applied, check tailwind config
+//     //naming based of degree of purity to mode and color bias base16
+//     // --color-f: #ffffff;
     
-    // --color-fBlue: #3c8bc1;
-    // --color-0: #000000;
-    // --color-4: #282c2d;
+//     // --color-fBlue: #3c8bc1;
+//     // --color-0: #000000;
+//     // --color-4: #282c2d;
 
-    @media (prefers-color-scheme: dark){ //if user like dark theme
-        --color-f: #000000;
-        --color-8Blue: #0000ff;
-        --color-0: #fffdfd;
-        --color-4: #bfd5df;
-        --color-cBlue: #00438a;
-    }
-}
+//     @media (prefers-color-scheme: dark){ //if user like dark theme
+//         --color-f: #000000;
+//         --color-8Blue: #0000ff;
+//         --color-0: #fffdfd;
+//         --color-4: #bfd5df;
+//         --color-cBlue: #00438a;
+//     }
+// }
 //change mode not working, tutorial: https://www.geeksforgeeks.org/how-to-select-all-child-elements-recursively-using-css/
-:root, .light, div.light > * { //if the user manually override to light theme
+.light, div.light > * { //if the user manually override to light theme
     --color-f: #ffffff;
     --color-8Blue: #0000ff;
     --color-0: #000000;

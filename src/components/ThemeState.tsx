@@ -1,3 +1,4 @@
-// import { useState } from "react";
-// // let [themeState, setThemeState] = "light";
-// export let themeState = "light";
+import {atom} from 'recoil';
+
+export const themeState = atom({key: "theme", default: "light" });
+ 

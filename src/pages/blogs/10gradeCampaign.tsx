@@ -1,11 +1,11 @@
+import Navbar from "@/components/Navbar"
 export default function f(){
     return(
-        <>
-        <br/>
-        My campaign is 3CS8Yae3xFDd9U2FgpnUTieCYNw3FRqWaisM
-        <br/>
-        I lost bc eventhough I tried hard, Yinan is in a more popular friend group and Anthony&#58;s supporters voted for him.
-
-        </>
+        <Navbar>
+            <div className=" m-7 left-6">
+            Sample file
+            </div>
+            
+        </Navbar>
     )
 }

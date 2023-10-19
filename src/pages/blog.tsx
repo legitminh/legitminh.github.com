@@ -4,21 +4,30 @@ import Blog from "@/components/Blog"
 import TOCLayout from "@/components/TOCLayout";
 import Timeline from "@/components/Timeline";
 import TimelineItem from "@/components/TimelineItem";
+import Navbar from "@/components/Navbar";
+import ThemeWrapper from "@/components/ThemeWrapper";
 export default function f(){
     return (
-        <>
-        <Header active = "blog" />
-        <TOCLayout>
-            <Timeline>
-                <TimelineItem title="good">
-                    <>
-                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world isa mario"} doc={"blogs/10gradeCampaign"}/>
-                        <Blog title={"Hello"} img={"images/avatar.jpg"} ct={"world"} doc={"blogs/10gradeCampaign"}/>
-                        
-                    </>
-                </TimelineItem>
-            </Timeline>
-        </TOCLayout>
+        <>        
+        <ThemeWrapper>
+            <Navbar></Navbar>
+            <TOCLayout>
+                <Timeline>
+                    <TimelineItem title="2023">
+                        <>
+                            <Blog title={"10 grade Student council campaign"} img={"images/avatar.jpg"} ct={"My rerun of the secretary position"} doc={"blogs/10gradeCampaign"}/>
+                        </>
+                    </TimelineItem>
+                    <TimelineItem title="2022">
+                        <>
+                            <Blog title={"End of the year recap"} img={"images/calendar.jpeg"} ct={"What I accomplished in the first semester"} doc={"blogs/10gradeCampaign"}/>
+                            <Blog title={"9 grade Student council campaign"} img={"images/hamiltonCampaign.png"} ct={"My campaign to become freshman student council secretary"} doc={"blogs/10gradeCampaign"}/>
+                        </>
+                    </TimelineItem>
+                </Timeline>
+            </TOCLayout>
+        </ThemeWrapper>
+            
         </>   
     )
 }

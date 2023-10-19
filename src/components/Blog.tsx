@@ -15,7 +15,7 @@ export default function f( props : {
         <>
         <div className = "box" onClick={() => window.open(doc)}>
             <div className="imageHolder">
-                <img
+                <img className=" overflow-hidden object-cover"
                     src={props.img}
                     alt="Hello"
                 />
