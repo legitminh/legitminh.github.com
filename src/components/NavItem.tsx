@@ -1,4 +1,4 @@
-//link to actual document, not used because Link is sufficient
+//link to actual document
 import Link from 'next/link';
 import { useState } from 'react';
 export default function(props: {

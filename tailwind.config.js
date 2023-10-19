@@ -10,10 +10,15 @@ module.exports = {
       colors: {
         //get variable from global.scss
 
-        cf: "var(--color-f)",  
-        c8Blue: "var(--color-8Blue)",  
+        //mono
         c0: "var(--color-0)",  
         c4: "var(--color-4)",  
+        c8: "var(--color-8)",  
+        cc: "var(--color-c)",  
+        cf: "var(--color-f)", 
+
+        //blue
+        c8Blue: "var(--color-8Blue)", 
         ccBlue: "var(--color-cBlue)",  
       }
     },

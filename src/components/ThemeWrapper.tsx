@@ -5,7 +5,7 @@ import { useRecoilValue } from "recoil";
 export default function ThemeWrapper(props: {children: any}){
     const theme = useRecoilValue(themeState);
     return(
-        <div className={theme + " h-screen bg-cf"} >
+        <div className={theme + " h-full w-full bg-cf"} >
         {props.children}
         </div>
     )

@@ -9,7 +9,7 @@ export default function TOCLayout({ children }: TOCLayoutProps) {
     return (
         <>
             <div className="layout">
-                <main className="bg-slate-100 sticky pt-6 pb-6 top-0 bottom-0 self-start flex flex-col items-center px-4">
+                <main className="bg-cf sticky pt-6 pb-6 top-0 bottom-0 self-start flex flex-col items-center px-4">
                     {children}
                 </main>
                 <StickyNavigation className="max-md:hidden" />

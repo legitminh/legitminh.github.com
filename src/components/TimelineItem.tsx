@@ -26,7 +26,7 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
                     bottom: -0.5rem;
                     left: 0rem;
                     width: 2px;
-                    @apply bg-slate-300;
+                    @apply bg-c4;
                 }
                 /* place the title */
                 .title {
@@ -34,7 +34,7 @@ export default function TimelineItem({ title, children }: TimelineItemProps) {
                     top: -3rem;
                     
                     //transform: translate(-50%, -50%);
-                    @apply text-base font-bold text-slate-500;
+                    @apply text-base font-bold text-c0;
                 }
                 /* place the elements */
                 .flex{

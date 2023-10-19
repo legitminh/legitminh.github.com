@@ -12,7 +12,8 @@ import ToggleTheme from "./ToggleTheme";
 
 export default function Navbar(){
     return (
-        <div className={ " bg-ccBlue w-full"}>
+        // Background of the bar will be high blue
+        <div className={ " bg-ccBlue w-full"}> 
             
             
             <div className={" flex first- z-10"}>

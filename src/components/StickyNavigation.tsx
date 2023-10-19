@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import React from "react";
 
@@ -14,7 +15,7 @@ function TOC(props: {
 
     let result = [];
     const cls =
-        "transition-all no-underline hover:underline text-slate-300 hover:text-slate-500 text-sm font-light " +
+        "transition-all no-underline hover:underline text-c4 hover:text-c4 text-sm font-light " + //underline if hover 
         className;
 
     for (let i = 0; i < items.length; i++) {
@@ -52,9 +53,9 @@ function TOC(props: {
         }
     }
     return ordered ? (
-        <ol className="mt-0 ml-0">{result}</ol>
+        <ol className="mt-0 ml-0 bg-cc">{result}</ol>
     ) : (
-        <ul className="mt-0 ml-0">{result}</ul>
+        <ul className="mt-0 ml-0 bg-cc">{result}</ul>
     );
 }
 
@@ -136,7 +137,7 @@ export default class StickyNavigation extends React.Component<
                 if (entry.intersectionRatio > 0) {
                     nav.classList.remove("text-slate-300", "font-regular");
                     nav.classList.add(
-                        "text-slate-500",
+                        "text-c8",
                         "font-light",
                         "pl-4",
                         "-ml-4"
@@ -144,7 +145,7 @@ export default class StickyNavigation extends React.Component<
                 } else {
                     nav.classList.add("text-slate-300", "font-regular");
                     nav.classList.remove(
-                        "text-slate-500",
+                        "text-c8",
                         "font-light",
                         "pl-4",
                         "-ml-4"
@@ -181,12 +182,12 @@ export default class StickyNavigation extends React.Component<
         return (
             <aside
                 className={
-                    "transition-all sticky mr-6 prose self-start " +
+                    "transition-all sticky mr-6 prose self-start w-full right-0 h-screen bg-cc " +
                     this.props.className
                 }
                 style={{ top: `${(this.props.top || 0) + this.state.top}px` }}
             >
-                <h2 className="text-base font-bold text-slate-500 mt-[12px]">
+                <h2 className="text-base font-bold text-c4 mt-[12px]">
                     Table of Contents
                 </h2>
                 <nav ref={this.nav}>
