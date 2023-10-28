@@ -20,7 +20,11 @@ export default function Navbar(){
                 
                 <NavFolder destination="/" title="home">
                     <NavItem destination={"./about"}>About</NavItem>
-                    <NavItem destination={"./projects"}>Projects</NavItem>
+                    <NavFolder destination={"./projects"} title="Projects">
+                        <NavItem destination={"./projects#2023"}>2023</NavItem>
+                        <NavItem destination={"./projects#2022"}>2022</NavItem>
+                        <NavItem destination={"./projects#2021"}>2021</NavItem>
+                    </NavFolder>
                     <NavFolder destination="./blog" title="Blog">
                         <NavItem destination={"./blogs/10gradeCampaign"}>10 Grade Stuco Campaign</NavItem>
                     </NavFolder>

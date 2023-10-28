@@ -1,3 +1,4 @@
+//singole blog element
 import { Console } from "console";
 import { useRef } from "react";
 import { Node } from "typescript";

@@ -1,5 +1,5 @@
 import Achievement from "@/components/Achievement";
-import Header from "@/components/Header";
+import Header from "@/components/Archived/Header";
 import TOCLayout from "@/components/TOCLayout";
 import Timeline from "@/components/Timeline";
 import TimelineItem from "@/components/TimelineItem";

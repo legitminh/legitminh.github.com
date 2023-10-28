@@ -1,5 +1,5 @@
 // Default path "/"
-import Header from "@/components/Header";
+import Header from "@/components/Archived/Header";
 import Navbar from "@/components/Navbar";
 import { themeState } from "@/components/ThemeState";
 import Head from "next/head";

@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from "@/components/Archived/Header";
 import Head from "next/head";
 import Blog from "@/components/Blog"
 import TOCLayout from "@/components/TOCLayout";
