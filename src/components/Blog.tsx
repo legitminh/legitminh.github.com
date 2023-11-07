@@ -1,3 +1,4 @@
+//singole blog element
 import { Console } from "console";
 import { useRef } from "react";
 import { Node } from "typescript";
@@ -15,7 +16,7 @@ export default function f( props : {
         <>
         <div className = "box" onClick={() => window.open(doc)}>
             <div className="imageHolder">
-                <Image
+                <Image className=" overflow-hidden object-cover"
                     src={props.img}
                     alt="Hello"
                 />

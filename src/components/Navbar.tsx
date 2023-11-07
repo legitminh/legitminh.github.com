@@ -7,88 +7,32 @@ Rename to Document
 import Link from "next/link";
 import React, { useState,useEffect } from "react";
 import NavFolder from "./NavFolder";
-import { title } from "process";
 import NavItem from "./NavItem";
+import ToggleTheme from "./ToggleTheme";
 
-
-export default function Navbar(props:{
-    children: any
-}
-){
-    const [isDark, setIsDark] = useState(true);
-    // console.log(localStorage.getItem("prefers-color-scheme"));
-    const toggleMode= () => {
-        setIsDark(!isDark);
-        console.log("changed to "+ localStorage.getItem('prefers-color-scheme') + (isDark ? 'dark' : 'light') + isDark);
-    };
+export default function Navbar(){
     return (
-        //Document `down[0]
-        <div className={(isDark? "dark" : "light" )+ " h-screen bg-cf"}>
-            <div className={" flex first-"}>
+        // Background of the bar will be high blue
+        <div className={ " bg-ccBlue w-full"}> 
+            
+            
+            <div className={" flex first- z-10"}>
                 
                 <NavFolder destination="/" title="home">
                     <NavItem destination={"./about"}>About</NavItem>
-                    <NavItem destination={"./projects"}>Projects</NavItem>
+                    <NavFolder destination={"./projects"} title="Projects">
+                        <NavItem destination={"./projects#2023"}>2023</NavItem>
+                        <NavItem destination={"./projects#2022"}>2022</NavItem>
+                        <NavItem destination={"./projects#2021"}>2021</NavItem>
+                    </NavFolder>
                     <NavFolder destination="./blog" title="Blog">
                         <NavItem destination={"./blogs/10gradeCampaign"}>10 Grade Stuco Campaign</NavItem>
-                </NavFolder>
-
-
-                    {/* test */}
-                    {/* <NavFolder title="Math" >
-                        
-                        <NavFolder title="LA">
-                            <p>
-                                OceanPalace
-                            </p>
-                            <p>
-                                Hollywood
-                            </p>
-                        </NavFolder>
-                        <p>
-                            ACBA
-                        </p>
-                        <p>
-                            Calculus
-                        </p>
-                        <NavFolder title="MultiCalculus">
-                            <p>
-                                Terraseract
-                            </p>
-                            <p>
-                                PassageOfTime
-                            </p>
-                        </NavFolder>
                     </NavFolder>
-                    <NavFolder title="CS">
-                        
-                        <NavFolder title="AI">
-                            <p>
-                                PNO
-                            </p>
-                            <p>
-                                GPT
-                            </p>
-                        </NavFolder>
-                        <p >
-                            HSBCπV48692121
-                        </p>
-                        <p>
-                            PNO
-                        </p>
-                        <p >
-                            英文但中文结构
-                        </p>
-                    </NavFolder> */}
                 </NavFolder>
-                <div className=" bg-bkg text-c0">
-                    <button onClick={toggleMode}>{(isDark)? 'light' : 'dark'}</button>
-                </div>
+                <ToggleTheme></ToggleTheme>
             </div>
-
-            <div >
-                {props.children}
-            </div>
+            
+            
         </div>
     )
 }

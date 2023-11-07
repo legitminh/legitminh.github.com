@@ -1,5 +1,5 @@
 // the blueprint for a blog page
-import Header from "@/components/Header";
+import Header from "@/components/Archived/Header";
 import { read, readFileSync } from 'fs';
 
 export default function f(props : {
