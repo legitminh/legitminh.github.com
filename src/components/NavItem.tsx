@@ -8,11 +8,11 @@ export default function(props: {
     let [color, setColor] = useState("c0"); //color of object
     let [description, setDescription] = useState(<div></div>);
     return (
-        <div className={'flex w-max bg-ccBlue text-'+color} onMouseEnter={function(){
+        <div className={' w-20 bg-ccBlue overflow-scroll scroll scrollbar-hide flex w-max bg-ccBlue text-'+color} onMouseEnter={function(){
             // setDescription(<div>file</div>);
             setColor("c0");
         }}>
-            <Link className={' overflow-scroll scroll scrollbar-hide' + color} href={props.destination}>{props.children}</Link>
+            <Link className={' ' + color} href={props.destination}>{props.children}</Link>
             
             {/* <div className=' absolute left-20'>{description}</div> */}
         </div>
