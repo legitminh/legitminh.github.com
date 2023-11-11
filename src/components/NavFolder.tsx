@@ -36,18 +36,19 @@ const NavFolder = ( props: {
     }
     
     
-    const findChildren = function(childrenName : string){ //not in use
-        let foundChildren = "None";
-        React.Children.map(props.children,(child)=>{
-            if (!(child.type === "p")){
-                if (child.props.title.slice(0,1).toLowerCase() === childrenName.toLowerCase()){
-                    foundChildren = child;
-                }
-            }
-        })
-        return foundChildren;
-    };
-
+    // const findChildren = function(childrenName : string){ //not in use
+    //     let foundChildren = "None";
+    //     React.Children.map(props.children,(child)=>{
+    //         if (!(child.type === "p")){
+    //             if (child.props.title.slice(0,1).toLowerCase() === childrenName.toLowerCase()){
+    //                 foundChildren = child;
+    //             }
+    //         }
+    //     })
+    //     return foundChildren;
+    // };
+    // console.log(open);
+    // setOpen(true);
     return (
             //if mouse is outside of box, then children reder is nothing
             <div className=" z-10"
