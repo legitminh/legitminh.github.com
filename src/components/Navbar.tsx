@@ -13,15 +13,14 @@ import ToggleTheme from "./ToggleTheme";
 export default function Navbar(){
     return (
         // Background of the bar will be high blue
-        <div className={ " bg-ccBlue w-full"}> 
-            
-            
+        <div className={ " w-full"}> 
             <div className={" flex first- z-10"}>
-                
-                <NavFolder destination="/" title="home">
-                    <NavItem destination={"./about"}>About</NavItem>
-                    <NavFolder destination={"./projects"} title="Projects">
-                        <NavItem destination={"./projects#2023"}>2023</NavItem>
+                <NavFolder destination="/" title="Home">
+                    <NavFolder destination={"./about"} title = "About"></NavFolder>
+                    <NavFolder destination={"./projects"} title="Projectshihihihi">
+                        <NavFolder destination={"./projects#2023"} title="2023">
+                            Hihihihihihihihih
+                        </NavFolder>
                         <NavItem destination={"./projects#2022"}>2022</NavItem>
                         <NavItem destination={"./projects#2021"}>2021</NavItem>
                     </NavFolder>
@@ -30,9 +29,7 @@ export default function Navbar(){
                     </NavFolder>
                 </NavFolder>
                 <ToggleTheme></ToggleTheme>
-            </div>
-            
-            
+            </div>    
         </div>
     )
 }

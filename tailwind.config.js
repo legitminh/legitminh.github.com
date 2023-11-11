@@ -19,7 +19,7 @@ module.exports = {
 
         //blue
         c8Blue: "var(--color-8Blue)", 
-        ccBlue: "var(--color-cBlue)",  
+        ccBlue: "var(--color-cBlue)"
       }
     },
   },
