@@ -10,7 +10,6 @@
         "deploy": "pnpm next build && echo $null >> out/.nojekyll && git add out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
     },
     "dependencies": {
-        "@react-native-async-storage/async-storage": "^1.19.3",
         "@types/react-dom": "18.0.11",
         "eslint": "8.34.0",
         "eslint-config-next": "13.2.1",
