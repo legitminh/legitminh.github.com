@@ -14,9 +14,11 @@ export default function Navbar(){
     return (
         // Background of the bar will be high blue
         <div className={ " w-full"}> 
-            <div className={" flex first- z-10"}>
+            <div className={"flex first z-10"}>
                 <NavFolder destination="/" title="Home">
-                    <NavFolder destination={"./about"} title = "About"></NavFolder>
+                    <NavItem destination={"./about"}>NothingInteresante</NavItem>
+
+                    <NavFolder destination={"./about"} title = "About"> </NavFolder>
                     <NavFolder destination={"./projects"} title="Projectshihihihi">
                         <NavFolder destination={"./projects#2023"} title="2023">
                             Hihihihihihihihih

@@ -28,7 +28,7 @@ const NavFolder = ( props: {
         selfTitle = <div className="flex text-c0">
             
             {/* Link segtion */}
-            <div className=" underline text-c0"><Link  href={props.destination}>{props.title.substring(0,2)}</Link></div>
+            <div className="underline text-c0"><Link  href={props.destination}>{props.title.substring(0,2)}</Link></div>
             {/* Rest of title */}
             <div className=" text-c0">{props.title.substring(2)}</div>
             
@@ -51,10 +51,11 @@ const NavFolder = ( props: {
     // setOpen(true);
     return (
             //if mouse is outside of box, then children reder is nothing
-            <div className=" "
+            <div className="h-6"
+                /*className=" h-min hover:bg-slate-400"*/
             // onMouseLeave={() => setChildrenRender(<div></div>)}
             >
-                <div id="FolderName" tabIndex={0} 
+                <div id="FolderName" tabIndex={0}
                 // onKeyDown= { 
                 //     (event: React.KeyboardEvent)=>{
                 //         console.log(event.code.slice(-1));
@@ -64,9 +65,9 @@ const NavFolder = ( props: {
                 //         }
                 //     }
                 // } 
-                onMouseEnter= {
-                    () => { setColor("c8Blue");}//becomes this color when hovered
-                }
+                // onMouseEnter= {
+                //     () => { setColor("c8Blue");}//becomes this color when hovered
+                // }
                 onMouseDown={ //if parent got clicked
                     () => {
                         if (open){
@@ -75,13 +76,13 @@ const NavFolder = ( props: {
                         else{
                             setChildrenRender(
                                 //childrenS div when active
-                                <div className=" h-min"/*className=" h-screen bg-slate-400"*/>
+                                <div className="h-screen bg-ccBlue"/*className="h-screen bg-slate-400"*/>
                                      {/* render single text non-overrided children */}
                                     {React.Children.map(props.children,(child)=>{
                                         // child.props.title = "overriddenTitle";
                                         return (
                                             
-                                            <div className= "">
+                                            <div className= ""> 
                                                 {child}
                                             </div>
                                         )
@@ -89,18 +90,14 @@ const NavFolder = ( props: {
                                 </div>)
                         }
                         setOpen(!open);
-                        
                     }
                 } 
-                onMouseLeave={
-                    ()=>{ setColor("ccBlue");}//becomes this color when isn't hovered
-                } 
-                className={" inline-block w-20 text-c0 overflow-scroll scrollbar-hide bg-"+color }> 
+                className={" inline-block w-20 text-c0 overflow-scroll scrollbar-hide bg-ccBlue hover:bg-c8Blue" }> 
                     {selfTitle}
                         {/* always have title in div */}
                 </div>
                 {/* render childrens, variable childrenRender */}
-                <div className=" inline-block absolute top-0 w-20" >
+                <div className="absolute top-0 inline-block" >{/* always active childrenS div */}
                     {childrenRender}
                 </div>
             </div>

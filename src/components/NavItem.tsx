@@ -8,7 +8,7 @@ export default function(props: {
     let [color, setColor] = useState("c0"); //color of object
     let [description, setDescription] = useState(<div></div>);
     return (
-        <div className={' w-20 bg-ccBlue overflow-scroll scroll scrollbar-hide flex w-max bg-ccBlue text-'+color} onMouseEnter={function(){
+        <div className={' w-20 overflow-scroll scroll scrollbar-hide flex bg-ccBlue text-'+color} onMouseEnter={function(){
             // setDescription(<div>file</div>);
             setColor("c0");
         }}>
