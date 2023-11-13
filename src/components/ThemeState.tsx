@@ -1,4 +1,3 @@
-import {atom} from 'recoil';
+import { atom } from "recoil";
 
-export const themeState = atom({key: "theme", default: "light" });
- 
+export const themeState = atom({ key: "theme", default: "light" });
