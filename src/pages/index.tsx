@@ -1,6 +1,6 @@
 // Default path "/"
 import Header from "@/components/Archived/Header";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Nav/Navbar";
 import { themeState } from "@/components/ThemeState";
 import Head from "next/head";
 import Image from "next/image";
@@ -36,7 +36,6 @@ export default function Home() {
                             <p className="text-xl font-semibold text-c4">
                                 Welcome to my humble website. Work is underway.<br></br>
                                 Navigation: Click the home button, 
-
                             </p>
                         </div>
                             <div className="flex flex-col items-center gap-2">

@@ -5,7 +5,7 @@ import { RecoilRoot } from "recoil";
 export default function App({ Component, pageProps }: AppProps) {
     
     return (
-        <div>
+        <div className=" h-max bg-cc">
             <RecoilRoot>
                 <Component {...pageProps} />
             </RecoilRoot>

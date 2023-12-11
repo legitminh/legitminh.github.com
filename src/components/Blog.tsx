@@ -10,7 +10,8 @@ export default function f(props: {
   img: string;
   ct: string;
   doc: string;
-}) {
+})
+{
   let { title, img, ct, doc } = props;
 
   return (

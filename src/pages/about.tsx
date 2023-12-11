@@ -1,9 +1,6 @@
 import Header from "@/components/Archived/Header";
-import TOCLayout from "@/components/TOCLayout";
-import Timeline from "@/components/Timeline";
-import TimelineItem from "@/components/TimelineItem";
-import Achievement from "@/components/Achievement";
-import Navbar from "@/components/Navbar";
+import TOCLayout from "@/components/Archived/TOCLayout";
+import Navbar from "@/components/Nav/Navbar";
 import ThemeWrapper from "@/components/ThemeWrapper";
 const TIME_LINE = (
     <Timeline>

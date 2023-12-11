@@ -1,10 +1,10 @@
 import Header from "@/components/Archived/Header";
 import Head from "next/head";
 import Blog from "@/components/Blog"
-import TOCLayout from "@/components/TOCLayout";
-import Timeline from "@/components/Timeline";
-import TimelineItem from "@/components/TimelineItem";
-import Navbar from "@/components/Navbar";
+import TOCLayout from "@/components/Archived/TOCLayout";
+import Timeline from "@/components/Archived/Timeline";
+import TimelineItem from "@/components/Archived/TimelineItem";
+import Navbar from "@/components/Nav/Navbar";
 import ThemeWrapper from "@/components/ThemeWrapper";
 export default function f(){
     return (
