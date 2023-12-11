@@ -13,14 +13,28 @@ import { pathState } from "./Path";
 import { useRecoilState } from "recoil";
 export default function Navbar() {
   const [path, setPath] = useRecoilState(pathState);
+  const [open, setOpen] = useState(true); //if the map is opened
   const map = {
     "home":[
-      "cat"
+      "cat",
+      "dog",
+      "duck"
     ]
   };
   const links = {
     home:"/"
   };
+  let colums = [["Home"]];
+  if (open){
+    for (let i = 0; i < path.length; i++){ //for each column
+      let colum = [];
+      for (let j = 0; j < map[path[i]].length; j++){
+        colum.push(map[path[i]][j]);
+      }
+      colums.push(colum);
+    }
+  }
+
   return (
     // Background of the bar will be high blue
       <div className={"flex first z-10 w-full"}>
@@ -59,9 +73,18 @@ export default function Navbar() {
             </NavItem>
           </NavFolder>
         </NavFolder> */}
-        <div className=" text-c0">
-          {path}
-        </div>
+        <ul className=" flex text-c0">
+          {colums.map((child, index)=>(
+            <ul className=" text-c0">
+              {child.map((child, index)=>(
+                <li className=" text-c0">
+                  {child}
+                </li>
+              ) )}
+            </ul>
+          ))}
+        </ul>
+        {/* DarkModeButton */}
         <div className=" mr-0 right-0 absolute">
           <ToggleTheme></ToggleTheme>
         </div>
