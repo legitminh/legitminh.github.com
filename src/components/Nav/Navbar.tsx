@@ -14,32 +14,52 @@ import { useRecoilState } from "recoil";
 export default function Navbar() {
   const [path, setPath] = useRecoilState(pathState);
   const [open, setOpen] = useState(true); //if the map is opened
-  const map = {
-    "About" : [],
-    "Projects": [
-      {"2023" : [
+  // const map = {
+  //   "About" : [],
+  //   "Projects": [
+  //     {"2023" : [
+  //       "AstroFest",
+  //       "MicroFest"
+  //     ]},
+  //     "2022",
+  //     "2021"
+  //   ],
+  //   "Blog" : ""
+  // };
+  const map = [
+    ["About"],
+    ["Projects",[
+      ["2023",[
         "AstroFest",
         "MicroFest"
-      ]},
+      ]],
       "2022",
       "2021"
-    ],
-    "Blog" : ""
-  };
+    ]],
+    "Blog"
+  ]
   const links = {
     home:"/"
   };
-  setPath(["Projects"]);
+  // console.log(path);
+  // setPath([0]);
+  // console.log(path);
+  var activePath = [1]; //get children of root as first activePath
+
   let colums = [];
   if (open){
-    for (let i = 0; i < path.length; i++){ //for each column
+    let previous = map;
+    for (let i = 0; i < activePath.length; i++){ //for each column
       let colum = [];
-      for (let j = 0; j < map[path[i]].length; j++){
-        colum.push(map[path[i]][j]);
+      for (let j = 0; j < previous[activePath[i]].length; j++){ //for each children of that column
+        colum.push(previous[activePath[i]][j]);
       }
       colums.push(colum);
+      previous = previous[activePath[i]];
     }
   }
+  console.log(colums);
+
 
   return (
     // Background of the bar will be high blue
@@ -83,12 +103,10 @@ export default function Navbar() {
           Root
         </div>
         <ul className=" flex text-c0">
-          {colums.map((child, index)=>(
+          {colums.map((child, index)=>( //for each column
             <ul className=" text-c0">
-              {child.map((child, index)=>(
-                <li className=" text-c0">
-                  {child}
-                </li>
+              {child.map((child, index)=>( //for each cell
+                getCell(child)
               ) )}
             </ul>
           ))}
@@ -99,4 +117,20 @@ export default function Navbar() {
         </div>
       </div>
   );
+}
+function getCell(child){
+  if (child instanceof String){
+    return (
+    <li className=" text-c0">
+      {child}
+    </li>
+    );
+  } 
+  else {
+    return (
+    <li className=" text-c0">
+      {child[0]}
+    </li>
+    );
+  }
 }
