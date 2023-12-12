@@ -15,16 +15,22 @@ export default function Navbar() {
   const [path, setPath] = useRecoilState(pathState);
   const [open, setOpen] = useState(true); //if the map is opened
   const map = {
-    "home":[
-      "cat",
-      "dog",
-      "duck"
-    ]
+    "About" : [],
+    "Projects": [
+      {"2023" : [
+        "AstroFest",
+        "MicroFest"
+      ]},
+      "2022",
+      "2021"
+    ],
+    "Blog" : ""
   };
   const links = {
     home:"/"
   };
-  let colums = [["Home"]];
+  setPath(["Projects"]);
+  let colums = [];
   if (open){
     for (let i = 0; i < path.length; i++){ //for each column
       let colum = [];
@@ -73,6 +79,9 @@ export default function Navbar() {
             </NavItem>
           </NavFolder>
         </NavFolder> */}
+        <div className=" text-c0 hover:bg-c8Blue" onClick={()=>setOpen(!open)} >
+          Root
+        </div>
         <ul className=" flex text-c0">
           {colums.map((child, index)=>(
             <ul className=" text-c0">
