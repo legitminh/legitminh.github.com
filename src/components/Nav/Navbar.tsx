@@ -14,30 +14,32 @@ import { useRecoilState } from "recoil";
 export default function Navbar() {
   const [path, setPath] = useRecoilState(pathState);
   const [open, setOpen] = useState(true); //if the map is opened
-  // const map = {
-  //   "About" : [],
-  //   "Projects": [
-  //     {"2023" : [
-  //       "AstroFest",
-  //       "MicroFest"
-  //     ]},
-  //     "2022",
-  //     "2021"
-  //   ],
-  //   "Blog" : ""
-  // };
-  const map = [
-    ["About"],
-    ["Projects",[
-      ["2023",[
+  const map = {
+    c: [{"About" : []
+    },
+    "Projects": [
+      {"2023" : [
         "AstroFest",
         "MicroFest"
-      ]],
+      ]},
       "2022",
       "2021"
-    ]],
-    "Blog"
-  ]
+    ],
+    {"Blog" : ""}
+    ]
+  };
+  // const map = [
+  //   ["About"],
+  //   ["Projects",[
+  //     ["2023",[
+  //       "AstroFest",
+  //       "MicroFest"
+  //     ]],
+  //     "2022",
+  //     "2021"
+  //   ]],
+  //   "Blog"
+  // ]
   const links = {
     home:"/"
   };
@@ -119,7 +121,8 @@ export default function Navbar() {
   );
 }
 function getCell(child){
-  if (child instanceof String){
+  // console.log(typeof child);
+  if (typeof child === 'string' ){
     return (
     <li className=" text-c0">
       {child}
