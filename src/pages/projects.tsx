@@ -99,6 +99,7 @@ const TIME_LINE = (
         ]}
         date="Early 2022"
     />
+    <div id="2021">
     <Project
         img="/images/projects/space-colonizer.png"
         link="https://minhn.itch.io/space-colonizer"
@@ -112,6 +113,7 @@ const TIME_LINE = (
         ]}
         date="Late 2021"
     />
+    </div>
     </>
 );
 

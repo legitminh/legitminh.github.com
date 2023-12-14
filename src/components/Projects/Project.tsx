@@ -12,10 +12,10 @@ props: {
     link: string,
 }){
     let result = (
-        <div className=" flex h-32 m-8 bg-ccBlue hover:bg-c8Blue rounded-lg">
+        <div className=" flex h-min m-8 bg-cf hover:bg-ccBlue rounded-lg border-c0 border-2 overflow-hidden">
             {/* IMAGE */}
             <div className=" w-32 h-32 object-cover">
-                <Image className=" object-cover w-32 h-32 rounded-lg border-c0 border-2"
+                <Image className=" object-cover w-32 h-32"
                 src={props.img} alt="" width={1024} height={1024}/>
             </div> 
             {/* TEXTS */}
