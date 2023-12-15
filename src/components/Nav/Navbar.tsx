@@ -42,7 +42,7 @@ export default function Navbar() {
       ]},
       {n:"Blog", l: "/blog"}
     ]}
-  ]}
+  ]};
   const links = {
     home:"/"
   };
@@ -54,7 +54,7 @@ export default function Navbar() {
   let colums: never[] = [];
   if (open){  //transform into list of nodes for render
     let curNode = map; //starts at origin Node
-    let path = []; //origin have no path
+    let path :any[] = []; //origin have no path
 
     for (let i = 0; i < activePath.length; i++){
       let branch = activePath[i];
