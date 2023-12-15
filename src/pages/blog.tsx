@@ -1,6 +1,6 @@
 import Header from "@/components/Archived/Header";
 import Head from "next/head";
-import Blog from "@/components/Blog"
+import Blog from "@/components/Blogs/Blog"
 import TextImageLink from "@/components/About/TextImageLink";
 import Navbar from "@/components/Nav/Navbar";
 import ThemeWrapper from "@/components/ThemeWrapper";
