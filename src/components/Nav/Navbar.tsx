@@ -60,7 +60,7 @@ export default function Navbar() {
       let branch = activePath[i];
       curNode = curNode.c[branch];
       path.push(branch); //at this location
-      let colum = [];
+      let colum : any[] = [];
       curNode.c.forEach((node, index) => {
         // Check for cases of children
         // if (i < activePath.length-1 && index === activePath[i+1]) { //if is a node in path
