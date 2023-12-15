@@ -6,11 +6,19 @@ export default function Node(props : {
     name : string,
     path : [number],
     link : string
+    // isInPath: boolean
 }){
     const [activePath, setActivePath] = useRecoilState(activePathState);
+    // let color = props.isInPath?" bg-c8Blue":"";
+    // console.log(props.name);
+    // console.log(props.path);
+    // console.log(activePath.slice(0,props.path.length));
+
+    let color = (props.path.toString() === activePath.slice(0,props.path.length).toString())?" bg-ccBlue":""; //if part of the path
+
     let nodeRender = (
         // Node outline
-        <div className=" text-c0 hover:bg-c8Blue ml-1" onClick={()=>{ setActivePath(props.path); 
+        <div className={" text-c0 hover:bg-c8Blue" + color} onClick={()=>{ setActivePath(props.path); 
             // console.log(activePath);
             }}>
             <Link href={props.link} className=" underline text-c0">

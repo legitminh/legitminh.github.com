@@ -4,7 +4,7 @@ export default function EndNode(props : {
     link : string
 }){
     let nodeRender = (
-        <div className=" text-c0 hover:bg-c8Blue ml-1" >
+        <div className=" text-c0 hover:bg-c8Blue" >
             <div className="underline text-c0">
                 <Link href={props.link}>{props.name}</Link>
             </div>

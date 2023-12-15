@@ -27,26 +27,6 @@ export default function Navbar() {
    * PathStructure:
    *  Node, Node, FinalNode
    */
-  // const map = { 
-  //   c: {
-  //     "About" : {
-  //       c: []
-  //     },
-
-  //     "Projects" : {
-  //       c: {
-  //         "2023" : {
-  //           c: {
-  //             "AstroFest" : "c",
-  //             "MicroFest" : "c"
-  //           }
-  //         },
-  //         "2021" : "c", //no more children
-  //         "2022" : "c"
-  //       }
-  //     } 
-  //   }
-  // };
   const map = {c:[
     {n:"Home", l:"/", c:[
       {n:"About", l:"/about"},
@@ -75,13 +55,21 @@ export default function Navbar() {
   if (open){  //transform into list of nodes for render
     let curNode = map; //starts at origin Node
     let path = []; //origin have no path
-    activePath.forEach(index => {
-      curNode = curNode.c[index];
-      path.push(index); //at this location
 
+    for (let i = 0; i < activePath.length; i++){
+      let branch = activePath[i];
+      curNode = curNode.c[branch];
+      path.push(branch); //at this location
       let colum = [];
       curNode.c.forEach((node, index) => {
-        if (node.c) { //if is a node
+        // Check for cases of children
+        // if (i < activePath.length-1 && index === activePath[i+1]) { //if is a node in path
+        //     colum.push(
+        //       <Node name={node.n} link={node.l} isInPath={true} path={path.concat([index])}></Node>
+        //     );
+        // }
+        // else 
+        if (node.c){ //if isn't node in path
           colum.push(
             <Node name={node.n} link={node.l} path={path.concat([index])}></Node>
           );
@@ -94,14 +82,14 @@ export default function Navbar() {
         
       });
       colums.push(colum);
-    });
+    };
   }
   // console.log(colums);
 
 
   return (
     // Background of the bar will be high blue
-      <div className={"flex first z-10 w-full"}>
+      <div className={"flex first z-10 w-full border-b-2"}>
         {/* <NavFolder destination="/" title="Home">
           <NavFolder destination={"./about"} title="NothingInteresante">
             <NavFolder destination={"./about"} title="NothingInteresante1">
@@ -137,8 +125,10 @@ export default function Navbar() {
             </NavItem>
           </NavFolder>
         </NavFolder> */}
-        <div className=" text-c0 hover:bg-c8Blue" onClick={()=>setOpen(!open)} >
-          Root
+
+        {/* First column and Root node */}
+        <div className=" border-r-2" onClick={()=>setOpen(!open)} > 
+          <Node name = "Home" link="/" path={[0]}/>
         </div>
         {renderColums(colums)        }
       
@@ -157,7 +147,7 @@ function renderColums(colums){ //render each colum by returning
     colum.forEach(node => {
       cl.push(node);
     });    
-    everything.push(<div>{cl}</div>);
+    everything.push(<div className=" border-r-2" >{cl}</div>);
   })
   return <div className=" flex">
     {
