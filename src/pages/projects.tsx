@@ -1,9 +1,24 @@
 import Project from "@/components/Projects/Project";
 import Navbar from "@/components/Nav/Navbar";
 import ThemeWrapper from "@/components/ThemeWrapper";
+import FileSection from "@/components/FileSection";
 
 const TIME_LINE = (
     <>
+    <FileSection title="2023">
+    <Project
+        img="/images/NetZeroHero.png"
+        link="https://github.com/legitminh/Net-Zero-Hero"
+        title="Net Zero Hero"
+        description="Second place Hackgwinnett! A towerdefense game where you save the earth with renewables"
+        madeWith={[
+            {
+                name: "Pygame",
+                icon: "",
+            },
+        ]}
+        date="2023.2.16"
+    />
     <Project
         img="/images/projects/astro-fest.png"
         link="https://minhn.itch.io/astrofest"
@@ -21,7 +36,7 @@ const TIME_LINE = (
         img="/images/projects/thirteen-beta.png"
         link="https://minhn.itch.io/thirteen"
         title="Thirteen"
-        description="A simple card game made with Python."
+        description="Third place hackgwinnett! A simple card game made with Python."
         madeWith={[
             {
                 name: "Python",
@@ -47,6 +62,8 @@ const TIME_LINE = (
         ]}
         date="Early 2023"
     />
+    </FileSection>
+    <FileSection title="2022">
     <Project
         img="/images/projects/projectile-calculator.jpg"
         link="https://minhn.itch.io/projectilemotioncalculator"
@@ -99,7 +116,8 @@ const TIME_LINE = (
         ]}
         date="Early 2022"
     />
-    <div id="2021">
+    </FileSection>
+    <FileSection title="2021">
     <Project
         img="/images/projects/space-colonizer.png"
         link="https://minhn.itch.io/space-colonizer"
@@ -113,7 +131,7 @@ const TIME_LINE = (
         ]}
         date="Late 2021"
     />
-    </div>
+    </FileSection>
     </>
 );
 

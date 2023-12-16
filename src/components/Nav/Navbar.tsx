@@ -18,7 +18,7 @@ import EndNode from "./EndNode";
 export default function Navbar() {
   
   const [path, setPath] = useRecoilState(pathState);
-  const [open, setOpen] = useState(true); //if the map is opened
+  const [open, setOpen] = useState(false); //if the map is opened
   const [activePath, setActivePath] = useRecoilState(activePathState);
   console.log(activePath);
   /**
@@ -27,7 +27,7 @@ export default function Navbar() {
    * PathStructure:
    *  Node, Node, FinalNode
    */
-  const map = {c:[
+  const map :any = {c:[
     {n:"Home", l:"/", c:[
       {n:"About", l:"/about"},
       {n:"Projects", l:"/projects", c:[
@@ -51,17 +51,19 @@ export default function Navbar() {
   // console.log(path);
   // var [activePath, setActivePath] = useState([1, 0]); //get children of root as first activePath
 
-  let colums: never[] = [];
+  let colums: any[] = [];
+
+  // Prep nodes list to render
   if (open){  //transform into list of nodes for render
     let curNode = map; //starts at origin Node
-    let path :any[] = []; //origin have no path
+    let path :number[] = []; //origin have no path
 
     for (let i = 0; i < activePath.length; i++){
       let branch = activePath[i];
       curNode = curNode.c[branch];
       path.push(branch); //at this location
       let colum : any[] = [];
-      curNode.c.forEach((node, index) => {
+      curNode.c.forEach((node :any, index: number) => {
         // Check for cases of children
         // if (i < activePath.length-1 && index === activePath[i+1]) { //if is a node in path
         //     colum.push(
@@ -69,12 +71,12 @@ export default function Navbar() {
         //     );
         // }
         // else 
-        if (node.c){ //if isn't node in path
+        if (node.c){ //if have children
           colum.push(
             <Node name={node.n} link={node.l} path={path.concat([index])}></Node>
           );
         }
-        else{
+        else{ //if is endnode
           colum.push(
             <EndNode name={node.n} link={node.l}></EndNode>
           );
@@ -89,45 +91,10 @@ export default function Navbar() {
 
   return (
     // Background of the bar will be high blue
-      <div className={"flex first z-10 w-full border-b-2"}>
-        {/* <NavFolder destination="/" title="Home">
-          <NavFolder destination={"./about"} title="NothingInteresante">
-            <NavFolder destination={"./about"} title="NothingInteresante1">
-              <NavFolder destination={"./about"} title="NothingInteresante2">
-                <NavFolder destination={"./about"} title="NothingInteresante3">
-                  <NavFolder destination={"./about"} title="NothingInteresante4">
-                    <NavFolder destination={"./about"} title="NothingInteresante5">
-                      <NavFolder destination={"./about"} title="NothingInteresante6">
-                        <NavFolder destination={"./about"} title="NothingInteresante7">
-                    
-                        </NavFolder>  
-                      </NavFolder>
-                    </NavFolder>
-                  </NavFolder>
-                </NavFolder>
-              </NavFolder>
-            </NavFolder>
-          </NavFolder>
-
-          <NavFolder destination={"./about"} title="About">
-            {" "}
-          </NavFolder>
-          <NavFolder destination={"./projects"} title="Projectshihihihi">
-            <NavFolder destination={"./projects#2023"} title="2023">
-              Hihihihihihihihih
-            </NavFolder>
-            <NavItem destination={"./projects#2022"}>2022</NavItem>
-            <NavItem destination={"./projects#2021"}>2021</NavItem>
-          </NavFolder>
-          <NavFolder destination="./blog" title="Blog">
-            <NavItem destination={"./blogs/10gradeCampaign"}>
-              10 Grade Stuco Campaign
-            </NavItem>
-          </NavFolder>
-        </NavFolder> */}
+      <div className={"flex first z-10 w-full border-b-2 border-c0"}>
 
         {/* First column and Root node */}
-        <div className=" border-r-2" onClick={()=>setOpen(!open)} > 
+        <div className=" border-r-2 border-c0" onClick={()=>setOpen(!open)} > 
           <Node name = "Home" link="/" path={[0]}/>
         </div>
         {renderColums(colums)        }
@@ -140,14 +107,14 @@ export default function Navbar() {
       </div>
   );
 }
-function renderColums(colums){ //render each colum by returning
-  let everything = [];
-  colums.forEach(colum=>{ //for each column
-    let cl = [];
-    colum.forEach(node => {
+function renderColums(colums: any){ //render each colum by returning children of all colums not root
+  let everything : any = []; //al colums
+  colums.forEach((colum:any) =>{ //for each column, add column into everything
+    let cl:any = [];
+    colum.forEach((node:any) => {
       cl.push(node);
     });    
-    everything.push(<div className=" border-r-2" >{cl}</div>);
+    everything.push(<div className=" border-r-2 border-c0" >{cl}</div>);
   })
   return <div className=" flex">
     {
@@ -155,9 +122,6 @@ function renderColums(colums){ //render each colum by returning
     }
   </div>;
 }
-// function renderColum(colum){
-  
-
 // }
 // function getNode(child: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined){ //return the nodes
 //   // console.log(typeof child);

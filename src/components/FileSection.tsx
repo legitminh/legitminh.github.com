@@ -6,9 +6,13 @@ export default function(
     }
 ){
     return (
-        <div id={props.title}>
-            {props.title}
-            {props.children}
+        <div className=" ml-2" id={props.title}>
+            <div className=" text-c0">
+                {props.title}
+            </div>
+            <div className=" border-l-2 border-c0">
+                {props.children}
+            </div>
         </div>
     )
 }
