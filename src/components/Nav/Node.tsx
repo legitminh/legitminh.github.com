@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import Link from "next/link";
 export default function Node(props : {
     name : string,
-    path : [number],
+    path : number[],
     link : string
     // isInPath: boolean
 }){
