@@ -1,5 +1,5 @@
 //Seperate sections of a html page to minimize page changes
-export default function(
+export default function FileSection(
     props: {
         title: string;
         children: any;
