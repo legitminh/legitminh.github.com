@@ -12,21 +12,22 @@ props: {
     link: string,
 }){
     let result = (
-        <div className=" flex h-min ml-4 bg-cf hover:bg-ccBlue border-c0 border-t-2 overflow-hidden">
+        // lg is wider than 1024
+        <div className=" lg:flex h-max ml-4 bg-cf hover:bg-ccBlue border-c0 border-t-2 overflow-hidden"> 
             {/* IMAGE */}
-            <div className=" w-32 h-32 object-cover">
-                <Image className=" object-cover w-32 h-32"
+            <div className=" min-w-[8rem] object-cover">
+                <Image className=" object-cover w-[8rem] h-[8rem]"
                 src={props.img} alt="" width={1024} height={1024}/>
             </div> 
             {/* TEXTS */}
-            <div className=" relative h-32">
+            <div className=" relative h-max h-min[32rem] w-fit min-w-[32rem]">
                 <div className=" text-c0 ml-2">
                     {props.title}
                 </div>
                 <div  className=" text-c4 ml-2">
                     {props.description}
                 </div>
-                <div className=" text-c0 ml-2 bottom-0 absolute">
+                <div className=" text-c0 ml-2 bottom-0">
                     {props.date}
                 </div>
             </div>

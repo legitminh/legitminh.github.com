@@ -22,6 +22,7 @@ export default function Navbar() {
   const [activePath, setActivePath] = useRecoilState(activePathState);
   console.log(activePath);
   /**
+   * Below is the master hierarchy and it manages everything
    * NodeStructure: 
    *  ID : {Name, Url,..., children}
    * PathStructure:
@@ -32,13 +33,26 @@ export default function Navbar() {
       {n:"About", l:"/about"},
       {n:"Projects", l:"/projects", c:[
         {n: "2023", l:"/projects#2023"
-        // ,c: [
-        //   {n:"AstroFest"},
-        //   {n:"MicroFest"}
-        // ]
+        ,c: [
+          {n:"NetZeroHero", l:"https://github.com/legitminh/Net-Zero-Hero"},
+          {n:"YoutubeRandomize", l:"https://legitminh.github.io/youtubeRandomize/"},
+          {n:"PianoGame", l:"https://github.com/legitminh/typingPiano"},
+          {n:"RsaSteinography", l:"https://minhn.itch.io/rsasteinography"},
+          {n:"AstroFest", l:"https://minhn.itch.io/astrofest"},
+          {n:"Thirteen", l:"https://minhn.itch.io/thirteen"},
+          {n:"MazeGame", l:"https://minhn.itch.io/mazegame"},
+          
+        ]
         },
-        {n:"2022", l:"/projects#2022"},
-        {n:"2021", l:"/projects#2021"}
+        {n:"2022", l:"/projects#2022", c:[
+          {n:"ProjectileMotionCalculator", l:"https://minhn.itch.io/projectilemotioncalculator"},
+          {n:"Minesweeper", l:"https://minhn.itch.io/minesweeper"},
+          {n:"Tetris", l:"https://minhn.itch.io/tetris"},
+          {n:"Conway'sGameOfLife", l:"https://minhn.itch.io/conway"},
+        ]},
+        {n:"2021", l:"/projects#2021", c:[ 
+          {n:"SpaceColonizer", l:"https://minhn.itch.io/space-colonizer"},
+        ]}
       ]},
       {n:"Blog", l: "/blog"}
     ]}

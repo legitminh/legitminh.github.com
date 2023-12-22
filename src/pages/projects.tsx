@@ -17,13 +17,52 @@ const TIME_LINE = (
                 icon: "",
             },
         ]}
-        date="2023.2.16"
+        date="2023.12.16"
+    />
+    <Project
+        img="/images/youtube.webp"
+        link="https://legitminh.github.io/youtubeRandomize/"
+        title="youtubeRandomize"
+        description="It plays a random song in my playlist. Youtube randomization loses effectiveness over large amount of videos, therefore I create my own randomization method, in addition to having the convinience of accessing my playlist anywhere."
+        madeWith={[
+            {
+                name: "Javascript, HTML, CSS, Youtube API",
+                icon: "",
+            },
+        ]}
+        date="2023.8"
+    />
+    <Project
+        img="/images/TypingPiano.png"
+        link="https://github.com/legitminh/typingPiano"
+        title="PianoGame"
+        description="Hardest rhythm game ever. Under further improvement"
+        madeWith={[
+            {
+                name: "Pygame",
+                icon: "",
+            },
+        ]}
+        date="2023.Summer"
+    />
+    <Project
+        img="/images/projects/EmptySet.png"//src: https://cdn-icons-png.flaticon.com/512/5519/5519632.png
+        link="https://minhn.itch.io/rsasteinography"
+        title="RsaSteinography"
+        description="Encode an image using Rsa encryption"
+        madeWith={[
+            {
+                name: "Python",
+                icon: "",
+            },
+        ]}
+        date="2023.2.24"
     />
     <Project
         img="/images/projects/astro-fest.png"
         link="https://minhn.itch.io/astrofest"
         title="Astro Fest"
-        description="A simple 2D platformer game made with Unity."
+        description="An epic local multiplayer game inspired by AstroParty."
         madeWith={[
             {
                 name: "Unity",
@@ -36,7 +75,7 @@ const TIME_LINE = (
         img="/images/projects/thirteen-beta.png"
         link="https://minhn.itch.io/thirteen"
         title="Thirteen"
-        description="Third place hackgwinnett! A simple card game made with Python."
+        description="A simple card game made with Python."
         madeWith={[
             {
                 name: "Python",
@@ -53,7 +92,7 @@ const TIME_LINE = (
         img="/images/projects/maze-game.png"
         link="https://minhn.itch.io/mazegame"
         title="MazeGame"
-        description="A simple maze game made with Python."
+        description="Third place Hackgwinnett! A simple maze game made with Python."
         madeWith={[
             {
                 name: "Python",
