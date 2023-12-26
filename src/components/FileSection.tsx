@@ -1,4 +1,4 @@
-//Seperate sections of a html page to minimize page changes
+//Seperate sections of a html page to minimize page changes, can use id to locate
 export default function FileSection(
     props: {
         title: string;
@@ -6,7 +6,7 @@ export default function FileSection(
     }
 ){
     return (
-        <div className=" ml-2" id={props.title}>
+        <div className=" ml-[8rem]" id={props.title}>
             <div className=" text-c0">
                 {props.title}
             </div>

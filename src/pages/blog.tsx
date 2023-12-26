@@ -11,10 +11,10 @@ export default function f(){
         <ThemeWrapper>
             <Navbar></Navbar>
             <FileSection title="2023">
-                <TextImageLink img="/images/avatar.jpg" text="10 grade Student council campaign" link="blogs/10gradeCampaign"/>
+                <TextImageLink img="/images/avatar.jpg" text="#10 grade Student council campaign" link="blogs/10gradeCampaign"/>
             </FileSection>
             <FileSection title="2022">
-                {/* <TextImageLink img="/images/avatar.jpg" text="10 grade Student council campaign" link="blogs/10gradeCampaign"/> */}
+                <TextImageLink img="/images/hamiltonCampaign.png" text="#9 grade Student council campaign" link="blogs/9gradeCampaign"/>
             </FileSection>
             {/* <Blog title={"End of the year recap"} img={"images/calendar.jpeg"} ct={"What I accomplished in the first semester"} doc={"blogs/10gradeCampaign"}/>
             <Blog title={"9 grade Student council campaign"} img={"images/hamiltonCampaign.png"} ct={"My campaign to become freshman student council secretary"} doc={"blogs/10gradeCampaign"}/>  */}
