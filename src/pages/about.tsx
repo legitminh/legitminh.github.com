@@ -27,8 +27,8 @@ const Contacts = (
 const WhoAmI = (
     <FileSection title="Who Am I?">
         <div className=" ml-[1rem] text-c4">
-            I am a highschooler with passion for Computer Science and a strong urge to solve society’s problems.
-            My goal is to be part of the next technology revolution (AI, quantum computing,...) to take advantage of humanity's opportunity and improve everyone's life!
+            I am a highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems.
+            My goal is to be part of the next technology revolution (AI, quantum computing,...) to take advantage of humanity&apos;s opportunity and improve everyone&apos;s life!
 
         </div>
     </FileSection>
@@ -56,7 +56,7 @@ const Achievements = (
 const Languages = (
     <FileSection title="Languages">
         <div className=" ml-[1rem] text-c4">
-            I'm "know" more than 10 languages, that is, if one includes programming languages
+            I&apos;m &quot;know&quot; more than 10 languages, that is, if one includes programming languages
             <ul>
             <li className=" text-c4">-English (of course)</li>
             <li className=" text-c4">-Vietnamese</li>

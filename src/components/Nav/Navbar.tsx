@@ -22,6 +22,8 @@ export default function Navbar() {
   // const [path, setPath] = useRecoilState(pathState);
   const [open, setOpen] = useState(false); //if the map is opened
   const [activePath, setActivePath] = useRecoilState(activePathState);
+  const router = useRouter();
+  const currentUrl = router.asPath;
   /**
    * Below is the master hierarchy and it manages everything
    * NodeStructure: 
@@ -59,8 +61,6 @@ export default function Navbar() {
     ]}
   ]};
   function getPath(){
-    const router = useRouter();
-    const currentUrl = router.asPath;
     const urlPath = currentUrl.substring(currentUrl.indexOf("/"));
     // console.log(urlPath);
     function dfs(node:any, curPath:number[]){
@@ -93,14 +93,12 @@ export default function Navbar() {
   // Prep immediate children list to render
   // setPath(getPath());
   var childrenNodes = getChildren();
-  var childrenLinks = [];
+  var childrenLinks : any[] = [];
   if (childrenNodes != undefined){
     for (let i = 0; i < childrenNodes.length; i++){
       childrenLinks.push(
         <div className=" text-c0 bg-ccBlue border-l-2 border-c0 h-fit">
-        <EndNode name={childrenNodes[i].n} link={childrenNodes[i].l} path={path.concat(i)} >
-          
-        </EndNode>
+          <EndNode name={childrenNodes[i].n} link={childrenNodes[i].l} path={path.concat(i)} ></EndNode>
         </div>
       );
     }
