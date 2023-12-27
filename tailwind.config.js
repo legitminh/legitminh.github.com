@@ -15,11 +15,18 @@ module.exports = {
         c4: "var(--color-4)",  
         c8: "var(--color-8)",  
         cc: "var(--color-c)",  
-        cf: "var(--color-f)", 
+        c10: "var(--color-10)", 
 
         //blue
+        c4Blue: "var(--color-4Blue)", 
         c8Blue: "var(--color-8Blue)", 
-        ccBlue: "var(--color-cBlue)"
+        ccBlue: "var(--color-cBlue)",
+
+        //clear
+        c4Clear: "var(--color-4Clear)", 
+        c8Clear: "var(--color-8Clear)", 
+        ccClear: "var(--color-cClear)"
+
       }
     },
   },

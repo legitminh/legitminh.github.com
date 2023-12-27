@@ -11,7 +11,7 @@ import React, { useState, useEffect } from "react";
 import NavFolder from "../Archived/NavFolder";
 import NavItem from "../Archived/NavItem";
 import ToggleTheme from "../ToggleTheme";
-import { pathState } from "./Path";
+// import { pathState } from "./Path";
 import { activePathState } from "./Path";
 import { useRecoilState } from "recoil";
 import Node from "./Node";
@@ -88,71 +88,100 @@ export default function Navbar() {
     }
     return curNode.c;
   }
-  
-  // console.log(getPath());
-  // Prep immediate children list to render
-  // setPath(getPath());
-  var childrenNodes = getChildren();
-  var childrenLinks : any[] = [];
-  if (childrenNodes != undefined){
-    for (let i = 0; i < childrenNodes.length; i++){
-      childrenLinks.push(
-        <div className=" text-c0 bg-ccBlue border-l-2 border-c0 h-fit">
-          <EndNode name={childrenNodes[i].n} link={childrenNodes[i].l} path={path.concat(i)} ></EndNode>
-        </div>
-      );
+  function renderChildren(){
+    // console.log(getPath());
+    // Prep immediate children list to render
+    // setPath(getPath());
+    var childrenNodes = getChildren();
+    var childrenLinks : any[] = [];
+    if (childrenNodes != undefined){
+      for (let i = 0; i < childrenNodes.length; i++){
+        childrenLinks.push(
+          <div className=" h-fit">
+            <EndNode name={childrenNodes[i].n} link={childrenNodes[i].l} path={path.concat(i)} ></EndNode>
+          </div>
+        );
+      }
     }
+    return childrenLinks
   }
-  let colums: any[] = [];
-  // Prep nodes list to render
-  if (open){  //transform into list of nodes for render
-    let curNode = map; //starts at origin Node
-    let path :number[] = []; //origin have no path
-
-    for (let i = 0; i < activePath.length; i++){
-      let branch = activePath[i];
-      curNode = curNode.c[branch];
-      path.push(branch); //at this location
-      let colum : any[] = [];
-      curNode.c.forEach((node :any, index: number) => {
-        // Check for cases of children
-        // if (i < activePath.length-1 && index === activePath[i+1]) { //if is a node in path
-        //     colum.push(
-        //       <Node name={node.n} link={node.l} isInPath={true} path={path.concat([index])}></Node>
-        //     );
-        // }
-        // else 
-        if (node.c){ //if have children
-          colum.push(
-            <Node name={node.n} link={node.l} path={path.concat([index])}></Node>
-          );
-        }
-        else{ //if is endnode
-          colum.push(
-            <EndNode name={node.n} link={node.l} path={path.concat([index])}></EndNode>
-          );
-        }
-        
-      });
-      colums.push(colum);
-    };
+  function getColums(){
+    let colums: any[] = [];
+    // Prep nodes list to render
+    if (open){  //transform into list of nodes for render
+      let curNode = map; //starts at origin Node
+      let path :number[] = []; //origin have no path
+  
+      for (let i = 0; i < activePath.length; i++){
+        let branch = activePath[i];
+        curNode = curNode.c[branch];
+        path.push(branch); //at this location
+        let colum : any[] = [];
+        curNode.c.forEach((node :any, index: number) => {
+          // Check for cases of children
+          // if (i < activePath.length-1 && index === activePath[i+1]) { //if is a node in path
+          //     colum.push(
+          //       <Node name={node.n} link={node.l} isInPath={true} path={path.concat([index])}></Node>
+          //     );
+          // }
+          // else 
+          if (node.c){ //if have children
+            colum.push(
+              <Node name={node.n} link={node.l} path={path.concat([index])}></Node>
+            );
+          }
+          else{ //if is endnode
+            colum.push(
+              <EndNode name={node.n} link={node.l} path={path.concat([index])}></EndNode>
+            );
+          }
+          
+        });
+        colums.push(colum);
+      };
+    }
+    return colums
   }
-
+  function renderColums(){ //render each colum by returning children of all colums not root
+    let colums: any = getColums();
+    let everything : any = []; //al colums
+    colums.forEach((colum:any) =>{ //for each column, add column into everything
+      let cl:any = [];
+      colum.forEach((node:any) => {
+        cl.push(node);
+      });    
+      everything.push(<div className=" flex" >
+        <div>
+        {cl}
+        </div>
+        <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div>
+      </div>);
+    })
+    return <div className=" flex">
+      {
+        everything
+      }
+    </div>;
+  }
   return (
     // Background of the bar will be high blue
-      <div className={"flex first z-10 w-screen border-b-2 border-c0 overflow-scroll"}>
+      <div className={"flex first z-10 w-screen bg-opacity-50 border-b-[1px] border-cc overflow-scroll scrollbar-hide"}>
 
         {/* First column and Root node */}
-        <div className=" border-r-2 border-c0" onClick={()=>setOpen(!open)} > 
+        <div className=" flex" onClick={()=>setOpen(!open)} > 
           <Node name = "Home" link="/" path={[0]}/>
+          <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div>
+          
         </div>
         {/* Colums */}
         <div>
-          {renderColums(colums)        }
+          {renderColums()        }
         </div>
         {/* Immediate Children */}
-        <div className=" flex ml-auto">
-          {childrenLinks}
+        
+        <div className=" flex ml-auto items-center ">
+          {/* <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div> */}
+          {renderChildren()}
         </div>
         {/* DarkModeButton */}
         {/* <div className=" mr-0 right-0 absolute">
@@ -161,21 +190,7 @@ export default function Navbar() {
       </div>
   );
 }
-function renderColums(colums: any){ //render each colum by returning children of all colums not root
-  let everything : any = []; //al colums
-  colums.forEach((colum:any) =>{ //for each column, add column into everything
-    let cl:any = [];
-    colum.forEach((node:any) => {
-      cl.push(node);
-    });    
-    everything.push(<div className=" border-r-2 border-c0" >{cl}</div>);
-  })
-  return <div className=" flex">
-    {
-      everything
-    }
-  </div>;
-}
+
 
 
 

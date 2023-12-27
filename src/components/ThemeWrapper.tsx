@@ -9,7 +9,7 @@ export default function ThemeWrapper(props: { children: any }) {
   // const notTheme = theme ? "light" : "dark";
   return (
     <NoSsr>
-    <div className={theme + " min-h-screen w-full  bg-gradient-to-br to-ccBlue from-cf"}>{props.children}</div>
+    <div className={theme + " min-h-screen w-full  bg-gradient-to-br to-ccBlue from-c10"}>{props.children}</div>
     </NoSsr>
   );
 }

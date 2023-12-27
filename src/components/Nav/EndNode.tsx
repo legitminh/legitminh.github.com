@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { pathState } from "./Path";
 
 export default function EndNode(props : {
     name : string,
@@ -11,10 +10,8 @@ export default function EndNode(props : {
     let nodeRender = (
         <Link href={props.link} //onClick={()=>setPath(props.path)}
         >
-            <div className=" text-c0 pl-1 pr-1 hover:bg-c8Blue" >
-                <div className=" text-c0">
-                    {props.name}
-                </div>
+            <div className=" text-c0 px-[2rem] py-[0.5rem] hover:text-c4Blue" >
+                {props.name}
             </div> 
         </Link>)
         ;

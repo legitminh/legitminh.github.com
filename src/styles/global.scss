@@ -1,5 +1,7 @@
 /*TODO
 Collapse :root and :root{@media} into [div.light , div.dark]
+ColorNomenclature
+-percentage of {mode: darkness|lightness} in /16 + ColorName
 */
 @tailwind base;
 @tailwind components;
@@ -36,10 +38,16 @@ Collapse :root and :root{@media} into [div.light , div.dark]
     --color-4: #282c2d;
     --color-8: #7d7d7d;
     --color-c: #e1e1e1;
-    --color-f: #ffffff;
+    --color-10: #ffffff;
     //blues
-    --color-8Blue: #8dc0ff;
-    --color-cBlue: #9fedff;
+    --color-4Blue: #00517c;
+    --color-8Blue: #00b3ff;
+    --color-cBlue: #85e9ff;
+    //clears
+    --color-4Clear: #000000c2;
+    --color-8Clear: #00000083;
+    --color-cClear: #0000003c;
+
 }
 .dark, div.dark > * { //if the user manually override to dark theme
     //mono
@@ -47,10 +55,15 @@ Collapse :root and :root{@media} into [div.light , div.dark]
     --color-4: #bfd5df;
     --color-8: #787881;
     --color-c: #353437;
-    --color-f: #000000;
+    --color-10: #000000;
     //blues
-    --color-8Blue: #0000ff;
+    --color-4Blue: #7dd2ff;
+    --color-8Blue: #00b7ff;
     --color-cBlue: #00438a;
+    //clears
+    --color-4Clear: #ffffffc2;
+    --color-8Clear: #ffffff83;
+    --color-cClear: #ffffff3c;
 }
 
 @layer base{

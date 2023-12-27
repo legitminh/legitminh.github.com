@@ -12,11 +12,11 @@ export default function Home() {
     return (
         <ThemeWrapper>
             <Head>
-                <title>Minh&apos;s Homepage</title>
-                <meta
+                <title>Home</title>
+                {/* <meta
                     name="description"
                     content="The best student ever in the world"
-                />
+                /> */}
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
@@ -33,13 +33,16 @@ export default function Home() {
                     <div className="flex flex-wrap justify-center items-center gap-4"> 
                         <div className="flex flex-col gap-1 items-center">
                             <h1 className="text-6xl font-semibold text-c0">
-                                Minh
+                                Minh Nguyen
                             </h1>
-                            <p className="text-xl font-semibold text-c4">
-                                Welcome to my humble website. Work is underway.<br></br>
-                                Navigation: Click the home button to the left (the not underlined section is to open the folder), or click on any sub-page to the right. <br></br>
-                                Change color theme below!
+                            <p className="text-xl font-semibold text-c4 mt-[2rem] text-center">
+                                A Vietnamese-American highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems..<br></br>
+                                
                             </p>
+                            <div className=" text-c4 mt-[2rem]  text-center">
+                                Navigation: Click the home button to the left (the not underlined section is to open the folder, while the underlined is to go to that folder's page), or click on any sub-page to the right. <br></br>
+                                Change color theme below!
+                            </div>
                             <ToggleTheme></ToggleTheme>
                         </div>
                             <div className="flex flex-col items-center gap-2">

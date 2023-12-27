@@ -14,7 +14,6 @@ props: {
         description = <div className=" text-c4 ml-2 h-fit">{props.description}</div>;
     }
     let result = (
-        // lg is wider than 1024
         <div className=" md:flex h-max ml-4 hover:bg-ccBlue border-c0 border-t-2 overflow-visible"> 
             {/* IMAGE */}
             <div className=" min-w-[8rem] object-cover">

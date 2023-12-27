@@ -25,9 +25,8 @@ const Contacts = (
     </FileSection>
 );
 const WhoAmI = (
-    <FileSection title="Who Am I?">
+    <FileSection title="My life purpose">
         <div className=" ml-[1rem] text-c4">
-            I am a highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems.
             My goal is to be part of the next technology revolution (AI, quantum computing,...) to take advantage of humanity&apos;s opportunity and improve everyone&apos;s life!
 
         </div>
@@ -60,8 +59,8 @@ const Languages = (
             <ul>
             <li className=" text-c4">-English (of course)</li>
             <li className=" text-c4">-Vietnamese</li>
-            <li className=" text-c4">-Chinese</li>
-            <li className=" text-c4">-Spanish</li>
+            <li className=" text-c4">-Chinese (learning)</li>
+            <li className=" text-c4">-Spanish (learning)</li>
             <li className=" text-c4">-Python</li>
             <li className=" text-c4">-Java</li>
             <li className=" text-c4">-C#</li>
