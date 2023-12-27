@@ -1,10 +1,10 @@
-import Header from "@/components/Archived/Header";
-import TOCLayout from "@/components/Archived/TOCLayout";
 import Navbar from "@/components/Nav/Navbar";
 import ThemeWrapper from "@/components/ThemeWrapper";
 import TextImageLink from "@/components/About/TextImageLink";
 import FileSection from "@/components/FileSection";
-const TIME_LINE = (
+import PageMargin from "@/components/PageMargin";
+import Text from "@/components/Text/Text";
+const Contacts = (
     <FileSection title="Contacts">
         <TextImageLink  
             text="Itch.io" 
@@ -24,6 +24,56 @@ const TIME_LINE = (
         />
     </FileSection>
 );
+const WhoAmI = (
+    <FileSection title="Who Am I?">
+        <div className=" ml-[1rem] text-c4">
+            I am a highschooler with passion for Computer Science and a strong urge to solve society’s problems.
+            My goal is to be part of the next technology revolution (AI, quantum computing,...) to take advantage of humanity's opportunity and improve everyone's life!
+
+        </div>
+    </FileSection>
+)
+const Achievements = (
+    <FileSection title="Achievements">
+        <div className=" ml-[1rem] text-c4">
+            <ul>
+            <li className=" text-c4">-First place in CodeQuest 2023.</li>
+            <li className=" text-c4">-Elected assistant head of Web Design 2023-2024.</li>
+            <li className=" text-c4">-Award of Excellence in Computer Science 2023-2024.</li>
+            <li className=" text-c4">-Second place Hackgwinnett 2023.</li>
+            <li className=" text-c4">-Outstanding Freshman in the Field of Computer Science Award 2023.</li>
+            <li className=" text-c4">-Science National Honor Society Member 2023-2024.</li>
+            <li className=" text-c4">-Academic Letter 2022-2023.</li>
+            <li className=" text-c4">-Cyberpatriot semifinalist 2023.</li>
+            <li className=" text-c4">-Third place Hackgwinnett 2022.</li>
+            <li className=" text-c4">-Award of Excellence in Language Art 2022-2023.</li>
+            <li className=" text-c4">-Award of Excellence in Physics 2022-2023.</li>
+            <li className=" text-c4">-Freshman Student Council Secretary 2022.</li>
+            </ul>
+        </div>
+    </FileSection>
+)
+const Languages = (
+    <FileSection title="Languages">
+        <div className=" ml-[1rem] text-c4">
+            I'm "know" more than 10 languages, that is, if one includes programming languages
+            <ul>
+            <li className=" text-c4">-English (of course)</li>
+            <li className=" text-c4">-Vietnamese</li>
+            <li className=" text-c4">-Chinese</li>
+            <li className=" text-c4">-Spanish</li>
+            <li className=" text-c4">-Python</li>
+            <li className=" text-c4">-Java</li>
+            <li className=" text-c4">-C#</li>
+            <li className=" text-c4">-C++</li>
+            <li className=" text-c4">-Lua</li>
+            <li className=" text-c4">-Javascript</li>
+            <li className=" text-c4">-Typescript</li>
+            <li className=" text-c4">-CSS, HTML (not a programming languages)</li>
+            </ul>
+        </div>
+    </FileSection>
+)
 
 export default function About() {
     return (
@@ -33,7 +83,12 @@ export default function About() {
             </TOCLayout> */}
             <ThemeWrapper>
             <Navbar></Navbar>
-            {TIME_LINE}
+            <PageMargin>
+            {WhoAmI}
+            {Achievements}
+            {Languages}
+            {Contacts}
+            </PageMargin>
             </ThemeWrapper>
             
         </>

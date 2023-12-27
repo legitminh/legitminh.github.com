@@ -6,6 +6,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { useContext } from "react";
 import ThemeWrapper from "@/components/ThemeWrapper";
+import ToggleTheme from "@/components/ToggleTheme";
+import PageMargin from "@/components/PageMargin";
 export default function Home() {
     return (
         <ThemeWrapper>
@@ -22,11 +24,11 @@ export default function Home() {
                 <link rel="icon" href="/favicon.png" />
             </Head>
             <Navbar></Navbar>
-            <div className={ " bg-cf h-max"}>
+            <div className={ " bg-transparent h-max mt-[2rem]"}>
                 {/* old header */}
                 {/* <Header active="home"></Header> */}
                 
-                <div className=" w-full h-full p-4 ">
+                <PageMargin>
                     {/*  */}
                     <div className="flex flex-wrap justify-center items-center gap-4"> 
                         <div className="flex flex-col gap-1 items-center">
@@ -35,14 +37,17 @@ export default function Home() {
                             </h1>
                             <p className="text-xl font-semibold text-c4">
                                 Welcome to my humble website. Work is underway.<br></br>
-                                Navigation: Click the home button, 
+                                Navigation: Click the home button to the left (the not underlined section is to open the folder), or click on any sub-page to the right. <br></br>
+                                Change color theme below!
                             </p>
+                            <ToggleTheme></ToggleTheme>
                         </div>
                             <div className="flex flex-col items-center gap-2">
                         </div>
                     </div>
-                </div>
+                </PageMargin>
             </div>
+            
         </ThemeWrapper>
 
     )

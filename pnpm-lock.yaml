@@ -18,10 +18,11 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   recoil: ^0.7.7
+  recoil-persist: ^5.1.0
   sass: ^1.62.1
   styled-jsx-plugin-postcss: ^4.0.1
   tailwind-scrollbar-hide: ^1.1.7
-  tailwindcss: ^3.3.1
+  tailwindcss: ^3.4.0
   typescript: 4.9.5
 
 dependencies:
@@ -32,10 +33,11 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   recoil: 0.7.7_biqbaboplfbrettd7655fr4n2y
+  recoil-persist: 5.1.0_recoil@0.7.7
   tailwind-scrollbar-hide: 1.1.7
 
 devDependencies:
-  '@tailwindcss/typography': 0.5.10_tailwindcss@3.3.5
+  '@tailwindcss/typography': 0.5.10_tailwindcss@3.4.0
   '@types/jquery': 3.5.27
   '@types/node': 18.14.1
   '@types/react': 18.0.28
@@ -47,7 +49,7 @@ devDependencies:
   prettier: 3.0.3
   sass: 1.69.5
   styled-jsx-plugin-postcss: 4.0.1_postcss@8.4.31
-  tailwindcss: 3.3.5
+  tailwindcss: 3.4.0
   typescript: 4.9.5
 
 packages:
@@ -592,7 +594,7 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tailwindcss/typography/0.5.10_tailwindcss@3.3.5:
+  /@tailwindcss/typography/0.5.10_tailwindcss@3.4.0:
     resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
@@ -601,7 +603,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.3.5
+      tailwindcss: 3.4.0
     dev: true
 
   /@types/jquery/3.5.27:
@@ -2950,6 +2952,14 @@ packages:
     dependencies:
       picomatch: 2.3.1
 
+  /recoil-persist/5.1.0_recoil@0.7.7:
+    resolution: {integrity: sha512-sew4k3uBVJjRWKCSFuBw07Y1p1pBOb0UxLJPxn4G2bX/9xNj+r2xlqYy/BRfyofR/ANfqBU04MIvulppU4ZC0w==}
+    peerDependencies:
+      recoil: ^0.7.2
+    dependencies:
+      recoil: 0.7.7_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
   /recoil/0.7.7_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-8Og5KPQW9LwC577Vc7Ug2P0vQshkv1y3zG3tSSkWMqkWSwHmE+by06L8JtnGocjW6gcCvfwB3YtrJG6/tWivNQ==}
     peerDependencies:
@@ -3258,8 +3268,8 @@ packages:
     resolution: {integrity: sha512-X324n9OtpTmOMqEgDUEA/RgLrNfBF/jwJdctaPZDzB3mppxJk7TLIDmOreEDm1Bq4R9LSPu4Epf8VSdovNU+iA==}
     dev: false
 
-  /tailwindcss/3.3.5:
-    resolution: {integrity: sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA==}
+  /tailwindcss/3.4.0:
+    resolution: {integrity: sha512-VigzymniH77knD1dryXbyxR+ePHihHociZbXnLZHUyzf2MMs2ZVqlUrZ3FvpXP8pno9JzmILt1sZPD19M3IxtA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:

@@ -10,6 +10,24 @@
  * readtheme = theme;
  * setTheme("dark");
  */
-import { atom } from "recoil";
-
-export const themeState = atom({ key: "theme", default: "light" });
+import React from "react";
+import { atom, useRecoilState } from "recoil";
+import { recoilPersist } from "recoil-persist";
+const { persistAtom } = recoilPersist();
+export const themeState = atom({ key: "theme", default: "dark", effects: [persistAtom]});
+// export function useDarkMode() {
+//     const [isInitial, setIsInitial] = React.useState(true);
+//     const [darkModeStored, setDarkModeStored] = useRecoilState(themeState);
+  
+//     React.useEffect(() => {
+//     //   setIsInitial(false);
+//       setTimeout(()=>{
+//         setIsInitial(false)
+//       }, 500)
+//     }, []);
+  
+//     return [
+//       isInitial === true ? "dark" : darkModeStored,
+//       setDarkModeStored
+//     ] as const;
+// }

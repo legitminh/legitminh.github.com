@@ -4,6 +4,7 @@
 Takes parameter of page location to create a top bar that display all page children for quick access
 Display 
 Rename to Document
+
 */
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -15,12 +16,12 @@ import { activePathState } from "./Path";
 import { useRecoilState } from "recoil";
 import Node from "./Node";
 import EndNode from "./EndNode";
+import { useRouter } from 'next/router';
 export default function Navbar() {
   
-  const [path, setPath] = useRecoilState(pathState);
+  // const [path, setPath] = useRecoilState(pathState);
   const [open, setOpen] = useState(false); //if the map is opened
   const [activePath, setActivePath] = useRecoilState(activePathState);
-  console.log(activePath);
   /**
    * Below is the master hierarchy and it manages everything
    * NodeStructure: 
@@ -38,7 +39,7 @@ export default function Navbar() {
           {n:"YoutubeRandomize", l:"https://legitminh.github.io/youtubeRandomize/"},
           {n:"PianoGame", l:"https://github.com/legitminh/typingPiano"},
           {n:"RsaSteinography", l:"https://minhn.itch.io/rsasteinography"},
-          {n:"AstroFest", l:"https://minhn.itch.io/astrofest"},
+          {n:"AstroFest", l:"/projects/astroFest"},
           {n:"Thirteen", l:"https://minhn.itch.io/thirteen"},
           {n:"MazeGame", l:"https://minhn.itch.io/mazegame"},
           
@@ -57,16 +58,54 @@ export default function Navbar() {
       {n:"Blog", l: "/blog"}
     ]}
   ]};
-  const links = {
-    home:"/"
-  };
-  // console.log(path);
-  // setPath([0]);
-  // console.log(path);
-  // var [activePath, setActivePath] = useState([1, 0]); //get children of root as first activePath
-
+  function getPath(){
+    const router = useRouter();
+    const currentUrl = router.asPath;
+    const urlPath = currentUrl.substring(currentUrl.indexOf("/"));
+    // console.log(urlPath);
+    function dfs(node:any, curPath:number[]){
+      if ((node.l) === urlPath){
+        return curPath
+      }
+      if (node.c){ //if have children
+        for (let i = 0; i < node.c.length; i++){
+          let childResult : any = dfs(node.c[i], curPath.concat(i));
+          if (childResult != false){
+            return childResult;
+          }
+        }
+      }
+      return false;
+    }
+    
+    return dfs(map.c[0], [0]); //start at home
+  }
+  const path = getPath();
+  function getChildren(){ //get childrenNodes of the current absolute file path
+    var curNode = map;
+    for (let i = 0; i < path.length; i++){
+      curNode = curNode.c[path[i]];
+    }
+    return curNode.c;
+  }
+  
+  // console.log(getPath());
+  // Prep immediate children list to render
+  // setPath(getPath());
+  var childrenNodes = getChildren();
+  var childrenLinks = [];
+  if (childrenNodes != undefined){
+    for (let i = 0; i < childrenNodes.length; i++){
+      childrenLinks.push(
+        <div className=" text-c0 bg-ccBlue border-l-2 border-c0 h-fit">
+        <EndNode name={childrenNodes[i].n} link={childrenNodes[i].l} path={path.concat(i)} >
+          
+        </EndNode>
+        </div>
+      );
+    }
+  }
   let colums: any[] = [];
-
   // Prep nodes list to render
   if (open){  //transform into list of nodes for render
     let curNode = map; //starts at origin Node
@@ -92,7 +131,7 @@ export default function Navbar() {
         }
         else{ //if is endnode
           colum.push(
-            <EndNode name={node.n} link={node.l}></EndNode>
+            <EndNode name={node.n} link={node.l} path={path.concat([index])}></EndNode>
           );
         }
         
@@ -100,24 +139,27 @@ export default function Navbar() {
       colums.push(colum);
     };
   }
-  // console.log(colums);
-
 
   return (
     // Background of the bar will be high blue
-      <div className={"flex first z-10 w-full border-b-2 border-c0"}>
+      <div className={"flex first z-10 w-screen border-b-2 border-c0 overflow-scroll"}>
 
         {/* First column and Root node */}
         <div className=" border-r-2 border-c0" onClick={()=>setOpen(!open)} > 
           <Node name = "Home" link="/" path={[0]}/>
         </div>
-        {renderColums(colums)        }
-      
-
-        {/* DarkModeButton */}
-        <div className=" mr-0 right-0 absolute">
-          <ToggleTheme></ToggleTheme>
+        {/* Colums */}
+        <div>
+          {renderColums(colums)        }
         </div>
+        {/* Immediate Children */}
+        <div className=" flex ml-auto">
+          {childrenLinks}
+        </div>
+        {/* DarkModeButton */}
+        {/* <div className=" mr-0 right-0 absolute">
+          <ToggleTheme></ToggleTheme>
+        </div> */}
       </div>
   );
 }
@@ -136,6 +178,11 @@ function renderColums(colums: any){ //render each colum by returning children of
     }
   </div>;
 }
+
+
+
+
+
 // }
 // function getNode(child: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined){ //return the nodes
 //   // console.log(typeof child);

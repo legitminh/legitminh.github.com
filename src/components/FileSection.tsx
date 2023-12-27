@@ -6,7 +6,7 @@ export default function FileSection(
     }
 ){
     return (
-        <div className=" ml-[8rem]" id={props.title}>
+        <div className="" id={props.title}>
             <div className=" text-c0">
                 {props.title}
             </div>

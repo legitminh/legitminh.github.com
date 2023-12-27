@@ -2,7 +2,7 @@
 import { Console } from "console";
 import { useRef } from "react";
 import { Node } from "typescript";
-import BlogPage from "./BlogPage";
+import BlogPage from "../Blogs/BlogPage";
 import Image from "next/image";
 
 export default function f(props: {
