@@ -183,7 +183,7 @@ export default function Projects() {
                 <PageMargin>
 <FileSection title="2023">
 <TextImageLink
-    img="/images/NetZeroHero.png"
+    img="/images/projects/NetZeroHero.png"
     link="https://github.com/legitminh/Net-Zero-Hero"
     text="Net Zero Hero"
     description="Second place Hackgwinnett! A tower defense game where you save the earth with renewables"
@@ -195,7 +195,7 @@ export default function Projects() {
     description="It plays a random song in my playlist. Youtube randomization loses effectiveness over large amount of videos, therefore I create my own randomization method, in addition to having the convinience of accessing my playlist anywhere."
 />
 <TextImageLink
-    img="/images/TypingPiano.png"
+    img="/images/projects/TypingPiano.png"
     link="https://github.com/legitminh/typingPiano"
     text="PianoGame"
     description="Hardest rhythm game ever. Under further improvement"
