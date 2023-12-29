@@ -40,7 +40,7 @@ export default function Home() {
                                 
                             </p>
                             <div className=" text-c4 mt-[2rem]  text-center">
-                                Navigation: Click the home button to the left (the not underlined section is to open the folder, while the underlined is to go to that folder's page), or click on any sub-page to the right. <br></br>
+                                Navigation: Click the home button to the left (the not underlined section is to open the folder, while the underlined is to go to that folder&apos;s page), or click on any sub-page to the right. <br></br>
                                 Change color theme below!
                             </div>
                             <ToggleTheme></ToggleTheme>
