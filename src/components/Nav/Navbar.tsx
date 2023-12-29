@@ -164,8 +164,7 @@ export default function Navbar() {
     </div>;
   }
   return (
-    // Background of the bar will be high blue
-      <div className={"flex first z-10 w-screen bg-opacity-50 border-b-[1px] border-cc overflow-scroll scrollbar-hide"}>
+      <div className={"flex first z-10 w-full bg-opacity-50 border-b-[1px] border-cc overflow-scroll scrollbar-hide"}>
 
         {/* First column and Root node */}
         <div className=" flex" onClick={()=>setOpen(!open)} > 
