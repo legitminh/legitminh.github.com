@@ -36,7 +36,7 @@ export default function Home() {
                                 Minh Nguyen
                             </h1>
                             <p className="text-xl font-semibold text-c4 mt-[2rem] text-center">
-                                I'm a highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems...<br></br>
+                                I&apos;m a highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems...<br></br>
                                 
                             </p>
                             <div className=" text-c4 mt-[2rem]  text-center">
