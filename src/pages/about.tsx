@@ -82,14 +82,21 @@ export default function About() {
             </TOCLayout> */}
             <ThemeWrapper>
             <Navbar></Navbar>
+            <div className={ " bg-transparent h-max mt-[2rem]"}>
+            <center>
+                <h1 className=" text-6xl content-center text-c0 w-screen">
+                    About Me
+                </h1>
+            </center>
             <PageMargin>
+            
             {WhoAmI}
             {Achievements}
             {Languages}
             {Contacts}
             </PageMargin>
+            </div>
             </ThemeWrapper>
-            
         </>
     );
 }

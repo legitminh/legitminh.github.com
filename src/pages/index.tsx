@@ -32,11 +32,11 @@ export default function Home() {
                     {/*  */}
                     <div className="flex flex-wrap justify-center items-center gap-4"> 
                         <div className="flex flex-col gap-1 items-center">
-                            <h1 className="text-6xl font-semibold text-c0">
+                            <h1 className="text-6xl text-c0">
                                 Minh Nguyen
                             </h1>
                             <p className="text-xl font-semibold text-c4 mt-[2rem] text-center">
-                                A Vietnamese-American highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems..<br></br>
+                                I'm a highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems...<br></br>
                                 
                             </p>
                             <div className=" text-c4 mt-[2rem]  text-center">

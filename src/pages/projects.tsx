@@ -179,7 +179,14 @@ export default function Projects() {
         <>
             <ThemeWrapper>
                 <Navbar></Navbar>
+                    <div className={ " bg-transparent h-max mt-[2rem]"}>
+                <center>
+                <h1 className=" text-6xl content-center text-c0 w-screen">
+                    Projects
+                </h1>
+                </center>
                 <PageMargin>
+                    
 <FileSection title="2023">
 <TextImageLink
     img="/images/projects/NetZeroHero.png"
@@ -189,13 +196,13 @@ export default function Projects() {
 />
 <TextImageLink
     img="/images/youtube.webp"
-    link="https://legitminh.github.io/youtubeRandomize/"
+    link="/projects/youtubeRandomize"
     text="YoutubeRandomize"
     description="Plays a random song in my Youtube playlist."
 />
 <TextImageLink
     img="/images/projects/TypingPiano.png"
-    link="https://github.com/legitminh/typingPiano"
+    link="/projects/pianoGame"
     text="PianoGame"
     description="Hardest rhythm game ever. Under further improvement"
 />
@@ -259,6 +266,7 @@ export default function Projects() {
 />
 </FileSection>
             </PageMargin>
+                </div>
             </ThemeWrapper>            
         </>
     );

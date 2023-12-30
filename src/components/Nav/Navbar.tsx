@@ -38,13 +38,12 @@ export default function Navbar() {
         {n: "2023", l:"/projects#2023"
         ,c: [
           {n:"NetZeroHero", l:"https://github.com/legitminh/Net-Zero-Hero"},
-          {n:"YoutubeRandomize", l:"https://legitminh.github.io/youtubeRandomize/"},
-          {n:"PianoGame", l:"https://github.com/legitminh/typingPiano"},
+          {n:"YoutubeRandomize", l:"/projects/youtubeRandomize"},
+          {n:"PianoGame", l:"/projects/pianoGame"},
           {n:"RsaSteinography", l:"https://minhn.itch.io/rsasteinography"},
           {n:"AstroFest", l:"/projects/astroFest"},
           {n:"Thirteen", l:"https://minhn.itch.io/thirteen"},
-          {n:"MazeGame", l:"https://minhn.itch.io/mazegame"},
-          
+          {n:"MazeGame", l:"https://minhn.itch.io/mazegame"}
         ]
         },
         {n:"2022", l:"/projects#2022", c:[
