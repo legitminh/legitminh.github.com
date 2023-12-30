@@ -41,7 +41,7 @@ props: {
     }
     return  (
         <div className=" w-full md:w-[50%] lg:w-1/3 ">
-        <div className=" h-[16rem] m-[1rem] border-cc border-2 rounded-md overflow-scroll scrollbar-hide"> 
+        <div className=" h-[16rem] m-[1rem] border-cc border-[1px] rounded-md overflow-scroll scrollbar-hide"> 
         {result}
         </div>
         </div>);
