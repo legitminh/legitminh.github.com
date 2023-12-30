@@ -191,7 +191,7 @@ export default function Projects() {
     img="/images/youtube.webp"
     link="https://legitminh.github.io/youtubeRandomize/"
     text="YoutubeRandomize"
-    description="Plays a random song in my playlist. Youtube randomization loses effectiveness over large amount of videos, so I create my own randomization method, also having the convinience of accessing my playlist anywhere."
+    description="Plays a random song in my Youtube playlist."
 />
 <TextImageLink
     img="/images/projects/TypingPiano.png"

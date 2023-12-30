@@ -1,4 +1,7 @@
 //One project display
+/**
+ * Fixed sized container to give brief overview
+ */
 import Image from "next/image";
 import Link from "next/link";
 import { themeState } from "../ThemeState";
@@ -12,20 +15,20 @@ props: {
 }){
     var description = <div></div>;
     if (props.description){
-        description = <div className=" text-c4 ml-2 h-fit">{props.description}</div>;
+        description = <p className=" text-c4 ml-2">{props.description}</p>;
     }
     const [theme, setTheme] = useRecoilState(themeState);
 
     let result = (
-        <div className=" md:flex rounded-md md:rounded-none md:rounded-l-md h-fit ml-4 hover:bg-ccBlue border-c0 border-t-2 m-[2rem] overflow-hidden"> 
+        <div className="">
             {/* IMAGE */}
-            <div className=" min-w-[10rem] object-cover">
-                <Image className={" object-cover md:w-[10rem] h-[12rem]"}
+            <div className=" w-full object-cover">
+                <Image className={" object-cover w-full h-[8rem] object-center"}
                 src={props.img} alt="" width={1024} height={1024}/>
             </div> 
             {/* TEXTS */}
-            <div className=" th-fit w-fit overflow-scroll scrollbar-hide">
-                <div className=" text-c0 text-4xl ml-2">
+            <div className=" h-fit w-fit m-2">
+                <div className=" text-c0 text-lg ml-2">
                     {props.text}
                 </div>
                 {description}
@@ -34,7 +37,12 @@ props: {
         </div>
     )
     if (props.link){ 
-        result = <Link href={props.link}>{result}</Link>
+        result = <Link className=" w-fit" href={props.link}>{result}</Link>
     }
-    return result;
+    return  (
+        <div className=" w-full md:w-[50%] lg:w-1/3 ">
+        <div className=" h-[16rem] m-[1rem] border-cc border-2 rounded-md overflow-scroll scrollbar-hide"> 
+        {result}
+        </div>
+        </div>);
 }

@@ -10,7 +10,7 @@ export default function FileSection(
             <div className=" text-c0">
                 {props.title}
             </div>
-            <div className=" border-l-2 border-c0">
+            <div className=" border-l-[1px] border-c8 flex flex-wrap">
                 {props.children}
             </div>
         </div>

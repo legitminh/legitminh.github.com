@@ -57,7 +57,10 @@ export default function Navbar() {
           {n:"SpaceColonizer", l:"https://minhn.itch.io/space-colonizer"},
         ]}
       ]},
-      {n:"Blog", l: "/blog"}
+      {n:"Blog", l: "/blog", c: [
+        {n:"10gradeCampaign", l: "/blogs/10gradeCampaign"},
+        {n:"9gradeCampaign", l: "/blogs/9gradeCampaign"}
+      ]}
     ]}
   ]};
   function getPath(){
