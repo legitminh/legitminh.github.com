@@ -20,7 +20,7 @@ export default function f(){
                 </h1>
             </center>
             <PageMargin>
-                <video className=" w-max" autoPlay src="/videos/RushE.mp4">
+                <video muted controls className=" w-max" autoPlay src="/videos/RushE.mp4">
                 </video>
                 <p className=" text-c4">
                     Any song can be played, including Rush E! That is, as long as you have the midi file.

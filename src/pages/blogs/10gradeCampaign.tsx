@@ -20,7 +20,7 @@ export default function f(){
                 </h1>
             </center>
             <PageMargin>
-                <video className=" w-max" autoPlay src="/videos/avatar.mp4">
+                <video className=" w-max" muted controls autoPlay src="/videos/avatar.mp4">
                 </video>
             </PageMargin>
             </div>
