@@ -181,7 +181,7 @@ export default function Projects() {
                 <Navbar></Navbar>
                     <div className={ " bg-transparent h-max mt-[2rem]"}>
                 <center>
-                <h1 className=" text-6xl content-center text-c0 w-screen">
+                <h1 className=" text-6xl content-center text-c0 w-full">
                     Projects
                 </h1>
                 </center>

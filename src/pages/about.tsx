@@ -84,7 +84,7 @@ export default function About() {
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-screen">
+                <h1 className=" text-6xl content-center text-c0 w-full">
                     About Me
                 </h1>
             </center>
