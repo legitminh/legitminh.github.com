@@ -190,7 +190,7 @@ export default function Projects() {
 <FileSection title="2023">
 <TextImageLink
     img="/images/projects/NetZeroHero.png"
-    link="https://github.com/legitminh/Net-Zero-Hero"
+    link="/projects/netZeroHero"
     text="Net Zero Hero"
     description="Second place Hackgwinnett! A tower defense game where you save the earth with renewables"
 />

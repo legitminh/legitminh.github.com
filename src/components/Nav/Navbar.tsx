@@ -37,7 +37,7 @@ export default function Navbar() {
       {n:"Projects", l:"/projects", c:[
         {n: "2023", l:"/projects#2023"
         ,c: [
-          {n:"NetZeroHero", l:"https://github.com/legitminh/Net-Zero-Hero"},
+          {n:"NetZeroHero", l:"/projects/netZeroHero"},
           {n:"YoutubeRandomize", l:"/projects/youtubeRandomize"},
           {n:"PianoGame", l:"/projects/pianoGame"},
           {n:"RsaSteinography", l:"https://minhn.itch.io/rsasteinography"},
