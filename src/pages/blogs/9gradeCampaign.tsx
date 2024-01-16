@@ -6,6 +6,7 @@ export default function f(){
             <Navbar></Navbar>
             <div className=" m-7 left-6 text-c0">
             Sample file
+            Hello World
             </div>
         </ThemeWrapper>
         
