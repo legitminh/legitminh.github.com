@@ -58,7 +58,9 @@ export default function Navbar() {
       ]},
       {n:"Blog", l: "/blog", c: [
         {n:"10gradeCampaign", l: "/blogs/10gradeCampaign"},
-        {n:"9gradeCampaign", l: "/blogs/9gradeCampaign"}
+        {n:"9gradeCampaign", l: "/blogs/9gradeCampaign"},
+        {n:"Infinity", l: "/blogs/infinity"}
+
       ]}
     ]}
   ]};
