@@ -6,7 +6,7 @@ export default function ToggleTheme() {
   const onClick = () => setTheme(theme == "light" ? "dark" : "light");
   return (
     <button onClick={onClick} className=" text-c0">
-      {theme}
+      {(theme == "light") ? "dark" : "light"}
     </button>
   );
 }
