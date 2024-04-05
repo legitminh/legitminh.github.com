@@ -15,7 +15,7 @@ export default function f(){
             </center>
             <PageMargin>
             <Text>
-                Website I made for Passion Exploration Project, a non-profit organization based in Gwinnett County
+                Website I am making for Passion Exploration Project, a non-profit organization based in Gwinnett County
             </Text>
             </PageMargin>
             <div className="">
