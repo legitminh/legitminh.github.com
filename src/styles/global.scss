@@ -7,10 +7,18 @@ ColorNomenclature
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../public/Montserrat-VariableFont_wght.ttf') format('truetype'); /* Regular font */
+    font-weight: normal;
+    font-style: normal;
+}
 * {
-    @apply font-mono text-slate-900;
+    font-family: 'Montserrat', sans-serif;
+    // @apply font-mono text-slate-900;
     // color: blue($color: #000000);
 }
+
 // a {
 //     color: blue;
 // }

@@ -32,34 +32,38 @@ export default function Navbar() {
    *  Node, Node, FinalNode
    */
   const map :any = {c:[
-    {n:"Home", l:"/", c:[
-      {n:"About", l:"/about"},
-      {n:"Projects", l:"/projects", c:[
+    {n:"HOME", l:"/", c:[
+      {n:"ABOUT", l:"/about"},
+      {n:"PROJECTS", l:"/projects", c:[
+        {n: "2024", l:"/projects#2023" ,c: [
+          {n:"PEP WEBSITE", l:"/projects/2024/pepWebsite"},
+        ]
+        },
         {n: "2023", l:"/projects#2023"
         ,c: [
-          {n:"NetZeroHero", l:"/projects/netZeroHero"},
-          {n:"YoutubeRandomize", l:"/projects/youtubeRandomize"},
-          {n:"PianoGame", l:"/projects/pianoGame"},
-          {n:"RsaSteinography", l:"https://minhn.itch.io/rsasteinography"},
-          {n:"AstroFest", l:"/projects/astroFest"},
-          {n:"Thirteen", l:"https://minhn.itch.io/thirteen"},
-          {n:"MazeGame", l:"https://minhn.itch.io/mazegame"}
+          {n:"NET ZERO HERO", l:"/projects/2023/netZeroHero"},
+          {n:"YOUTUBE RANDOMIZE", l:"/projects/2023/youtubeRandomize"},
+          {n:"PIANO GAME", l:"/projects/2023/pianoGame"},
+          {n:"RSA STEINOGRAPHY", l:"https://minhn.itch.io/rsasteinography"},
+          {n:"ASTRO FEST", l:"/projects/2023/astroFest"},
+          {n:"THIRTEEN", l:"https://minhn.itch.io/thirteen"},
+          {n:"MAZE GAME", l:"https://minhn.itch.io/mazegame"}
         ]
         },
         {n:"2022", l:"/projects#2022", c:[
-          {n:"ProjectileMotionCalculator", l:"https://minhn.itch.io/projectilemotioncalculator"},
-          {n:"Minesweeper", l:"https://minhn.itch.io/minesweeper"},
-          {n:"Tetris", l:"https://minhn.itch.io/tetris"},
-          {n:"Conway'sGameOfLife", l:"https://minhn.itch.io/conway"},
+          {n:"PROJECTILE MOTION CALCULATOR", l:"https://minhn.itch.io/projectilemotioncalculator"},
+          {n:"MINE SWEEPER", l:"https://minhn.itch.io/minesweeper"},
+          {n:"TETRIS", l:"https://minhn.itch.io/tetris"},
+          {n:"GAME OF LIFE", l:"https://minhn.itch.io/conway"},
         ]},
         {n:"2021", l:"/projects#2021", c:[ 
-          {n:"SpaceColonizer", l:"https://minhn.itch.io/space-colonizer"},
+          {n:"SPACE COLONIZER", l:"https://minhn.itch.io/space-colonizer"},
         ]}
       ]},
-      {n:"Blog", l: "/blog", c: [
-        {n:"10gradeCampaign", l: "/blogs/10gradeCampaign"},
-        {n:"9gradeCampaign", l: "/blogs/9gradeCampaign"},
-        {n:"Infinity", l: "/blogs/infinity"}
+      {n:"BLOG", l: "/blog", c: [
+        {n:"10 GRADE CAMPAIGN", l: "/blogs/10gradeCampaign"},
+        {n:"9 GRADE CAMPAIGN", l: "/blogs/9gradeCampaign"},
+        {n:"∞", l: "/blogs/infinity"}
 
       ]}
     ]}
@@ -172,23 +176,27 @@ export default function Navbar() {
 
         {/* First column and Root node */}
         <div className=" flex" onClick={()=>setOpen(!open)} > 
-          <Node name = "Home" link="/" path={[0]}/>
+          <Node name = "HOME" link="/" path={[0]}/>
           <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div>
           
         </div>
         {/* Colums */}
         <div>
-          {renderColums()        }
+          {renderColums()}
         </div>
         {/* Immediate Children */}
         
         <div className=" flex ml-auto items-center ">
           {/* <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div> */}
           {renderChildren()}
+          <div className=" flex w-[4rem] items-center justify-center">
+            <ToggleTheme></ToggleTheme>
+          </div>
         </div>
         {/* DarkModeButton */}
-        {/* <div className=" mr-0 right-0 absolute">
-          <ToggleTheme></ToggleTheme>
+        {/* <div className=" flex w-[4rem] h-full items-center justify-center ">
+        
+          
         </div> */}
       </div>
   );

@@ -7,7 +7,7 @@ export default function FileSection(
 ){
     return (
         <div className="" id={props.title}>
-            <div className=" text-c0">
+            <div className=" text-c0 text-2xl">
                 {props.title}
             </div>
             <div className=" border-l-[1px] border-c8 flex flex-wrap">

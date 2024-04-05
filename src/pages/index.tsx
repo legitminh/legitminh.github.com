@@ -33,17 +33,18 @@ export default function Home() {
                     <div className="flex flex-wrap justify-center items-center gap-4"> 
                         <div className="flex flex-col gap-1 items-center">
                             <h1 className="text-6xl text-c0">
-                                Minh Nguyen
+                                MINH NGUYEN
                             </h1>
                             <p className="text-xl font-semibold text-c4 mt-[2rem] text-center">
                                 I&apos;m a highschooler with passion for Computer Science and a strong urge to solve society&apos;s problems...<br></br>
                                 
                             </p>
                             <div className=" text-c4 mt-[2rem]  text-center">
-                                Navigation: Click the home button to the left (the not underlined section is to open the folder, while the underlined is to go to that folder&apos;s page), or click on any sub-page to the right. <br></br>
-                                Change color theme below!
+                                Navigation: You&apos;re at home, click to the right of the home button to see where you can go, click on the left to return.
+                                <br></br>
+                                A button without right/left distinction have no children.
+                                
                             </div>
-                            <ToggleTheme></ToggleTheme>
                         </div>
                             <div className="flex flex-col items-center gap-2">
                         </div>

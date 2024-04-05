@@ -10,7 +10,7 @@ export default function EndNode(props : {
     let nodeRender = (
         <Link href={props.link} //onClick={()=>setPath(props.path)}
         >
-            <div className=" text-c0 px-[2rem] py-[0.5rem] hover:text-c4Blue" >
+            <div className=" text-c0 px-[2rem] py-[0.5rem] hover:text-c10 hover:bg-c0 text-center" >
                 {props.name}
             </div> 
         </Link>)

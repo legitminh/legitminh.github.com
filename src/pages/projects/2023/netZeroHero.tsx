@@ -8,15 +8,15 @@ import PageMargin from "@/components/PageMargin"
 export default function f(){
     return(
         <ThemeWrapper>
-             <Head>
-                <title>Net Zero Hero</title>
+            <Head>
+                <title>NET ZERO HERO</title>
             </Head>
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
 
             <center>
                 <h1 className=" text-6xl content-center text-c0 w-full">
-                    Net Zero Hero
+                    NET ZERO HERO
                 </h1>
             </center>
             <PageMargin>

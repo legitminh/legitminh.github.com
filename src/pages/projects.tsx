@@ -187,22 +187,30 @@ export default function Projects() {
                 </center>
                 <PageMargin>
                     
+<FileSection title="2024">
+<TextImageLink
+    img="/images/projects/NetZeroHero.png"
+    link="/projects/2024/pepWebsite"
+    text="Pep Website"
+    description="Website I made for Passion Exploration Project, a non-profit organization based in Gwinnett County"
+/>
+</FileSection>
 <FileSection title="2023">
 <TextImageLink
     img="/images/projects/NetZeroHero.png"
-    link="/projects/netZeroHero"
+    link="/projects/2023/netZeroHero"
     text="Net Zero Hero"
     description="Second place Hackgwinnett! A tower defense game where you save the earth with renewables"
 />
 <TextImageLink
     img="/images/youtube.webp"
-    link="/projects/youtubeRandomize"
+    link="/projects/2023/youtubeRandomize"
     text="YoutubeRandomize"
     description="Plays a random song in my Youtube playlist."
 />
 <TextImageLink
     img="/images/projects/TypingPiano.png"
-    link="/projects/pianoGame"
+    link="/projects/2023/pianoGame"
     text="PianoGame"
     description="Hardest rhythm game ever. Under further improvement"
 />
@@ -214,7 +222,7 @@ export default function Projects() {
 />
 <TextImageLink
     img="/images/projects/astro-fest.png"
-    link="/projects/astroFest"
+    link="/projects/2023/astroFest"
     text="Astro Fest"
     description="An epic local multiplayer game inspired by AstroParty."
 />
