@@ -56,7 +56,24 @@ ColorNomenclature
     --color-8Clear: #00000083;
     --color-cClear: #0000003c;
 
+    &::-webkit-scrollbar {
+        width: 50px; // Width of the scrollbar
+    }
+
+    // Scrollbar thumb
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-4); // Use your desired color variable
+    }
+
+    // Scrollbar track
+    &::-webkit-scrollbar-track {
+        background: var(--color-8); // Use your desired color variable
+    }
+
 }
+// ::-webkit-scrollbar {
+//     width: 50px; // Width of the scrollbar
+// }
 .dark, div.dark > * { //if the user manually override to dark theme
     //mono
     --color-0: #fffdfd;
@@ -72,6 +89,20 @@ ColorNomenclature
     --color-4Clear: #ffffffc2;
     --color-8Clear: #ffffff83;
     --color-cClear: #ffffff3c;
+
+    &::-webkit-scrollbar {
+        width: 10px; // Width of the scrollbar
+    }
+
+    // Scrollbar thumb
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-4); // Use your desired color variable
+    }
+
+    // Scrollbar track
+    &::-webkit-scrollbar-track {
+        background: var(--color-8); // Use your desired color variable
+    }
 }
 
 @layer base{
