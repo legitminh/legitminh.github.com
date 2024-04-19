@@ -189,6 +189,12 @@ export default function Projects() {
                     
 <FileSection title="2024">
 <TextImageLink
+    img="/images/youtube.webp"
+    link="/projects/2024/audioPlayer"
+    text="AudioPlayer"
+    description="Plays a random song in my definitely-legally-acquired playlist."
+/>
+<TextImageLink
     img="/images/projects/NetZeroHero.png"
     link="/projects/2024/pepWebsite"
     text="Pep Website"

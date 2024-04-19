@@ -37,6 +37,7 @@ export default function Navbar() {
       {n:"PROJECTS", l:"/projects", c:[
         {n: "2024", l:"/projects#2023" ,c: [
           {n:"PEP WEBSITE", l:"/projects/2024/pepWebsite"},
+          {n:"AUDIOPLAYER", l:"/projects/2024/audioPlayer"},
         ]
         },
         {n: "2023", l:"/projects#2023"
