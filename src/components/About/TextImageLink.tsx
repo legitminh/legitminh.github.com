@@ -67,7 +67,7 @@ props: {
             <div className=" flex-grow relative h-full transition-transform -translate-y-full duration-500">
                 {/* TEXTS */}
                 <div className=" w-full h-full absolute bottom-[-100%] px-[1rem] pt-[1rem] ">
-                    <div className=" text-[4rem] text-c0">
+                    <div className=" lg:text-[4rem] md:text-[3rem] text-[2rem] text-c0">
                         {props.description}
                     </div>
                     <div className=" absolute text-c0 bottom-0 right-0 pr-[1rem]">
