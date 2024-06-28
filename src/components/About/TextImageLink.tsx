@@ -48,7 +48,7 @@ props: {
     let [self, setSelf] = useState(defaultSelf)
     let hover = ()=>{
         setSelf(
-            <div className=" relative flex h-full w-full transition-transform transition-opacity ease-in-out duration-500">
+        <div className=" relative flex h-full w-full transition-transform transition-opacity ease-in-out duration-500">
             {/* IMAGE */}
             <div className=" absolute h-full w-full overflow-clip">
                 <Image className={" object-cover h-full object-center"}
@@ -64,12 +64,17 @@ props: {
             </div>
 
             {/* Right side */}
-            <div className=" flex-grow relative h-full transition-transform -translate-y-full duration-500">
-                {/* TEXTS */}
-                <div className=" w-full h-full absolute bottom-[-100%] px-[1rem] pt-[1rem] ">
+            <div className=" left-[100%] flex-grow relative w-full h-full transition-transform -translate-x-full duration-500">
+                <div className=" w-full h-full absolute px-[1rem] pt-[1rem] "> 
                     <div className=" lg:text-[4rem] md:text-[3rem] text-[2rem] text-c0">
                         {props.description}
                     </div>
+                </div>
+            </div>
+            <div className=" flex-grow relative h-full transition-transform -translate-y-full duration-500">
+                {/* TEXTS */}
+                <div className=" w-full h-full absolute bottom-[-100%] px-[1rem] pt-[1rem] ">
+                    
                     <div className=" absolute text-c0 bottom-0 right-0 pr-[1rem]">
                         ...click to learn more
                     </div>
