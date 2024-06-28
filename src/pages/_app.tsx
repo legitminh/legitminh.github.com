@@ -1,6 +1,7 @@
 import "@/styles/global.scss";
 import type { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 export default function App({ Component, pageProps }: AppProps) {
     
@@ -8,7 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className=" min-h-screen h-max bg-c8">
             {/* Recoil root needed for recoil to function as it sets up infrastructure, needed for dark/light mode */}
             <RecoilRoot> 
-                <Component {...pageProps} />
+                <ThemeWrapper>
+                    <Component {...pageProps} />
+                </ThemeWrapper>
             </RecoilRoot>
         </div>
     );

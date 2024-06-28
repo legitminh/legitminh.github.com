@@ -4,7 +4,7 @@ import Head from "next/head"
 import PageMargin from "@/components/PageMargin"
 export default function f(){
     return(
-        <ThemeWrapper>
+        <div>
             <Head>
                 <title>Nan</title>
             </Head>
@@ -64,7 +64,7 @@ export default function f(){
             </div>
             </PageMargin>
             </div>
-        </ThemeWrapper>
+        </div>
         
     )
 }
