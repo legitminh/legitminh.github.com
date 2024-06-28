@@ -62,9 +62,16 @@ export default function Navbar() {
         ]}
       ]},
       {n:"BLOG", l: "/blog", c: [
-        {n:"10 GRADE CAMPAIGN", l: "/blogs/10gradeCampaign"},
-        {n:"9 GRADE CAMPAIGN", l: "/blogs/9gradeCampaign"},
-        {n:"∞", l: "/blogs/infinity"}
+        {n:"2023", l: "/blog", c:[
+          {n:"10 GRADE CAMPAIGN", l: "/blogs/10gradeCampaign"},
+          {n:"9 GRADE CAMPAIGN", l: "/blogs/9gradeCampaign"},
+          {n:"∞", l: "/blogs/infinity"}
+        ]}, 
+        {n:"2024", l: "/blog", c:[
+          {n:"NAN:", l: "/blogs/2024/Nan"},
+        ]}
+        
+
 
       ]}
     ]}

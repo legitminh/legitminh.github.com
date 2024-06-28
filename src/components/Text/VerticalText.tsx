@@ -1,6 +1,4 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { useRecoilState } from "recoil";
-import { themeState } from "../ThemeState";
 
 export default function VerticalText(
     props: {
@@ -8,7 +6,6 @@ export default function VerticalText(
     }
 ){
 
-    const [theme, setTheme] = useRecoilState(themeState);
     // Use this useRef<HTMLDivElement>(null) instead of useRef() to avoid type conflic somehow
     const targetRef = useRef<HTMLDivElement>(null);
     const [dimensions, setDimensions] = useState({ width:0, height: 0 });

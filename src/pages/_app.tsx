@@ -6,7 +6,8 @@ export default function App({ Component, pageProps }: AppProps) {
     
     return (
         <div className=" min-h-screen h-max bg-c8">
-            <RecoilRoot>
+            {/* Recoil root needed for recoil to function as it sets up infrastructure, needed for dark/light mode */}
+            <RecoilRoot> 
                 <Component {...pageProps} />
             </RecoilRoot>
         </div>
