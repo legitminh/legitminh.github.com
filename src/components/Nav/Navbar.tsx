@@ -68,7 +68,9 @@ export default function Navbar() {
           {n:"∞", l: "/blogs/infinity"}
         ]}, 
         {n:"2024", l: "/blog", c:[
-          {n:"NAN:", l: "/blogs/2024/Nan"},
+          {n:"NAN", l: "/blogs/2024/Nan", c:[
+            {n:"Proof", l:"/blogs/2024/Nan.Proof"}
+        ]},
         ]}
         
 

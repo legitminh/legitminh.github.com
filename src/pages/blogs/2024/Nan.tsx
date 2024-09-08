@@ -2,6 +2,7 @@ import Navbar from "@/components/Nav/Navbar"
 import ThemeWrapper from "@/components/ThemeWrapper"
 import Head from "next/head"
 import PageMargin from "@/components/PageMargin"
+import Link from "next/link"
 export default function f(){
     return(
         <div>
@@ -35,7 +36,7 @@ export default function f(){
             And double the player count again, the tie count expected is 9.34<br></br>
             Yes, for just 8 players, you are expected to tie 9 times<br></br>
             <br></br>
-            Click here (NOT_YET_DEFINED) for proof.<br></br>
+            <Link href="/blogs/2024/Nan.Proof">Click here</Link> for proof<br></br>
             <br></br>
             That is not great, knowing the whole world runs on rock paper, and scissors. From who goes first in a board game to the decision of a U.S court case and selection of Christie&apos;s or Sotheby&apos;s Auction house (https://en.wikipedia.org/wiki/Rock_paper_scissors#American_court_case)<br></br>
             <br></br>
