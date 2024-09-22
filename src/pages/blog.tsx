@@ -18,7 +18,10 @@ export default function f(){
                 </h1>
             </center>
             <PageMargin>
-            
+            <FileSection title="2024">
+                <TextImageLink img="/images/projects/EmptySet.png" text="nan the game" link="blogs/2024/Nan"/>
+                <TextImageLink img="/images/blog/infinity.png" text="infinity" link="blogs/infinity"/>
+            </FileSection>
             <FileSection title="2023">
                 <TextImageLink img="/images/avatar.jpg" text="#10 grade Student council campaign" link="blogs/10gradeCampaign"/>
             </FileSection>
