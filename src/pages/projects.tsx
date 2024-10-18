@@ -19,6 +19,12 @@ export default function Projects() {
                     
 <FileSection title="2024">
 <TextImageLink
+    img="/images/projects/astro-fest.png"
+    link="/projects/2024/astroFest1"
+    text="Astro Fest 1"
+    description="Asto Fest's update"
+/>
+<TextImageLink
     img="/images/youtube.webp"
     link="/projects/2024/audioPlayer"
     text="AudioPlayer"

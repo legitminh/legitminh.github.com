@@ -38,6 +38,7 @@ export default function Navbar() {
         {n: "2024", l:"/projects#2023" ,c: [
           {n:"PEP WEBSITE", l:"/projects/2024/pepWebsite"},
           {n:"AUDIOPLAYER", l:"/projects/2024/audioPlayer"},
+          {n:"ASTROFEST_1", l: "/projects/2024/astroFest1"}
         ]
         },
         {n: "2023", l:"/projects#2023"
@@ -69,8 +70,8 @@ export default function Navbar() {
         ]}, 
         {n:"2024", l: "/blog", c:[
           {n:"NAN", l: "/blogs/2024/Nan", c:[
-            {n:"Proof", l:"/blogs/2024/Nan.Proof"}
-        ]},
+            {n:"PROOF", l:"/blogs/2024/Nan.Proof"}
+          ]},
         ]}
         
 
