@@ -18,7 +18,7 @@ export default function f(){
             </center>
             <PageMargin>
             
-            <div className=" m-7 left-6 text-c0">
+            <div className=" text-c0 overflow-auto">
             <strong>A proposal to replace rock paper scissors</strong><br></br>
             <br></br>
             Rock paper scissors is a game between N players with a random result determining some victors, requiring only hands.

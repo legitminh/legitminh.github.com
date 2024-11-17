@@ -6,7 +6,7 @@ import ThemeWrapper from "@/components/ThemeWrapper";
 export default function App({ Component, pageProps }: AppProps) {
     
     return (
-        <div className=" min-h-screen h-max bg-c8">
+        <div className=" min-h-screen">
             {/* Recoil root needed for recoil to function as it sets up infrastructure, needed for dark/light mode */}
             <RecoilRoot> 
                 <ThemeWrapper>

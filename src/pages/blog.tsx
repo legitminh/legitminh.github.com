@@ -19,7 +19,8 @@ export default function f(){
             </center>
             <PageMargin>
             <FileSection title="2024">
-                <TextImageLink img="/images/projects/EmptySet.png" text="nan the game" link="blogs/2024/Nan"/>
+                <TextImageLink img="/images/projects/EmptySet.png" text="hag" description="4d chess game" link="blogs/2024/Hag"/>
+                <TextImageLink img="/images/projects/EmptySet.png" text="nan" description="n player luck-based spontaneous game" link="blogs/2024/Nan"/>
                 <TextImageLink img="/images/blog/infinity.png" text="infinity" link="blogs/infinity"/>
             </FileSection>
             <FileSection title="2023">
