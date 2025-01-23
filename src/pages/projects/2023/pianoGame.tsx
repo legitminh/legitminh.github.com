@@ -15,14 +15,14 @@ export default function f(){
             <div className={ " bg-transparent h-max mt-[2rem]"}>
 
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-full">
+                <h1 className=" text-6xl content-center text-c00 w-full">
                     Piano Game
                 </h1>
             </center>
             <PageMargin>
                 <video muted controls className=" w-max" autoPlay src="/videos/RushE.mp4">
                 </video>
-                <p className=" text-c4">
+                <p className=" text-c40">
                     Any song can be played, including Rush E! That is, as long as you have the midi file.
                 </p>
             </PageMargin>

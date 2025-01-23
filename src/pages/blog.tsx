@@ -13,12 +13,13 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-full">
+                <h1 className=" text-6xl content-center text-c00 w-full">
                     Blog
                 </h1>
             </center>
             <PageMargin>
             <FileSection title="2024">
+                <TextImageLink img="/images/projects/EmptySet.png" text="detachment" description="speculation of life redefined" link="blogs/2024/Detachment"/>
                 <TextImageLink img="/images/projects/EmptySet.png" text="hag" description="4d chess game" link="blogs/2024/Hag"/>
                 <TextImageLink img="/images/projects/EmptySet.png" text="nan" description="n player luck-based spontaneous game" link="blogs/2024/Nan"/>
                 <TextImageLink img="/images/blog/infinity.png" text="infinity" link="blogs/infinity"/>

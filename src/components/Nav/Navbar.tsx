@@ -71,6 +71,8 @@ export default function Navbar() {
             {n:"PROOF", l:"/blogs/2024/Nan.Proof"}
           ]},
           {n:"HAK", l:"/blogs/2024/Hag"},
+          {n:"DETACHMENT", l:"/blogs/2024/Detachment"}
+
         ]}
         
 
