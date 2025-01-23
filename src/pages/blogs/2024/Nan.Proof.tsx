@@ -12,13 +12,13 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-screen">
+                <h1 className=" text-6xl content-center text-c00 w-screen">
                 Rock Paper Scissor Expected Rounds
                 </h1>
             </center>
             <PageMargin>
             
-            <div className=" m-7 left-6 text-c0">
+            <div className=" m-7 left-6 text-c00">
             Given p players<br></br>
             r is remaining players<br></br>
             The probability c for r to remain given p after one round is:<br></br>

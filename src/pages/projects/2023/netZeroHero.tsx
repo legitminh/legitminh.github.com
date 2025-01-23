@@ -22,7 +22,7 @@ export default function f(){
             <PageMargin>
                 <video muted controls className=" w-max" autoPlay src="/videos/NetZeroHero.mp4">
                 </video>
-                <p className=" text-c4">
+                <p className=" text-c40">
                     An unpolished game I did in a few hours for Hackgwinnett gamejam. The polished game will be released in 2024.
                 </p>
             </PageMargin>

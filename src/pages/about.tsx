@@ -26,7 +26,7 @@ const Contacts = (
 );
 const WhoAmI = (
     <FileSection title="My life purpose">
-        <div className=" ml-[1rem] text-c4">
+        <div className=" ml-[1rem] text-c40">
             My goal is to be part of the next technology revolution (AI, quantum computing,...) to take advantage of humanity&apos;s opportunity and improve everyone&apos;s life!
 
         </div>
@@ -34,41 +34,41 @@ const WhoAmI = (
 )
 const Achievements = (
     <FileSection title="Achievements">
-        <div className=" ml-[1rem] text-c4">
+        <div className=" ml-[1rem] text-c40">
             <ul>
-            <li className=" text-c4">-First place in CodeQuest 2023.</li>
-            <li className=" text-c4">-Elected assistant head of Web Design 2023-2024.</li>
-            <li className=" text-c4">-Award of Excellence in Computer Science 2023-2024.</li>
-            <li className=" text-c4">-Second place Hackgwinnett 2023.</li>
-            <li className=" text-c4">-Outstanding Freshman in the Field of Computer Science Award 2023.</li>
-            <li className=" text-c4">-Science National Honor Society Member 2023-2024.</li>
-            <li className=" text-c4">-Academic Letter 2022-2023.</li>
-            <li className=" text-c4">-Cyberpatriot semifinalist 2023.</li>
-            <li className=" text-c4">-Third place Hackgwinnett 2022.</li>
-            <li className=" text-c4">-Award of Excellence in Language Art 2022-2023.</li>
-            <li className=" text-c4">-Award of Excellence in Physics 2022-2023.</li>
-            <li className=" text-c4">-Freshman Student Council Secretary 2022.</li>
+            <li className=" text-c400">-First place in CodeQuest 2023.</li>
+            <li className=" text-c40">-Elected assistant head of Web Design 2023-2024.</li>
+            <li className=" text-c40">-Award of Excellence in Computer Science 2023-2024.</li>
+            <li className=" text-c40">-Second place Hackgwinnett 2023.</li>
+            <li className=" text-c40">-Outstanding Freshman in the Field of Computer Science Award 2023.</li>
+            <li className=" text-c40">-Science National Honor Society Member 2023-2024.</li>
+            <li className=" text-c40">-Academic Letter 2022-2023.</li>
+            <li className=" text-c40">-Cyberpatriot semifinalist 2023.</li>
+            <li className=" text-c40">-Third place Hackgwinnett 2022.</li>
+            <li className=" text-c40">-Award of Excellence in Language Art 2022-2023.</li>
+            <li className=" text-c40">-Award of Excellence in Physics 2022-2023.</li>
+            <li className=" text-c40">-Freshman Student Council Secretary 2022.</li>
             </ul>
         </div>
     </FileSection>
 )
 const Languages = (
     <FileSection title="Languages">
-        <div className=" ml-[1rem] text-c4">
+        <div className=" ml-[1rem] text-c40">
             I&apos;m &quot;know&quot; more than 10 languages, that is, if one includes programming languages
             <ul>
-            <li className=" text-c4">-English (of course)</li>
-            <li className=" text-c4">-Vietnamese</li>
-            <li className=" text-c4">-Chinese (learning)</li>
-            <li className=" text-c4">-Spanish (learning)</li>
-            <li className=" text-c4">-Python</li>
-            <li className=" text-c4">-Java</li>
-            <li className=" text-c4">-C#</li>
-            <li className=" text-c4">-C++</li>
-            <li className=" text-c4">-Lua</li>
-            <li className=" text-c4">-Javascript</li>
-            <li className=" text-c4">-Typescript</li>
-            <li className=" text-c4">-CSS, HTML (not a programming languages)</li>
+            <li className=" text-c40">-English (of course)</li>
+            <li className=" text-c40">-Vietnamese</li>
+            <li className=" text-c40">-Chinese (learning)</li>
+            <li className=" text-c40">-Spanish (learning)</li>
+            <li className=" text-c40">-Python</li>
+            <li className=" text-c40">-Java</li>
+            <li className=" text-c40">-C#</li>
+            <li className=" text-c40">-C++</li>
+            <li className=" text-c40">-Lua</li>
+            <li className=" text-c40">-Javascript</li>
+            <li className=" text-c40">-Typescript</li>
+            <li className=" text-c40">-CSS, HTML (not a programming languages)</li>
             </ul>
         </div>
     </FileSection>

@@ -6,22 +6,20 @@ Display
 Rename to Document
 
 */
-import Link from "next/link";
+// import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import NavFolder from "../Archived/NavFolder";
-import NavItem from "../Archived/NavItem";
+// import NavFolder from "../Archived/NavFolder";
+// import NavItem from "../Archived/NavItem";
 import ToggleTheme from "../ToggleTheme";
 // import { pathState } from "./Path";
-import { activePathState } from "./Path";
-import { useRecoilState } from "recoil";
+import { usePathStore } from "./Path";
 import Node from "./Node";
 import EndNode from "./EndNode";
 import { useRouter } from 'next/router';
 export default function Navbar() {
   
-  // const [path, setPath] = useRecoilState(pathState);
   const [open, setOpen] = useState(false); //if the map is opened
-  const [activePath, setActivePath] = useRecoilState(activePathState);
+  const {activePath, addActivePath} = usePathStore();
   const router = useRouter();
   const currentUrl = router.asPath;
   /**
@@ -126,11 +124,12 @@ export default function Navbar() {
     return childrenLinks
   }
   function getColums(){
+    console.log(activePath);
     let colums: any[] = [];
     // Prep nodes list to render
     if (open){  //transform into list of nodes for render
       let curNode = map; //starts at origin Node
-      let path :number[] = []; //origin have no path
+      let path :Array<number> = []; //origin have no path
   
       for (let i = 0; i < activePath.length; i++){
         let branch = activePath[i];
@@ -147,12 +146,12 @@ export default function Navbar() {
           // else 
           if (node.c){ //if have children
             colum.push(
-              <Node name={node.n} link={node.l} path={path.concat([index])}></Node>
+              <Node key={index} name={node.n} link={node.l} path={path.concat([index])}></Node>
             );
           }
           else{ //if is endnode
             colum.push(
-              <EndNode name={node.n} link={node.l} path={path.concat([index])}></EndNode>
+              <EndNode key={index} name={node.n} link={node.l} path={path.concat([index])}></EndNode>
             );
           }
           
@@ -174,7 +173,7 @@ export default function Navbar() {
         <div>
         {cl}
         </div>
-        <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div>
+        <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc0 h-[calc(100%-1rem)] relative"></div></div>
       </div>);
     })
     return <div className=" flex">
@@ -184,12 +183,12 @@ export default function Navbar() {
     </div>;
   }
   return (
-      <div className={"flex first z-10 w-full bg-opacity-50 border-b-[1px] border-cc overflow-scroll scrollbar-hide"}>
+      <div className={"flex first z-10 w-full bg-opacity-50 border-b-[1px] border-cc0 overflow-scroll scrollbar-hide"}>
 
         {/* First column and Root node */}
         <div className=" flex" onClick={()=>setOpen(!open)} > 
           <Node name = "HOME" link="/" path={[0]}/>
-          <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc h-[calc(100%-1rem)] relative"></div></div>
+          <div className=" flex h-[100%] items-center"><div className=" border-r-[1px] border-cc0 h-[calc(100%-1rem)] relative"></div></div>
           
         </div>
         {/* Colums */}

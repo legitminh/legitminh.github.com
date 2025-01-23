@@ -9,7 +9,7 @@ export default function f(){
         <ThemeWrapper>
             <Navbar></Navbar>
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-full">
+                <h1 className=" text-6xl content-center text-c00 w-full">
                     PEP Website
                 </h1>
             </center>
@@ -21,7 +21,7 @@ export default function f(){
             <div className="">
                 {/* Game */}
                 <center>
-                    <div className=" border-c0 border-[1px] object-right object-scale-down">
+                    <div className=" border-c00 border-[1px] object-right object-scale-down">
                         <iframe width="100%" height="500px" frameBorder="0" src="https://www.pepgeorgia.org/"></iframe>
                     </div>
                 </center>

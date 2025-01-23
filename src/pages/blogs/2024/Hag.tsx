@@ -13,13 +13,13 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-screen">
+                <h1 className=" text-6xl content-center text-c00 w-screen">
                     Hak
                 </h1>
             </center>
             <PageMargin>
             
-            <div className="text-c0 overflow-auto">
+            <div className="text-c00 overflow-auto">
             <strong>A 4 dimensional chess game</strong><br></br>
             <TextSubsection title="Setup">
                 Player 0 could be determined via Nan or coin flip, if use Nan, who wins is player 0

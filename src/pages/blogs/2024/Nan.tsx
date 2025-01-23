@@ -12,13 +12,13 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-screen">
+                <h1 className=" text-6xl content-center text-c00 w-screen">
                     NAN
                 </h1>
             </center>
             <PageMargin>
             
-            <div className=" text-c0 overflow-auto">
+            <div className=" text-c00 overflow-auto">
             <strong>A proposal to replace rock paper scissors</strong><br></br>
             <br></br>
             Rock paper scissors is a game between N players with a random result determining some victors, requiring only hands.

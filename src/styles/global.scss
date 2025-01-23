@@ -1,12 +1,33 @@
-/*TODO
-Collapse :root and :root{@media} into [div.light , div.dark]
-ColorNomenclature
--percentage of {mode: darkness|lightness} in /16 + ColorName
+/*
+ColorNomenclature when access using tailwind, by default, only intensity
+    c{HueName}s{saturation}i{intensity}
+
+Color translation system of light and dark:
+Each color have: 
+[0] hue
+    I decided to use English for hue
+[1] relative lightness as fraction of the page's lightness, there are 256 levels (0-255), 
+    I decide to divide the levels into 4 sublevels (marked by their lowest level), their labels are in hex:
+        0x
+        4x
+        8x
+        cx
+    Note: level 80 is directly in the middle, while 8x have proximity to the page color
+    Note (where to put the color): 
+        //Let the grid be 0,0 where pure white, 1,0 where pure hue, 1,1 where pure black
+        //the color should lie on the line from
+        The hsl's second value is always 100%
 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../public/Roboto-Medium.ttf') format('truetype'); /* Regular font */
+    font-weight: normal;
+    font-style: normal;
+}
 @font-face {
     font-family: 'Montserrat';
     src: url('../../public/Montserrat-VariableFont_wght.ttf') format('truetype'); /* Regular font */
@@ -14,47 +35,27 @@ ColorNomenclature
     font-style: normal;
 }
 * {
-    font-family: 'Montserrat', sans-serif;
-    // @apply font-mono text-slate-900;
-    // color: blue($color: #000000);
+    font-family: 'Montserrat', serif;
 }
+.light, div.light > * {
+    --color-00: hsl(0, 0%, 0%);
+    --color-40: #2d2f34;
+    --color-80: #787882;
+    --color-c0: #e2e8f0;
+    --color-ff: #ffffff;
 
-// a {
-//     color: blue;
-// }
-// :root {
-//     //if user like light theme, these variables are applied, check tailwind config
-//     //naming based of degree of purity to mode and color bias base16
-//     // --color-f: #ffffff;
-    
-//     // --color-fBlue: #3c8bc1;
-//     // --color-0: #000000;
-//     // --color-4: #282c2d;
+    --color-golda0: hsl(50, 100%, 40%);
+    --color-goldc0: hsl(51, 100%, 75%);
 
-//     @media (prefers-color-scheme: dark){ //if user like dark theme
-//         --color-f: #000000;
-//         --color-8Blue: #0000ff;
-//         --color-0: #fffdfd;
-//         --color-4: #bfd5df;
-//         --color-cBlue: #00438a;
-//     }
-// }
-//change mode not working, tutorial: https://www.geeksforgeeks.org/how-to-select-all-child-elements-recursively-using-css/
-.light, div.light > * { //if the user manually override to light theme
-    //mono
-    --color-0: #000000;
-    --color-4: #424546;
-    --color-8: #7d7d7d;
-    --color-c: #e1e1e1;
-    --color-10: #ffffff;
-    //blues
-    --color-4Blue: #00517c;
-    --color-8Blue: #00b3ff;
-    --color-cBlue: #85e9ff;
-    //clears
-    --color-4Clear: #000000c2;
-    --color-8Clear: #00000083;
-    --color-cClear: #0000003c;
+    --color-blue80: hsl(240, 100%, 50%);
+    --color-blue40: hsl(240, 100%, 25%);
+    --color-bluec0: hsl(240, 100%, 75%);
+
+
+    --color-red80: #803434;
+    --color-red40: #411818;
+    --color-redc0: #c84747;
+
 
     &::-webkit-scrollbar {
         width: 50px; // Width of the scrollbar
@@ -74,21 +75,25 @@ ColorNomenclature
 // ::-webkit-scrollbar {
 //     width: 50px; // Width of the scrollbar
 // }
-.dark, div.dark > * { //if the user manually override to dark theme
-    //mono
-    --color-0: #fffdfd;
-    --color-4: #bfd5df;
-    --color-8: #787881;
-    --color-c: #353437;
-    --color-10: #000000;
-    //blues
-    --color-4Blue: #7dd2ff;
-    --color-8Blue: #00b7ff;
-    --color-cBlue: #00438a;
-    //clears
-    --color-4Clear: #ffffffc2;
-    --color-8Clear: #ffffff83;
-    --color-cClear: #ffffff3c;
+.dark, div.dark > * { 
+    --color-00: #ffffff;
+    --color-40: #e2e8f0;
+    --color-80: #787882;
+    --color-c0: #2d2f34;
+    --color-ff: #000000;
+
+    --color-golda0: #685a1a;
+    --color-goldc0: #494114;
+
+    --color-blue80: hsl(240, 100%, 50%);
+    --color-blue40: hsl(240, 100%, 75%);
+    --color-bluec0: hsl(240, 100%, 25%);
+
+    --color-red40: #c82323;
+    --color-red80: #881b1b;
+    --color-redc0: #470e0e;
+
+
 
     &::-webkit-scrollbar {
         width: 10px; // Width of the scrollbar
