@@ -4,7 +4,7 @@ export default function Text(
     }
 ){
     return (
-        <div className=" text-c4">
+        <div className=" text-c40">
             {props.children}
         </div>
     )

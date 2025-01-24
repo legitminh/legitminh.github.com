@@ -7,10 +7,10 @@ export default function FileSection(
 ){
     return (
         <div className="" id={props.title}>
-            <div className=" text-c0 text-2xl">
+            <div className=" text-c00 text-2xl">
                 {props.title}
             </div>
-            <div className=" border-l-[1px] border-c8 flex flex-wrap">
+            <div className=" border-l-[1px] border-c80 flex flex-wrap">
                 {props.children}
             </div>
         </div>

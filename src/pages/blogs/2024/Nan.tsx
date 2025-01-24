@@ -12,7 +12,7 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c00 w-screen">
+                <h1 className=" text-6xl content-center text-c00 w-screen overflow-scroll">
                     NAN
                 </h1>
             </center>

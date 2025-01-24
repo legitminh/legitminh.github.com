@@ -20,7 +20,7 @@ export default function VerticalText(
         }
     }, []);
     //  translateY(-${Math.round(dimensions.width / 2 )-16 }px)
-    let title = (<div className=" w-max text-c0 uppercase" ref={targetRef} style={{ transform: `translateX(-${Math.round(dimensions.width / 2 )-16 }px) rotate(-90deg)`}} >{props.children}</div>);
+    let title = (<div className=" w-max text-c00 uppercase" ref={targetRef} style={{ transform: `translateX(-${Math.round(dimensions.width / 2 )-16 }px) rotate(-90deg)`}} >{props.children}</div>);
     return (
         // <div className=" -rotate-90 -translate-x-[160px]">
         //     {props.children}
