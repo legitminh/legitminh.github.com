@@ -12,7 +12,7 @@ export default function VerticalText(
 
     useLayoutEffect(() => {
         if (targetRef.current) {
-        let current = targetRef.current as HTMLElement;
+        const current = targetRef.current as HTMLElement;
         setDimensions({
             width: current.offsetWidth,
             height: current.offsetHeight
@@ -20,7 +20,7 @@ export default function VerticalText(
         }
     }, []);
     //  translateY(-${Math.round(dimensions.width / 2 )-16 }px)
-    let title = (<div className=" w-max text-c00 uppercase" ref={targetRef} style={{ transform: `translateX(-${Math.round(dimensions.width / 2 )-16 }px) rotate(-90deg)`}} >{props.children}</div>);
+    const title = (<div className=" w-max text-c00 uppercase" ref={targetRef} style={{ transform: `translateX(-${Math.round(dimensions.width / 2 )-16 }px) rotate(-90deg)`}} >{props.children}</div>);
     return (
         // <div className=" -rotate-90 -translate-x-[160px]">
         //     {props.children}

@@ -1,8 +1,8 @@
 import Navbar from "@/app/components/Nav/Navbar"
-import ThemeWrapper from "@/app/components/ThemeWrapper"
+// import ThemeWrapper from "@/app/components/ThemeWrapper"
 import Head from "next/head"
 import PageMargin from "@/app/components/PageMargin"
-import Link from "next/link"
+// import Link from "next/link"
 export default function f(){
     return(
         <div>

@@ -1,11 +1,11 @@
 import Navbar from "@/app/components/Nav/Navbar"
-import ThemeWrapper from "@/app/components/ThemeWrapper"
+// import ThemeWrapper from "@/app/components/ThemeWrapper"
 import Text from "@/app/components/Text/Text"
 import FileSection from "@/app/components/FileSection"
 import TextImageLink from "@/app/components/About/TextImageLink"
 export default function f(){
     return(
-        <ThemeWrapper>
+        <div>
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
 
@@ -54,7 +54,7 @@ export default function f(){
             </div>
 
             </div>
-        </ThemeWrapper>
+        </div>
         
     )
 }

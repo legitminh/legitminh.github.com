@@ -5,12 +5,12 @@ import Navbar from "@/app/components/Nav/Navbar";
 import Head from "next/head";
 // import Image from "next/image";
 // import { useContext } from "react";
-import ThemeWrapper from "@/app/components/ThemeWrapper";
+// import ThemeWrapper from "@/app/components/ThemeWrapper";
 // import ToggleTheme from "@/components/ToggleTheme";
 import PageMargin from "@/app/components/PageMargin";
 export default function Home() {
     return (
-        <ThemeWrapper>
+        <>
             <Head>
                 <title>Home</title>
                 {/* <meta
@@ -51,8 +51,7 @@ export default function Home() {
                     </div>
                 </PageMargin>
             </div>
-            
-        </ThemeWrapper>
+        </>
 
     )
 }

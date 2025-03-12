@@ -1,13 +1,10 @@
 import Navbar from "@/app/components/Nav/Navbar"
-import ThemeWrapper from "@/app/components/ThemeWrapper"
-import Text from "@/app/components/Text/Text"
-import FileSection from "@/app/components/FileSection"
-import TextImageLink from "@/app/components/About/TextImageLink"
+// import ThemeWrapper from "@/app/components/ThemeWrapper"
 import Head from "next/head"
 import PageMargin from "@/app/components/PageMargin"
 export default function f(){
     return(
-        <ThemeWrapper>
+        <>
              <Head>
                 <title>Youtube Randomize</title>
             </Head>
@@ -25,7 +22,7 @@ export default function f(){
                 Update 2024: new embed source.
             </PageMargin>
             </div>
-        </ThemeWrapper>
+        </>
         
     )
 }

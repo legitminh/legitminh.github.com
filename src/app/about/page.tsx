@@ -3,7 +3,6 @@ import ThemeWrapper from "@/app/components/ThemeWrapper";
 import TextImageLink from "@/app/components/About/TextImageLink";
 import FileSection from "@/app/components/FileSection";
 import PageMargin from "@/app/components/PageMargin";
-import Text from "@/app/components/Text/Text";
 const Contacts = (
     <FileSection title="Contacts">
         <TextImageLink  
