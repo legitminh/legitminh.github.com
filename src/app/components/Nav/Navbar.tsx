@@ -65,13 +65,13 @@ export default function Navbar() {
           {n:"SPACE COLONIZER", l:"https://minhn.itch.io/space-colonizer"},
         ]}
       ]},
-      {n:"BLOG", l: "/blog", c: [
-        {n:"2023", l: "/blog", c:[
+      {n:"BLOG", l: "/blogs", c: [
+        {n:"2023", l: "/blogs#2023", c:[
           {n:"10 GRADE CAMPAIGN", l: "/blogs/10gradeCampaign"},
           {n:"9 GRADE CAMPAIGN", l: "/blogs/9gradeCampaign"},
           {n:"∞", l: "/blogs/infinity"}
         ]}, 
-        {n:"2024", l: "/blog", c:[
+        {n:"2024", l: "/blogs#2024", c:[
           {n:"NAN", l: "/blogs/2024/Nan", c:[
             {n:"PROOF", l:"/blogs/2024/Nan.Proof"}
           ]},
