@@ -78,8 +78,11 @@ export default function Navbar() {
           {n:"HAK", l:"/blogs/2024/Hag"},
           {n:"DETACHMENT", l:"/blogs/2024/Detachment"}
 
+        ]},
+        {n:"2025", l: "/blogs#2025", c:[
+          {n:"NHSGA", l: "/blogs/2025/Nhsga"},
+          {n:"CHOCOLATE FONDUE", l: "/blogs/2025/ChocolateFondue"}
         ]}
-        
 
 
       ]}

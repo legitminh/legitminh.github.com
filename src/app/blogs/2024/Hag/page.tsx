@@ -13,8 +13,8 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c00 w-screen overflow-scroll">
-                    Hak
+                <h1 className=" text-6xl content-center text-c00 w-full">
+                    Hag
                 </h1>
             </center>
             <PageMargin>

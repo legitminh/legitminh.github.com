@@ -12,12 +12,12 @@ export default function f(){
             <Navbar></Navbar>
             <div className={ " bg-transparent h-max mt-[2rem]"}>
             <center>
-                <h1 className=" text-6xl content-center text-c00 w-screen overflow-scroll">
+                <h1 className=" text-6xl content-center text-c00 w-full">
                     DetachmentTheory
                 </h1>
             </center>
             <PageMargin>
-<div className="text-c00 overflow-auto">
+<div className="text-c00">
 Written in 2024.12.21 <br></br>
 Revised 2024.12.29<br></br>
 <br></br>

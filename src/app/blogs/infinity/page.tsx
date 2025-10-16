@@ -15,13 +15,12 @@ export default function f(){
             <div className={ " bg-transparent h-max mt-[2rem]"}>
 
             <center>
-                <h1 className=" text-6xl content-center text-c0 w-screen">
+                <h1 className=" text-6xl content-center text-c00 w-full">
                     Infinity? ∞
                 </h1>
             </center>
             <PageMargin>
-                <div className=" [&>*]:text-c0">
-                <p >
+                <p className=" text-c00" >
                     Infinity is quite an outlandish subject, we hardly ever needed it and speculations remains philosophical, this is an unpolished opinion piece I wrote in a few minutes to discuss with my discord friends
                     <br></br> 
                     <br></br>
@@ -31,7 +30,6 @@ export default function f(){
                     <br></br>
                     But this is just spontanious thinking, I didn&apos;t take into account cardinality, which said integers = naturals, and more, so IDK.
                 </p>
-                </div>
             </PageMargin>
             </div>
         </>

@@ -16,7 +16,22 @@ export default function Projects() {
                 </h1>
                 </center>
                 <PageMargin>
-                    
+<FileSection title="2025">
+
+<TextImageLink
+    img="/images/projects/EmptySet.png"
+    link="https://minhn.itch.io/journeytothenest"
+    text="Journey to the nest"
+    description="NHSGA Game Demo"
+/> 
+{/* <TextImageLink
+    img="/images/projects/EmptySet.png"
+    link="https://minhn.itch.io/journeytothenest"
+    text="Beyond Hope"
+    description="NHSGA Game"
+/>  */}
+</FileSection>
+
 <FileSection title="2024">
 <TextImageLink
     img="/images/projects/astro-fest.png"
