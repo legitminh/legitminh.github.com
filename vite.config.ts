@@ -12,9 +12,7 @@ export default defineConfig({
 			},
 
 			// Use adapter-static for static site builds (GitHub Pages).
-			adapter: adapter({
-				fallback: '404.html'
-			})
+			adapter: adapter()
 		})
 	],
 
