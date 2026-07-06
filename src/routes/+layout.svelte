@@ -1,29 +1,90 @@
 <script lang="ts">
-    import favicon from '$lib/assets/favicon.svg';
-    import "../app.css";
-    let { children } = $props();
-    // import { onMount } from "svelte";
-    import { set_min_box } from "$lib/stores/layout";
-    import { set_theme_id } from "$lib/stores/theme";
-    set_min_box(48);
-    set_theme_id(1);
+  import { get } from "svelte/store";
+  import { onMount } from 'svelte';
 
-    console.log("layout.svelte");
-    // function update() {
-    //     set_min_box(Math.min(window.innerWidth, window.innerHeight) / 40);
-    // }
+  import favicon from '$lib/assets/favicon.svg';
+  import '../app.css';
+  let { children } = $props();
 
-    // onMount(() => {
-    //     update();
+  import { set_min_box } from '$lib/stores/layout';
+  import { set_theme_id } from '$lib/stores/theme';
+  set_min_box(48);
+  set_theme_id(0);
 
-    //     window.addEventListener("resize", update);
+  console.log('layout.svelte');
 
-    //     return () => window.removeEventListener("resize", update);
-    // });
+  // key handlers[
+  import {
+    add_key_strokes,
+    add_input_token,
+    reset_key_strokes,
+    _list_key_strokes,
+    _list_input_token,
+    _available_keys,
+    base_conversion_s_endian
+  } from '$lib/stores/input';
+  add_input_token({
+    priority: 0,
+    on_close: () => {
+      console.log('action 0 triggered');
+    }
+  });
+  add_input_token({
+    priority: 1,
+    on_close: () => {
+      console.log('action 1 triggered');
+    }
+  });
+  add_input_token({
+    priority: 2,
+    on_close: () => {
+      console.log('action 2 triggered');
+    }
+  });
+  add_input_token({
+    priority: 3,
+    on_close: () => {
+      console.log('action 3 triggered');
+    }
+  });
+  add_input_token({
+    priority: 4,
+    on_close: () => {
+      console.log('action 4 triggered');
+    }
+  });
+  onMount(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      add_key_strokes(event.key);
+    };
+
+    const handleKeyUp = () => {
+      // console.log(get(_list_key_strokes), get(_available_keys), get(_list_input_token));
+      if (get(_list_key_strokes).length === 0) {
+        return;
+      }
+      if (get(_available_keys).length ** get(_list_key_strokes).length < get(_list_input_token).length) {
+        return;
+      }
+      const chosen_action = base_conversion_s_endian(get(_list_key_strokes), get(_available_keys).length);
+      if (chosen_action >= get(_list_input_token).length) {
+        alert('invalid key strokes');
+        reset_key_strokes();
+        return;
+      }
+      // viable action
+      get(_list_input_token)[chosen_action].on_close();
+      // correct stroke count
+      reset_key_strokes();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+  });
 </script>
 
 <svelte:head>
-<link rel="icon" href={favicon} />
+  <link rel="icon" href={favicon} />
 </svelte:head>
 
 {@render children()}
