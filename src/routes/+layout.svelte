@@ -1,5 +1,6 @@
 <script lang="ts">
     import favicon from '$lib/assets/favicon.svg';
+    import "../app.css";
     let { children } = $props();
     // import { onMount } from "svelte";
     // import { set_min_box } from "$lib/stores/layout";
