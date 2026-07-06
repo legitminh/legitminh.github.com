@@ -1,18 +1,44 @@
 import { writable } from "svelte/store";
 
-const _min_box = writable(0);
+interface Theme {
+  name: string;
+  name_to_color: Record<string,string>
+}
 
-export const theme = {
-    subscribe: _min_box.subscribe
+export const themes: Theme[] = [
+  {
+    name: "dark",
+    name_to_color: {
+      "--primary": "#000000"
+    }
+  },
+  {
+    name: "light",
+    name_to_color: {
+      "--primary": "#ffffff"
+    }
+  },
+];
+
+const _theme_id = writable(0);
+
+export const theme_id = {
+    subscribe: _theme_id.subscribe
 };
 
-export function set_theme(value: number) {
-    _min_box.set(value);
+export function set_theme_id(value: number) {
+    _theme_id.set(value);
 
     if (typeof document !== "undefined") {
+        const theme = themes.at(value);
+        if (theme === undefined) {
+            throw new Error(`Theme with id ${value} does not exist`);
+        }
+        for (const [key, value] of Object.entries(theme.name_to_color)) {
         document.documentElement.style.setProperty(
-            "--min-box",
-            `${value}px`
+          key,
+          value
         );
+      };
     }
 }

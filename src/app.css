@@ -1,6 +1,6 @@
 :root {
   /* 16 is placeholder */
-  --min-box: 16px;
+  --min-box: 0px;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
@@ -9,11 +9,4 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.text-normal {
-  font-size: calc(var(--min-box) * 0.8);
-  line-height: var(--min-box);
-  font-family: var(--font-mono);
-  color: var(--primary);
 }
