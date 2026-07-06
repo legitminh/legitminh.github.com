@@ -103,33 +103,3 @@ export const get_key_route = (value: InputToken | null) => {
 
     return key_route;
 };
-
-//   () => {
-//     const handleKeyDown = (event: KeyboardEvent) => {
-//       add_key_strokes(event.key);
-//     };
-
-//     const handleKeyUp = () => {
-//       // console.log(list_key_strokes);
-//       if (list_key_strokes.length === 0) {return;}
-//       if (available_keys.length ** list_key_strokes.length < list_input_token.length){return;}
-//       // correct stroke count
-//       reset_key_strokes();
-//       const chosen_action = base_conversion_s_endian(list_key_strokes,available_keys.length)
-//       if (chosen_action >= list_input_token.length) {
-//         alert("invalid key strokes");
-//         return;
-//       }
-//       // viable action
-//       list_input_token[chosen_action].on_close();
-//     };
-
-//     window.addEventListener("keydown", handleKeyDown);
-//     window.addEventListener("keyup", handleKeyUp);
-//     return () => {
-//       window.removeEventListener("keydown", handleKeyDown);
-//       window.removeEventListener("keyup", handleKeyUp);
-//     };
-//   };
-
-

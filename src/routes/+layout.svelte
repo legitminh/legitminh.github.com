@@ -16,43 +16,13 @@
   // key handlers[
   import {
     add_key_strokes,
-    add_input_token,
     reset_key_strokes,
     _list_key_strokes,
     _list_input_token,
     _available_keys,
     base_conversion_s_endian
   } from '$lib/stores/input';
-  add_input_token({
-    priority: 0,
-    on_close: () => {
-      console.log('action 0 triggered');
-    }
-  });
-  add_input_token({
-    priority: 1,
-    on_close: () => {
-      console.log('action 1 triggered');
-    }
-  });
-  add_input_token({
-    priority: 2,
-    on_close: () => {
-      console.log('action 2 triggered');
-    }
-  });
-  add_input_token({
-    priority: 3,
-    on_close: () => {
-      console.log('action 3 triggered');
-    }
-  });
-  add_input_token({
-    priority: 4,
-    on_close: () => {
-      console.log('action 4 triggered');
-    }
-  });
+
   onMount(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       add_key_strokes(event.key);
