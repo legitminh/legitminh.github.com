@@ -27,20 +27,20 @@
     add_input_token(myToken); 
   }
 
-  function unregister() { remove_input_token(myToken); }
+  function unregister() { 
+    remove_input_token(myToken); 
+    console.log('interactable positional unregistered', myToken);
+  }
 
   // get position
   let element: HTMLButtonElement;
 
-  let display_num = $state("");
+  // let display_num = $state("");
   function updatePriority() {
     const rect = element.getBoundingClientRect();
-
-    // myToken.priority =
-    //     rect.top * window.innerWidth +
-    //     rect.left;
+    myToken.priority = rect.top * window.innerWidth + rect.left; //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
     update_list_input_token(myToken, rect.top * window.innerWidth + rect.left );
-    display_num = `${Math.round(rect.top * window.innerWidth + rect.left)}`;
+    // display_num = `${Math.round(rect.top * window.innerWidth + rect.left)}`;
   }
   
 
@@ -62,5 +62,5 @@
 </script>
 
 <button bind:this={element} onclick={on_close} use:visibility={{onFullyVisible: register, onHidden: unregister}} class="inline cursor-pointer">
-  {$list_key_route.get(myToken)?.join('')}:{@render children?.()}[{display_num}]
+  {$list_key_route.get(myToken)?.join('')}{@render children?.()}
 </button>

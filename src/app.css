@@ -7,6 +7,9 @@
   --font-mono: var(--font-geist-mono);
 
   --primary: "#000000";
+  justify-content: left;
+  align-items: left;
+  text-align: left; 
 }
 /* 
 .char {
@@ -34,4 +37,8 @@ button {
   padding: 0;
   font-size: calc(var(--min-box) * 0.8);
   background: none;
+  align-items: left;
+  justify-content: left;
+  text-align: left; 
+
 }

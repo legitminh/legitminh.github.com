@@ -24,7 +24,6 @@ const update_list_key_route = () => {
   for (const token of get(_list_input_token)) {
     keyRoutes.set(token, get_key_route(token));
   }
-  console.log("update_list_key_route", keyRoutes, get(_list_input_token));
   _list_key_route.set(keyRoutes);
 };
 
@@ -100,6 +99,7 @@ export const remove_input_token = (value: InputToken) => {
     _list_input_token.update(prev => prev.filter((t) => t !== value));
 
     update_list_key_route();
+    console.log('removed input token', get(_list_input_token));
 };
 
 export const base_conversion_s_endian = (initial: number[], base: number) => {

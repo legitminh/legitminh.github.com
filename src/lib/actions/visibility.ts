@@ -13,7 +13,6 @@ export function visibility(
       ([entry]) => {
           if (entry.intersectionRatio === 1) {
               onFullyVisible?.();
-              console.log(entry.intersectionRatio);
           }
           else{
               onHidden?.();
