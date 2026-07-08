@@ -24,7 +24,7 @@ const update_list_key_route = () => {
   for (const token of get(_list_input_token)) {
     keyRoutes.set(token, get_key_route(token));
   }
-  console.log("update_list_key_route", keyRoutes);
+  console.log("update_list_key_route", keyRoutes, get(_list_input_token));
   _list_key_route.set(keyRoutes);
 };
 
@@ -35,6 +35,9 @@ export type InputToken = { // token is binary component of input space that can 
 
 export const _available_keys = writable<string[]>([
     "1", "2", "3", "4",
+    // "q", "w", "e", "r",
+    // "a", "s", "d", "f",
+    // "z", "x", "c", "v",
 ]);
 
 const compare_input_token = (a: InputToken, b: InputToken) => a.priority - b.priority
@@ -67,7 +70,6 @@ export const add_input_token = (value: InputToken) => {
         insert_sorted<InputToken>(next, value, compare_input_token);
         return next;
     });
-
     update_list_key_route();
 };
 
@@ -114,9 +116,9 @@ const get_num_key_strokes = (list_input_token: InputToken[], available_keys: str
 }
 
 
-const num_key_strokes_needed = (() => {
+const num_key_strokes_needed = () => {
     return get_num_key_strokes(get(_list_input_token), get(_available_keys))
-})();
+};
 
 const base_diffusion_s_endian = (initial: number, base: number) => {
     const result: number[] = [];
@@ -124,7 +126,7 @@ const base_diffusion_s_endian = (initial: number, base: number) => {
         result.push(initial % base);
         initial = Math.floor(initial / base);
     }
-    while (result.length < num_key_strokes_needed) {
+    while (result.length < num_key_strokes_needed()) {
         result.push(0);
     }
     return result;

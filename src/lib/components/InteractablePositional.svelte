@@ -19,25 +19,20 @@
   } from '$lib/stores/input';
 
   const myToken : InputToken = {priority: 100, on_close: on_close};
-  onMount(() => {
-    console.log('interactable mounted');
-    add_input_token(myToken);
-  });
 
   // visibility management
   import { visibility } from "$lib/actions/visibility";
 
   function register() {
-      add_input_token(myToken);
+    add_input_token(myToken); 
   }
 
-  function unregister() {
-      remove_input_token(myToken);
-  }
+  function unregister() { remove_input_token(myToken); }
 
   // get position
   let element: HTMLButtonElement;
 
+  let display_num = $state("");
   function updatePriority() {
     const rect = element.getBoundingClientRect();
 
@@ -45,6 +40,7 @@
     //     rect.top * window.innerWidth +
     //     rect.left;
     update_list_input_token(myToken, rect.top * window.innerWidth + rect.left );
+    display_num = `${Math.round(rect.top * window.innerWidth + rect.left)}`;
   }
   
 
@@ -66,5 +62,5 @@
 </script>
 
 <button bind:this={element} onclick={on_close} use:visibility={{onFullyVisible: register, onHidden: unregister}} class="inline cursor-pointer">
-  {$list_key_route.get(myToken)?.join('')}{@render children?.()}
+  {$list_key_route.get(myToken)?.join('')}:{@render children?.()}[{display_num}]
 </button>
