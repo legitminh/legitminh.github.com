@@ -1,4 +1,6 @@
 :root {
+  --font-geist-mono: 'Geist Mono', monospace;
+
   /* 16 is placeholder */
   --min-box: 0px;
   --font-sans: var(--font-geist-sans);
@@ -8,5 +10,19 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  line-height: var(--min-box);
+  font-size: calc(var(--min-box) * 0.8);
+}
+
+button {
+  font-family: var(--font-mono);
+  border: none;
+  /* box-sizing: border-box;  */
+  line-height: var(--min-box);
+  padding: 0;
+  font-size: calc(var(--min-box) * 0.8);
+  background: none;
 }

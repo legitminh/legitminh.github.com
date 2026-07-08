@@ -9,14 +9,14 @@
 -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  let { children, on_close, priority} = $props();
+  let { children, on_close} = $props();
 
   import {
     add_input_token,
     list_key_route,
     type InputToken,
   } from '$lib/stores/input';
-  const myToken : InputToken = {priority: priority ?? 0, on_close: on_close};
+  const myToken : InputToken = {priority: 0, on_close: on_close};
   onMount(() => {
     console.log('interactable mounted');
     add_input_token(myToken);

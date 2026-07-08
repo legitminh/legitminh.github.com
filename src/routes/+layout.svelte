@@ -3,6 +3,7 @@
   import { onMount } from 'svelte';
 
   import favicon from '$lib/assets/favicon.svg';
+  import Grid from '$lib/components/Grid.svelte';
   import '../app.css';
   let { children } = $props();
 
@@ -57,4 +58,22 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+<div class="app-shell">
+  <Grid />
+  <div class="page-content">
+    {@render children()}
+  </div>
+</div>
+
+<style>
+  .app-shell {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 1;
+  }
+</style>
