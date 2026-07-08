@@ -2,6 +2,7 @@
   import { min_box, set_min_box } from '$lib/stores/layout';
   import { theme_id } from '$lib/stores/theme';
   import InteractablePositional from '$lib/components/InteractablePositional.svelte';
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 </script>
 
 <span
@@ -29,4 +30,5 @@
   console.log('interactable positional closed');
 }}>hi?</InteractablePositional>
 hisjf
+<ThemeToggle></ThemeToggle>
 </div>

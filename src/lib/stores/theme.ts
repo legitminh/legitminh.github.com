@@ -9,13 +9,17 @@ export const themes: Theme[] = [
   {
     name: "dark",
     name_to_color: {
-      "--primary": "#000000"
+      "--primary": "#000000",
+      "--secondary": "#1a1a1a",
+      "--background": "#ffffff",
     }
   },
   {
     name: "light",
     name_to_color: {
-      "--primary": "#ffffff"
+      "--primary": "#ffffff",
+      "--secondary": "#f0f0f0",
+      "--background": "#000000",
     }
   },
 ];

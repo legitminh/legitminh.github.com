@@ -44,7 +44,7 @@
 
 <style>
   .grid-layer {
-    position: absolute;
+    position: fixed;
     inset: 0;
     overflow: hidden;
     pointer-events: none;
@@ -52,7 +52,7 @@
   }
 
   .grid-cell {
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
