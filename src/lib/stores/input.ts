@@ -20,11 +20,12 @@ const get_key_route = (value: InputToken | null) => {
 };
 
 const update_list_key_route = () => {
-    const keyRoutes = new Map<InputToken, string[]>();
-    for (const token of get(_list_input_token)) {
-        keyRoutes.set(token, get_key_route(token));
-    }
-    _list_key_route.set(keyRoutes);
+  const keyRoutes = new Map<InputToken, string[]>();
+  for (const token of get(_list_input_token)) {
+    keyRoutes.set(token, get_key_route(token));
+  }
+  console.log("update_list_key_route", keyRoutes);
+  _list_key_route.set(keyRoutes);
 };
 
 export type InputToken = { // token is binary component of input space that can be on or off over the timeline

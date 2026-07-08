@@ -24,5 +24,5 @@
 </script>
 
 <button onclick={on_close} class="inline cursor-pointer">
-  {$list_key_route.get(myToken)?.join('')}{@render children?.()}
+  {$list_key_route.get(myToken)?.join('')}:{@render children?.()}
 </button>

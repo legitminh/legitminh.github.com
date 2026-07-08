@@ -8,6 +8,15 @@
 
   --primary: "#000000";
 }
+/* 
+.char {
+    display: inline-flex;
+    width: var(--min-box);
+    height: var(--min-box);
+
+    align-items: center;
+    justify-content: center;
+} */
 
 body {
   margin: 0;
