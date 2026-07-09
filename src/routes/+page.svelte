@@ -5,6 +5,9 @@
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 </script>
 
+<span>
+  website under constuction.
+</span>
 <span
   style="line-height: var(--min-box); font-size: calc(var(--min-box) * 0.8); color: var(--primary);"
   >({$min_box}|{$theme_id})</span
