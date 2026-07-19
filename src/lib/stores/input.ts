@@ -34,9 +34,9 @@ export type InputToken = { // token is binary component of input space that can 
 
 export const _available_keys = writable<string[]>([
     "1", "2", "3", "4",
-    // "q", "w", "e", "r",
-    // "a", "s", "d", "f",
-    // "z", "x", "c", "v",
+    "q", "w", "e", "r",
+    "a", "s", "d", "f",
+    "z", "x", "c", "v",
 ]);
 
 const compare_input_token = (a: InputToken, b: InputToken) => a.priority - b.priority
