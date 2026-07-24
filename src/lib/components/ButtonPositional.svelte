@@ -40,5 +40,9 @@
 </script>
 
 <InteractablePositional bind:this={positionalInstance} on_close={on_close}>
-  {entered_key_route}|{pending_key_route}:{@render children?.()}
+  <span style={ `background-color: --var(primary);` }>{
+    entered_key_route
+  }</span>
+  {pending_key_route}
+  {@render children?.()}
 </InteractablePositional>
