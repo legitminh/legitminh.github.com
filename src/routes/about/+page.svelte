@@ -1,1 +1,21 @@
-<h1>Welcome to ABOUT</h1>
+<script lang="ts">
+  import Link from "$lib/components/Link.svelte";
+
+
+</script>
+<div class="document">
+  <Link href="/">
+    home
+  </Link>
+  <div>
+the *polar bear meme* is entertaining while *caftaphata* is art. articulated by @complexroll7031, "i don't understand, but i think that actually enhances the experience," the *polar bear meme* is enjoyable yet low in meaning. pure entertainment entertains via a pathway such as optimal arousal theory where the incomprehensible bizarre is preferable to doing chem homework. after viewing caftaphata, @itcat-c6k remarked "...degree in music, another in computer science, i'm a polyglot and sincerely: you've just made one of the most incredible language and music representation systems ... this is not only genius, but shows such an \[un\]nimagible depth of dedication that almost brought me to tears... this makes you an incredible human. it brings me joy to know that ... you exists." in essence, art evoke both cognition and emotion (aka cogniemotion), enhancing both. define a new perspective as a revision of interpretation of past inputs / experiences (agentic) and of future input. the major difference in consumption is the gain of new perspective, which is, partly inherent to the work, due to its combination with the observer. as an artist, i can attest on the retrospective value of creating art. in translating a fragment of the mind into a system of meaning, the act of "note-taking" enlightens the cogniemotion to the cognition, which improves decision making and prediction accuracy. when i draw, imagination became concrete, which makes revisions much easier. on the other hand, entertainment doesn't have as pronounced of an impact on growth of cognition, especially not to the extent of self-actualization; limited to skill improvement.
+
+the reason art is more powerful with a human component -- creator or references -- is due to the ease of cogniemotion appeal. when listening to ai generated music, the depth of imagination ends at the silicon board. on the other hand, rapid as wildfires by yupeng chen (genshin game music) engender imagination of grand performance, chinese culture, the characters and narrative behind the art. the art references much more than its medium while entertainment is self-contained.
+
+let define life's fullness using the depth of experiences (some variance of cogniemotion over time). you do not, technically, need a highly artistic environment to live the fullest life. an environment can sustain inexpensive novel first-hand attainment of science and emotion supersedes one of second-hand art consumption. however, art is efficient to gain cogniemotion understading, which correlates to learn rate and variance. secondly, art is information dense thanks to references to existing biological and cultural basis of cogniemotion; often more practical than traveling, networking, or learning. moreover, art is a vehicle for imagination and experimentation, making life fuller through experiences through the mind's "vacation". when playing wuthering waves, the strategic interaction of audio and visuals build a coherent fictional "place" that cannot be felt outside of the game. various cogniemotion states -- aesthetic frisson or fictional suffering sympathy-- cannot be easily reached without art. the cogniemotion variance enables and its embodiment in an artistic medium facilitates self-understanding/realization through formalized record-keeping. while it is not impossible for a person to understand themself through linguistic retrospection, brain scans, and assessments; current science are far from grasphing the sophistication of the cogniemotion, where art's approximative power shines. in practice, you need art to live a fullest life.
+  </div>
+</div>
+<style>
+  .document{
+  }
+</style>

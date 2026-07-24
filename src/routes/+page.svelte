@@ -3,6 +3,7 @@
   import { theme_id } from '$lib/stores/theme';
   import ButtonPositional from '$lib/components/ButtonPositional.svelte';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+  import Link from '$lib/components/Link.svelte';
 </script>
 
 <span>
@@ -13,6 +14,7 @@
   >({$min_box}|{$theme_id})</span
 >
 <div style="flex-direction: column; display: flex;">
+<Link href="/about">about</Link>
 <ButtonPositional on_close={() => {
   console.log('interactable 0 closed');
 }}>buton0</ButtonPositional>
