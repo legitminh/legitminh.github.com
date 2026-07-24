@@ -7,11 +7,6 @@
   import '../app.css';
   let { children } = $props();
 
-  import { set_min_box } from '$lib/stores/layout';
-  import { set_theme_id } from '$lib/stores/theme';
-  set_min_box(48);
-  set_theme_id(0);
-
   console.log('layout.svelte');
 
   // key handlers[
