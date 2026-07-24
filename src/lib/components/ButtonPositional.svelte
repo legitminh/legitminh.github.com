@@ -40,5 +40,5 @@
 </script>
 
 <InteractablePositional bind:this={positionalInstance} on_close={on_close}>
-  {entered_key_route}|4{pending_key_route}:{@render children?.()}
+  {entered_key_route}|{pending_key_route}:{@render children?.()}
 </InteractablePositional>
