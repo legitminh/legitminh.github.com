@@ -8,6 +8,7 @@
   import {
     _available_keys,
     map_numeric_route,
+    list_input_token,
     list_key_strokes,
     type InputToken,
   } from '$lib/stores/input';
@@ -37,12 +38,34 @@
       (index) => { return get(_available_keys)[index]; }
     ).join('')
   );
+  const min_step_hsl = 61; // smallest hsl degree
+  let my_hsl = $derived(
+    ($list_input_token.findIndex((token) => token === positionalInstance?.myToken) * min_step_hsl) % 360
+  );
 </script>
 
 <InteractablePositional bind:this={positionalInstance} on_close={on_close}>
-  <span style={ `background-color: --var(primary);` }>{
-    entered_key_route
-  }</span>
-  {pending_key_route}
-  {@render children?.()}
+  <div class="button">
+    <div class="enter_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
+      {entered_key_route}
+    </div>
+    <div class="pending_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.25);`}>
+      {pending_key_route}
+    </div>
+    <div style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.125);`}>
+      {@render children?.()}
+    </div>
+  </div>
 </InteractablePositional>
+
+<style>
+.button {
+  display: flex;
+}
+/* .enter_route {
+  opacity: 0.5;
+}
+.pending_route{
+  opacity: 0.5;
+} */
+</style>

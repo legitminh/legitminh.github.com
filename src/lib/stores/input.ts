@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 import { get } from "svelte/store";
 import { insert_sorted } from "$lib/utils/iterable";
+import { subscribe } from "diagnostics_channel";
 
 // below: list of key routes for each input token, where each key route is a list of keys that can be pressed to activate the input token
 export const _map_key_route = writable<Map<InputToken, string[]>>(new Map());
@@ -89,6 +90,10 @@ export const reset_key_strokes = () => {
 };
 
 export const _list_input_token = writable<InputToken[]>([]);
+
+export const list_input_token = {
+  subscribe: _list_input_token.subscribe,
+}
 
 export const add_input_token = (value: InputToken) => {
     _list_input_token.update(prev => {
