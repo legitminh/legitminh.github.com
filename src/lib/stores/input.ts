@@ -2,29 +2,49 @@ import { writable } from "svelte/store";
 import { get } from "svelte/store";
 import { insert_sorted } from "$lib/utils/iterable";
 
-export const _list_key_route = writable<Map<InputToken, string[]>>(new Map());
+// below: list of key routes for each input token, where each key route is a list of keys that can be pressed to activate the input token
+export const _map_key_route = writable<Map<InputToken, string[]>>(new Map());
 
-export const list_key_route = {
-    subscribe: _list_key_route.subscribe,
+export const _map_numeric_route = writable<Map<InputToken, number[]>>(new Map());
+
+export const map_key_route = {
+    subscribe: _map_key_route.subscribe,
+}
+
+export const map_numeric_route = {
+    subscribe: _map_numeric_route.subscribe,
+}
+
+const get_numeric_route = (value: InputToken | null) => {
+    if (value === null) { return [-1]; }
+    const numeric_index = get(_list_input_token).findIndex((token) => token === value);
+    if (numeric_index === -1) { return [-1]; } //non-viable input token
+    const numeric_route = base_diffusion_s_endian(numeric_index, get(_available_keys).length);
+
+    return numeric_route;
 }
 
 const get_key_route = (value: InputToken | null) => {
-    if (value === null) { return ["-1"]; }
-    const numeric_index = get(_list_input_token).findIndex((token) => token === value);
-    if (numeric_index === -1) { return ["-1"]; } //non-viable input token
-    const numeric_route = base_diffusion_s_endian(numeric_index, get(_available_keys).length);
+    const numeric_route = get_numeric_route(value);
     const key_route = Array.from(numeric_route, (v) => get(_available_keys)[v]);
-    // console.log(numeric_route, available_keys, key_route);
 
     return key_route;
 };
 
-const update_list_key_route = () => {
+const update_map_key_route = () => {
   const keyRoutes = new Map<InputToken, string[]>();
   for (const token of get(_list_input_token)) {
     keyRoutes.set(token, get_key_route(token));
   }
-  _list_key_route.set(keyRoutes);
+  _map_key_route.set(keyRoutes);
+};
+
+const update_map_numeric_route = () => {
+  const numericRoutes = new Map<InputToken, number[]>();
+  for (const token of get(_list_input_token)) {
+    numericRoutes.set(token, get_numeric_route(token));
+  }
+  _map_numeric_route.set(numericRoutes);
 };
 
 export type InputToken = { // token is binary component of input space that can be on or off over the timeline
@@ -34,18 +54,23 @@ export type InputToken = { // token is binary component of input space that can 
 
 export const _available_keys = writable<string[]>([
     "1", "2", "3", "4",
-    "q", "w", "e", "r",
-    "a", "s", "d", "f",
-    "z", "x", "c", "v",
+    // "q", "w", "e", "r",
+    // "a", "s", "d", "f",
+    // "z", "x", "c", "v",
 ]);
 
 const compare_input_token = (a: InputToken, b: InputToken) => a.priority - b.priority
 
 export const _list_key_strokes = writable<number[]>([]);
 
+export const list_key_strokes = {
+    subscribe: _list_key_strokes.subscribe,
+}
+
 export const set_key_strokes = (value: number[]) => {
   _list_key_strokes.set(value);
-  update_list_key_route();
+  update_map_key_route();
+  update_map_numeric_route();
 }
 
 export const add_key_strokes = (value: string) => {
@@ -53,12 +78,14 @@ export const add_key_strokes = (value: string) => {
     if (index_value != -1) {
         _list_key_strokes.update((prev: number[]) => [...prev, index_value]);
     }
-    update_list_key_route();
+    update_map_key_route();
+    update_map_numeric_route();
 };
 
 export const reset_key_strokes = () => {
     set_key_strokes([]);
-    update_list_key_route();
+    update_map_key_route();
+    update_map_numeric_route();
 };
 
 export const _list_input_token = writable<InputToken[]>([]);
@@ -69,7 +96,8 @@ export const add_input_token = (value: InputToken) => {
         insert_sorted<InputToken>(next, value, compare_input_token);
         return next;
     });
-    update_list_key_route();
+    update_map_key_route();
+    update_map_numeric_route();
 };
 
 export const update_list_input_token = (value: InputToken, new_priority: number) => {
@@ -90,15 +118,16 @@ export const update_list_input_token = (value: InputToken, new_priority: number)
         return next;
     });
 
-    update_list_key_route();
-
+    update_map_key_route();
+    update_map_numeric_route();
     return nextList;
 };
 
 export const remove_input_token = (value: InputToken) => {
     _list_input_token.update(prev => prev.filter((t) => t !== value));
 
-    update_list_key_route();
+    update_map_key_route();
+    update_map_numeric_route();
     console.log('removed input token', get(_list_input_token));
 };
 

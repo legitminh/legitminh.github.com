@@ -16,7 +16,16 @@
     list_key_route,
     type InputToken,
   } from '$lib/stores/input';
-  const myToken : InputToken = {priority: priority ?? 0, on_close: on_close};
+
+  const myToken: InputToken = {
+    priority: 0,
+    on_close: () => on_close?.(),
+  };
+
+  $effect(() => {
+    myToken.priority = priority ?? 0;
+  });
+
   onMount(() => {
     console.log('interactable mounted');
     add_input_token(myToken);

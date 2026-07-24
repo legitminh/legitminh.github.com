@@ -14,21 +14,29 @@
     add_input_token,
     remove_input_token,
     update_list_input_token,
-    list_key_route,
     type InputToken,
   } from '$lib/stores/input';
 
-  const myToken : InputToken = {priority: 100, on_close: on_close};
+  export const myToken: InputToken = {
+    priority: 100,
+    on_close: () => on_close?.(),
+  };
 
   // visibility management
   import { visibility } from "$lib/actions/visibility";
 
+  let isRegistered = false;
+
   function register() {
-    add_input_token(myToken); 
+    if (isRegistered) return;
+    isRegistered = true;
+    add_input_token(myToken);
   }
 
-  function unregister() { 
-    remove_input_token(myToken); 
+  function unregister() {
+    if (!isRegistered) return;
+    isRegistered = false;
+    remove_input_token(myToken);
     console.log('interactable positional unregistered', myToken);
   }
 
@@ -45,6 +53,8 @@
   
 
   onMount(() => {
+      register();
+
       const resizeObserver = new ResizeObserver(updatePriority);
       resizeObserver.observe(element);
       
@@ -54,6 +64,7 @@
       window.addEventListener("resize", updatePriority);
 
       return () => {
+          unregister();
           window.removeEventListener("scroll", updatePriority);
           window.removeEventListener("resize", updatePriority);
       };
@@ -62,5 +73,5 @@
 </script>
 
 <button bind:this={element} onclick={on_close} use:visibility={{onFullyVisible: register, onHidden: unregister}} class="inline cursor-pointer">
-  {$list_key_route.get(myToken)?.join('')}{@render children?.()}
+  {@render children?.()}
 </button>
