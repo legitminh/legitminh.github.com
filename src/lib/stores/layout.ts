@@ -44,5 +44,4 @@ export function set_min_box(value: number) {
     applyMinBoxToDom(value);
 }
 
-console.log("hi");
 applyMinBoxToDom(get(_min_box));

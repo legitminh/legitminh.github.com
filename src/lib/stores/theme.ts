@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 
 interface Theme {
   name: string;
@@ -24,16 +24,24 @@ export const themes: Theme[] = [
   },
 ];
 
-const _theme_id = writable(0);
+const DEFAULT_THEME_ID = 0;
+const KEY_THEME_ID = "theme_id";
 
-export const theme_id = {
-    subscribe: _theme_id.subscribe
-};
+function read_stored_theme_id() {
+  if (typeof window === "undefined"){
+    return;
+  }
+  const value = window.sessionStorage.getItem(KEY_THEME_ID);
+  const parsed_value = Number(value);
 
-export function set_theme_id(value: number) {
-    _theme_id.set(value);
+  if (parsed_value < 0 || !Number.isFinite(parsed_value)) {
+    return;
+  }
+  return parsed_value;
+}
 
-    if (typeof document !== "undefined") {
+function apply_theme_to_dom(value: number) {
+  if (typeof document !== "undefined") {
         const theme = themes.at(value);
         if (theme === undefined) {
             throw new Error(`Theme with id ${value} does not exist`);
@@ -46,3 +54,19 @@ export function set_theme_id(value: number) {
       };
     }
 }
+const _theme_id = writable(read_stored_theme_id() ?? DEFAULT_THEME_ID);
+
+export const theme_id = {
+    subscribe: _theme_id.subscribe
+};
+
+export function set_theme_id(value: number) {
+    _theme_id.set(value);
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(KEY_THEME_ID, `${value}`)
+    }
+    apply_theme_to_dom(value);
+}
+
+console.log('hi');
+apply_theme_to_dom(get(_theme_id));
