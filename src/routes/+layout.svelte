@@ -18,6 +18,8 @@
     _available_keys,
     base_conversion_s_endian
   } from '$lib/stores/input';
+  import { set_theme_id, theme_id } from "$lib/stores/theme";
+  import { set_min_box, min_box } from "$lib/stores/layout";
 
   onMount(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -46,6 +48,9 @@
 
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
+
+    set_min_box($min_box);
+    set_theme_id($theme_id);
   });
 </script>
 

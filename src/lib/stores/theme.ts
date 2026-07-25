@@ -1,4 +1,4 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 
 interface Theme {
   name: string;
@@ -67,6 +67,3 @@ export function set_theme_id(value: number) {
     }
     apply_theme_to_dom(value);
 }
-
-console.log('hi');
-apply_theme_to_dom(get(_theme_id));
