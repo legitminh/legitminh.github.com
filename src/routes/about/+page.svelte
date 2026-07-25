@@ -17,5 +17,7 @@ let define life's fullness using the depth of experiences (some variance of cogn
 </div>
 <style>
   .document{
+    display: flex;
+    flex-direction: column;
   }
 </style>

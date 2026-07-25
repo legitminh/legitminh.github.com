@@ -32,6 +32,7 @@ body {
   font-family: var(--font-mono);
   line-height: var(--min-box);
   font-size: calc(var(--min-box) * 0.8);
+  
 }
 
 button {
