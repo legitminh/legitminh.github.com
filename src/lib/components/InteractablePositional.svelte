@@ -1,5 +1,5 @@
 <!-- 
- * InteractablePositional component
+ * InteractablePositional component is an interactable that only exists if it is visible!
  * 
  * This component is used to create an interactable element which have its position acting as the priority of the input token. The higher the position, the higher the priority. The lower the position, the lower the priority.
  * It takes in the following props:
@@ -8,6 +8,7 @@
 -->
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { state_viewport } from '$lib/stores/camera.svelte'
   let { children, on_close} = $props();
 
   import {
@@ -37,7 +38,6 @@
     if (!isRegistered) return;
     isRegistered = false;
     remove_input_token(myToken);
-    console.log('interactable positional unregistered', myToken);
   }
 
   // get position
@@ -45,10 +45,15 @@
 
   // let display_num = $state("");
   function updatePriority() {
-    const rect = element.getBoundingClientRect();
-    myToken.priority = rect.top * window.innerWidth + rect.left; //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
-    update_list_input_token(myToken, rect.top * window.innerWidth + rect.left );
-    // display_num = `${Math.round(rect.top * window.innerWidth + rect.left)}`;
+    if (state_viewport.world){
+      const rect = element.getBoundingClientRect();
+      const world_rect = state_viewport.world?.getBoundingClientRect();
+      myToken.priority = (rect.top - world_rect.top) * window.innerWidth 
+        + (rect.left - rect.top - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
+      update_list_input_token(myToken, rect.top * window.innerWidth + rect.left);
+    }
+    console.log("all interactble positional priority change due to screen rescaling!")
+    
   }
   
 

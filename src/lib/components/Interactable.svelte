@@ -9,11 +9,12 @@
 -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  let { children, on_close, priority} = $props();
+  
+  let { children = undefined, on_close, priority} = $props();
 
   import {
     add_input_token,
-    list_key_route,
+    map_key_route,
     type InputToken,
   } from '$lib/stores/input';
 
@@ -27,11 +28,14 @@
   });
 
   onMount(() => {
-    console.log('interactable mounted');
     add_input_token(myToken);
   });
+
+  let element: HTMLButtonElement;
 </script>
 
-<button onclick={on_close} class="inline cursor-pointer">
-  {$list_key_route.get(myToken)?.join('')}:{@render children?.()}
-</button>
+{#if children}
+  <button bind:this={element} onclick={on_close} class="inline cursor-pointer">
+    {@render children?.()}
+  </button>
+{/if}
