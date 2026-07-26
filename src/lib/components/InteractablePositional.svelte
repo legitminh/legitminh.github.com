@@ -49,7 +49,7 @@
       const rect = element.getBoundingClientRect();
       const world_rect = state_viewport.world?.getBoundingClientRect();
       myToken.priority = (rect.top - world_rect.top) * window.innerWidth 
-        + (rect.left - rect.top - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
+        + (rect.left - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
       update_list_input_token(myToken, rect.top * window.innerWidth + rect.left);
     }
     console.log("all interactble positional priority change due to screen rescaling!")
