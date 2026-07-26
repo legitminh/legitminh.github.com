@@ -8,13 +8,11 @@
 -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { state_viewport } from '$lib/stores/camera.svelte'
   let { children, on_close} = $props();
 
   import {
     add_input_token,
     remove_input_token,
-    update_list_input_token,
     type InputToken,
   } from '$lib/stores/input';
 
@@ -25,6 +23,7 @@
 
   // visibility management
   import { visibility } from "$lib/actions/visibility";
+  import Interactable from './Interactable.svelte';
 
   let isRegistered = false;
 
@@ -41,42 +40,25 @@
   }
 
   // get position
-  let element: HTMLButtonElement;
+  let element: Interactable;
 
   // let display_num = $state("");
-  function updatePriority() {
-    if (state_viewport.world){
-      const rect = element.getBoundingClientRect();
-      const world_rect = state_viewport.world?.getBoundingClientRect();
-      myToken.priority = (rect.top - world_rect.top) * window.innerWidth 
-        + (rect.left - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
-      update_list_input_token(myToken, rect.top * window.innerWidth + rect.left);
-    }
-    console.log("all interactble positional priority change due to screen rescaling!")
-    
-  }
   
 
   onMount(() => {
       register();
-
-      const resizeObserver = new ResizeObserver(updatePriority);
-      resizeObserver.observe(element);
-      
-      updatePriority();
-
-      window.addEventListener("scroll", updatePriority, { passive: true });
-      window.addEventListener("resize", updatePriority);
-
       return () => {
           unregister();
-          window.removeEventListener("scroll", updatePriority);
-          window.removeEventListener("resize", updatePriority);
       };
       
   });
 </script>
 
-<button bind:this={element} onclick={on_close} use:visibility={{onFullyVisible: register, onHidden: unregister}} class="inline cursor-pointer">
+<!-- <button bind:this={element} onclick={on_close} use:visibility={{onFullyVisible: register, onHidden: unregister}} class="inline cursor-pointer">
   {@render children?.()}
-</button>
+</button> -->
+<Interactable on_close={on_close} bind:this={element} >
+  <div use:visibility={{onFullyVisible: register, onHidden: unregister}}>
+    {@render children?.()}
+  </div>
+</Interactable>

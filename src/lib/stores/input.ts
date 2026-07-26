@@ -103,7 +103,7 @@ export const add_input_token = (value: InputToken) => {
     });
     update_map_key_route();
     update_map_numeric_route();
-    console.log('add_list_input_token', get(_list_input_token))
+    // console.log('add_list_input_token', get(_list_input_token))
 };
 
 export const update_list_input_token = (value: InputToken, new_priority: number) => {
@@ -131,7 +131,7 @@ export const update_list_input_token = (value: InputToken, new_priority: number)
 
 export const remove_input_token = (value: InputToken) => {
     _list_input_token.update(prev => prev.filter((t) => t !== value));
-    console.log('remove_list_input_token', get(_list_input_token))
+    // console.log('remove_list_input_token', get(_list_input_token))
     update_map_key_route();
     update_map_numeric_route();
 };

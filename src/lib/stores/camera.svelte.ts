@@ -27,6 +27,7 @@ export const update_viewport = () => {
       / viewport_height
       / get(min_box));
     state_viewport.y = Math.min(state_viewport.y, state_viewport.world_height - 1);
+    console.log(state_viewport.world_height);
   }
 };
 

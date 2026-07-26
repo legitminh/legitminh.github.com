@@ -10,13 +10,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   
-  let { children = undefined, on_close, priority} = $props();
+  let { children = undefined, on_close, priority = undefined} = $props();
 
   import {
     add_input_token,
-    map_key_route,
+    update_list_input_token,
     type InputToken,
   } from '$lib/stores/input';
+  import { state_viewport } from '$lib/stores/camera.svelte';
 
   const myToken: InputToken = {
     priority: 0,
@@ -27,8 +28,30 @@
     myToken.priority = priority ?? 0;
   });
 
+  const is_positional_priority = $derived(priority === undefined);
+
+  function update_priority() {
+    if (is_positional_priority && state_viewport.world){
+      const rect = element.getBoundingClientRect();
+      const world_rect = state_viewport.world?.getBoundingClientRect();
+      myToken.priority = (rect.top - world_rect.top) * window.innerWidth 
+        + (rect.left - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
+      update_list_input_token(myToken, rect.top * window.innerWidth + rect.left);
+    }
+    console.log("all interactble positional priority change due to screen rescaling!")
+  }
+
   onMount(() => {
+    const resizeObserver = new ResizeObserver(update_priority);
+    resizeObserver.observe(element);
+
     add_input_token(myToken);
+    window.addEventListener("scroll", update_priority, { passive: true });
+    window.addEventListener("resize", update_priority);
+    return () => {
+      window.removeEventListener("scroll", update_priority);
+      window.removeEventListener("resize", update_priority);
+    }
   });
 
   let element: HTMLButtonElement;
