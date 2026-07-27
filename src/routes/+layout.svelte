@@ -17,9 +17,9 @@
   import { set_theme_id, theme_id } from "$lib/stores/theme";
   import Camera from "$lib/components/Camera.svelte";
   import ScrollIndicator from "$lib/components/ScrollIndicator.svelte";
+  import { update_viewport } from "$lib/stores/camera.svelte";
 
   onMount(() => {
-    console.log("layout mounted");
     // #region key events
     const handleKeyDown = (event: KeyboardEvent) => {
       add_key_strokes(event.key);
@@ -58,12 +58,12 @@
       }
     }, { passive: false });
 
-    // #region load store effects
+    // #region activate store ui effects
     min_box.set(min_box.value);
     set_theme_id($theme_id);
 
     // #endregion
-
+    update_viewport();
   });
 </script>
 

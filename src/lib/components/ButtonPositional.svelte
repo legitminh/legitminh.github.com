@@ -1,4 +1,5 @@
 <!-- 
+  button that displays key route and only exist if visible
 -->
 <script lang="ts">
   let { children, on_close } = $props();

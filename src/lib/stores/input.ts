@@ -96,7 +96,10 @@ export const list_input_token = {
 }
 
 export const add_input_token = (value: InputToken) => {
-    if (get(_list_input_token).findIndex((v) => v===value) !== -1) return; //if already exist
+    if (get(_list_input_token).findIndex((v) => v===value) !== -1) {
+      console.warn("attempted to add children already exist");
+      return; //if already exist
+    }
     _list_input_token.update(prev => {
         const next = [...prev];
         insert_sorted<InputToken>(next, value, compare_input_token);
@@ -104,7 +107,7 @@ export const add_input_token = (value: InputToken) => {
     });
     update_map_key_route();
     update_map_numeric_route();
-    // console.log('add_list_input_token', get(_list_input_token))
+    console.log('add_list_input_token', get(_list_input_token))
 };
 
 export const update_list_input_token = (value: InputToken, new_priority: number) => {
@@ -133,7 +136,7 @@ export const update_list_input_token = (value: InputToken, new_priority: number)
 
 export const remove_input_token = (value: InputToken) => {
     _list_input_token.update(prev => prev.filter((t) => t !== value));
-    // console.log('remove_list_input_token', get(_list_input_token))
+    console.log('remove_list_input_token', get(_list_input_token))
     update_map_key_route();
     update_map_numeric_route();
 };

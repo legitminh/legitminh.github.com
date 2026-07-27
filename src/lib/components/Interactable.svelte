@@ -12,6 +12,7 @@
   
   import {
     add_input_token,
+    remove_input_token,
     update_list_input_token,
     type InputToken,
   } from '$lib/stores/input';
@@ -43,7 +44,7 @@
         (rect.top - world_rect.top) * window.innerWidth 
         + (rect.left - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
       update_list_input_token(myToken, myToken.priority);
-      console.log("all interactble positional priority change due to screen rescaling!", myToken.priority)
+      // console.log("all interactble positional priority change due to screen rescaling!", myToken.priority)
     }
   }
 
@@ -57,6 +58,7 @@
     return () => {
       window.removeEventListener("scroll", update_priority);
       window.removeEventListener("resize", update_priority);
+      if (myToken) remove_input_token(myToken);
     }
   });
 

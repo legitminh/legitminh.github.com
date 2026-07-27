@@ -20,19 +20,14 @@
   import { visibility } from "$lib/actions/visibility";
   import Interactable from './Interactable.svelte';
 
-  let isRegistered = false;
   let { children, on_close, myToken = $bindable<InputToken>() } = $props();
 
   function register() {
-    if (isRegistered) return;
-    if (!myToken) return;
-    isRegistered = true;
+    if (!myToken) return; 
     add_input_token(myToken);
   }
 
   function unregister() {
-    if (!isRegistered) return;
-    isRegistered = false;
     if (myToken) remove_input_token(myToken);
   }
 
