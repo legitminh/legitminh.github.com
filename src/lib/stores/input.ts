@@ -55,9 +55,9 @@ export type InputToken = { // token is binary component of input space that can 
 
 export const _available_keys = writable<string[]>([
     "1", "2", "3", "4",
-    // "q", "w", "e", "r",
-    // "a", "s", "d", "f",
-    // "z", "x", "c", "v",
+    "q", "w", "e", "r",
+    "a", "s", "d", "f",
+    "z", "x", "c", "v",
 ]);
 
 const compare_input_token = (a: InputToken, b: InputToken) => a.priority - b.priority
@@ -96,6 +96,7 @@ export const list_input_token = {
 }
 
 export const add_input_token = (value: InputToken) => {
+    if (get(_list_input_token).findIndex((v) => v===value) !== -1) return; //if already exist
     _list_input_token.update(prev => {
         const next = [...prev];
         insert_sorted<InputToken>(next, value, compare_input_token);
@@ -103,7 +104,7 @@ export const add_input_token = (value: InputToken) => {
     });
     update_map_key_route();
     update_map_numeric_route();
-    // console.log('add_list_input_token', get(_list_input_token))
+    console.log('add_list_input_token', get(_list_input_token))
 };
 
 export const update_list_input_token = (value: InputToken, new_priority: number) => {
@@ -126,6 +127,7 @@ export const update_list_input_token = (value: InputToken, new_priority: number)
 
     update_map_key_route();
     update_map_numeric_route();
+    // console.log('update_list_input_token', get(_list_input_token))
     return nextList;
 };
 

@@ -27,8 +27,8 @@ export const update_viewport = () => {
       / min_box.value
     );
     state_viewport.y = Math.max(0,Math.min(state_viewport.y, state_viewport.world_height - 1));
-    console.log($state.snapshot(min_box.value),viewport_height,state_viewport.world.getBoundingClientRect().height )
-    console.log("loc",state_viewport.y,"/",state_viewport.world_height);
+    // console.log($state.snapshot(min_box.value),viewport_height,state_viewport.world.getBoundingClientRect().height )
+    // console.log("loc",state_viewport.y,"/",state_viewport.world_height);
   }
 };
 
@@ -36,7 +36,7 @@ export const page_down = () => {
   update_viewport(); //this updates before paging down to prevent situation of world dom internal changing between screen resizes
   state_viewport.y += 1;
   state_viewport.y = Math.min(state_viewport.y, state_viewport.world_height - 1);
-  console.log("downing!", min_box.value, state_viewport.y, state_viewport.world_height);
+  // console.log("downing!", min_box.value, state_viewport.y, state_viewport.world_height);
 }
 export const page_up = () => {
   update_viewport();

@@ -8,7 +8,6 @@
 -->
 <script lang="ts">
   import { onMount } from 'svelte';
-  let { children, on_close} = $props();
 
   import {
     add_input_token,
@@ -16,19 +15,17 @@
     type InputToken,
   } from '$lib/stores/input';
 
-  export const myToken: InputToken = {
-    priority: 100,
-    on_close: () => on_close?.(),
-  };
 
   // visibility management
   import { visibility } from "$lib/actions/visibility";
   import Interactable from './Interactable.svelte';
 
   let isRegistered = false;
+  let { children, on_close, myToken = $bindable<InputToken>() } = $props();
 
   function register() {
     if (isRegistered) return;
+    if (!myToken) return;
     isRegistered = true;
     add_input_token(myToken);
   }
@@ -36,11 +33,8 @@
   function unregister() {
     if (!isRegistered) return;
     isRegistered = false;
-    remove_input_token(myToken);
+    if (myToken) remove_input_token(myToken);
   }
-
-  // get position
-  let element: Interactable;
 
   // let display_num = $state("");
   
@@ -57,7 +51,7 @@
 <!-- <button bind:this={element} onclick={on_close} use:visibility={{onFullyVisible: register, onHidden: unregister}} class="inline cursor-pointer">
   {@render children?.()}
 </button> -->
-<Interactable on_close={on_close} bind:this={element} >
+<Interactable on_close={on_close} bind:myToken={myToken}>
   <div use:visibility={{onFullyVisible: register, onHidden: unregister}}>
     {@render children?.()}
   </div>

@@ -14,9 +14,9 @@
   } from '$lib/stores/input';
   import { get } from 'svelte/store';
 
-  let positionalInstance = $state<{ myToken?: InputToken } | undefined>();
+  let positionalToken = $state<InputToken | undefined>();
   let my_numeric_route : number[] = $derived(
-    $map_numeric_route.get(positionalInstance?.myToken as InputToken) ?? []
+    $map_numeric_route.get(positionalToken as InputToken) ?? []
   );
   let partial_index = $derived(
     (() => {
@@ -40,11 +40,11 @@
   );
   const min_step_hsl = 61; // smallest hsl degree
   let my_hsl = $derived(
-    ($list_input_token.findIndex((token) => token === positionalInstance?.myToken) * min_step_hsl) % 360
+    ($list_input_token.findIndex((token) => token === positionalToken) * min_step_hsl) % 360
   );
 </script>
 
-<InteractablePositional bind:this={positionalInstance} on_close={on_close}>
+<InteractablePositional bind:myToken={positionalToken} on_close={on_close}>
   <div class="button">
     <div class="enter_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
       {entered_key_route}
@@ -52,6 +52,7 @@
     <div class="pending_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.25);`}>
       {pending_key_route}
     </div>
+    <!-- {positionalToken?.priority} -->
     <div style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.125);`}>
       {@render children?.()}
     </div>

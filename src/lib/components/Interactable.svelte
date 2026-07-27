@@ -10,8 +10,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   
-  let { children = undefined, on_close, priority = undefined} = $props();
-
   import {
     add_input_token,
     update_list_input_token,
@@ -19,31 +17,39 @@
   } from '$lib/stores/input';
   import { state_viewport } from '$lib/stores/camera.svelte';
 
-  const myToken: InputToken = {
+  let { children = undefined, on_close, priority = undefined, myToken = $bindable<InputToken>() } = $props();
+  let internalToken = $state<InputToken>({
     priority: 0,
     on_close: () => on_close?.(),
-  };
+  });
+
+  if (!myToken) {
+    myToken = internalToken;
+  }
 
   $effect(() => {
+    if (!myToken) return;
+    myToken.on_close = () => on_close?.();
     myToken.priority = priority ?? 0;
   });
 
   const is_positional_priority = $derived(priority === undefined);
 
   function update_priority() {
-    if (is_positional_priority && state_viewport.world){
+    if (is_positional_priority && state_viewport.world && element){
       const rect = element.getBoundingClientRect();
       const world_rect = state_viewport.world?.getBoundingClientRect();
-      myToken.priority = (rect.top - world_rect.top) * window.innerWidth 
+      myToken.priority = 
+        (rect.top - world_rect.top) * window.innerWidth 
         + (rect.left - world_rect.left); //must update this so that in the case the element isn't added to the list, it will still have the correct priority when added later
-      update_list_input_token(myToken, rect.top * window.innerWidth + rect.left);
+      update_list_input_token(myToken, myToken.priority);
+      console.log("all interactble positional priority change due to screen rescaling!", myToken.priority)
     }
-    console.log("all interactble positional priority change due to screen rescaling!")
   }
 
   onMount(() => {
     const resizeObserver = new ResizeObserver(update_priority);
-    resizeObserver.observe(element);
+    if (element) resizeObserver.observe(element);
 
     add_input_token(myToken);
     window.addEventListener("scroll", update_priority, { passive: true });
@@ -54,7 +60,7 @@
     }
   });
 
-  let element: HTMLButtonElement;
+  let element = $state<HTMLButtonElement>();
 </script>
 
 {#if children}
