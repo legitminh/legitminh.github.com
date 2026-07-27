@@ -1,32 +1,12 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { min_box } from '$lib/stores/layout.svelte';
+  import { state_viewport } from '$lib/stores/camera.svelte';
 
-  let viewport_width = $state(0);
-  let viewport_height = $state(0);
-
-  const updateViewport = () => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    viewport_width = window.innerWidth;
-    viewport_height = window.innerHeight;
-  };
-
-  onMount(() => {
-    updateViewport();
-    window.addEventListener('resize', updateViewport);
-
-    return () => {
-      window.removeEventListener('resize', updateViewport);
-    };
-  });
-
-  let box = $derived(Math.max(1, min_box.value || 1));
-  let columns = $derived(Math.max(1, Math.floor(viewport_width / box)));
-  let rows = $derived(Math.max(1, Math.floor(viewport_height / box)));
-  let cells = $derived(Array.from({ length: columns * rows }, (_, index) => index + 1));
+  let columns = $derived(state_viewport.viewport_width);
+  let rows = $derived(state_viewport.viewport_height);
+  let cells = $derived(
+    Array.from({ length: columns * rows }, (_, index) => index + 1)
+  );
 </script>
 
 <div class="grid-layer" aria-hidden="true">
@@ -35,7 +15,7 @@
     {@const row = Math.floor(index / columns)}
     <div
       class="grid-cell"
-      style={`width:${box}px;height:${box}px;left:${column * box}px;top:${row * box}px;font-size:${Math.max(10, box * 0.24)}px;`}
+      style={`width:${min_box.value}px;height:${min_box.value}px;left:${column * min_box.value}px;top:${row * min_box.value}px;font-size:${Math.max(10, min_box.value * 0.24)}px;`}
     >
       {value}
     </div>

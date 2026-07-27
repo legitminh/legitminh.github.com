@@ -1,4 +1,7 @@
-<!-- Camera.svelte -->
+<!-- Camera.svelte 
+Unlocks scrollability for content within the world
+-->
+
 <script lang="ts">
   export const {children} = $props();
 
@@ -22,25 +25,31 @@
   });
 </script>
 
-<div class="viewport">
-    <div
-      bind:this={state_viewport.world}
-        class="world"
-        style:transform={`translateY(-${y_pixels.current}px)`}
-    >
-      <Interactable on_close={page_down} priority={-2}>
-        &rightarrow;
-      </Interactable>
-      <Interactable on_close={page_up} priority={-1}>
-        &leftarrow;
-      </Interactable>
-      {@render children()}
-    </div>
+<div 
+    bind:this={state_viewport.viewport}
+    class="viewport">
+  <div
+    bind:this={state_viewport.world}
+    class="world"
+    style:transform={`translateY(-${y_pixels.current}px)`}
+  >
+    <Interactable on_close={page_down} priority={-2}>
+      &rightarrow;
+    </Interactable>
+    <Interactable on_close={page_up} priority={-1}>
+      &leftarrow;
+    </Interactable>
+    {@render children()}
+  </div>
 </div>
 
 <style>
   .world {
     position: relative;
     z-index: 1;
+  }
+  .viewport {
+    height: 1000px;
+    overflow: hidden;
   }
 </style>

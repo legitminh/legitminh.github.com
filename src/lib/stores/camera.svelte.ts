@@ -10,6 +10,7 @@ import { Tween } from "svelte/motion";
 
 class StateViewport{
   viewport_width = $state(0); // min_box
+  viewport = $state<HTMLDivElement | undefined>(undefined); //div that describe the viewport the camera is capable of viewing
   viewport_height = $state(0); // min_box
   y = $state(0) // min_box_blocks
   world_height = $state(0); // height in min_box_blocks
@@ -24,14 +25,13 @@ export const y_pixels = new Tween(0, {
 });
 
 export const update_viewport = () => {
-  if (typeof window === 'undefined') {
-    return;
-  }
+  if (state_viewport.viewport && state_viewport.world){
+    const viewport_rect = state_viewport.viewport.getBoundingClientRect();
+    state_viewport.viewport_width = Math.floor(viewport_rect.width / min_box.value);
+    const viewport_height = Math.floor(viewport_rect.height / min_box.value); // in min_box rounded down
 
-  state_viewport.viewport_width = Math.floor(window.innerWidth / min_box.value);
-  const viewport_height = Math.floor(window.innerHeight / min_box.value); // min_box rounded down
-  state_viewport.viewport_height = viewport_height;
-  if (state_viewport.world){
+    state_viewport.viewport_height = viewport_height;
+  
     state_viewport.world_height = Math.ceil(
       state_viewport.world.getBoundingClientRect().height 
       / viewport_height
