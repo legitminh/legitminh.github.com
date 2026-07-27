@@ -16,8 +16,10 @@
   import { min_box } from "$lib/stores/layout.svelte";
   import { set_theme_id, theme_id } from "$lib/stores/theme";
   import Camera from "$lib/components/Camera.svelte";
+  import ScrollIndicator from "$lib/components/ScrollIndicator.svelte";
 
   onMount(() => {
+    console.log("layout mounted");
     // #region key events
     const handleKeyDown = (event: KeyboardEvent) => {
       add_key_strokes(event.key);
@@ -62,7 +64,6 @@
 
     // #endregion
 
-
   });
 </script>
 
@@ -75,12 +76,16 @@
   <Camera>
     {@render children()}
   </Camera>
+  <ScrollIndicator></ScrollIndicator>
 </div>
 
 <style>
   .app-shell {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100dvh;
     overflow: hidden;
   }
 </style>

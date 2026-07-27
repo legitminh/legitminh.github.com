@@ -3,11 +3,10 @@ Unlocks scrollability for content within the world
 -->
 
 <script lang="ts">
-  export const {children} = $props();
+  let { children } = $props();
 
-  import { update_viewport, state_viewport, page_down, page_up, y_pixels } from "$lib/stores/camera.svelte";
+  import { update_viewport, state_viewport, y_pixels } from "$lib/stores/camera.svelte";
   import { onMount } from "svelte";
-  import Interactable from "./Interactable.svelte";
   import { min_box } from "$lib/stores/layout.svelte";
 
   
@@ -33,12 +32,6 @@ Unlocks scrollability for content within the world
     class="world"
     style:transform={`translateY(-${y_pixels.current}px)`}
   >
-    <Interactable on_close={page_down} priority={-2}>
-      &rightarrow;
-    </Interactable>
-    <Interactable on_close={page_up} priority={-1}>
-      &leftarrow;
-    </Interactable>
     {@render children()}
   </div>
 </div>
@@ -49,7 +42,7 @@ Unlocks scrollability for content within the world
     z-index: 1;
   }
   .viewport {
-    height: 1000px;
+    flex-grow: 1;
     overflow: hidden;
   }
 </style>
