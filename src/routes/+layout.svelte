@@ -13,7 +13,7 @@
     _available_keys,
     base_conversion_s_endian
   } from '$lib/stores/input';
-  import { min_box, set_min_box } from "$lib/stores/layout";
+  import { min_box } from "$lib/stores/layout.svelte";
   import { set_theme_id, theme_id } from "$lib/stores/theme";
   import Camera from "$lib/components/Camera.svelte";
 
@@ -57,7 +57,7 @@
     }, { passive: false });
 
     // #region load store effects
-    set_min_box($min_box);
+    min_box.set(min_box.value);
     set_theme_id($theme_id);
 
     // #endregion

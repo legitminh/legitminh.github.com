@@ -5,8 +5,14 @@
   import { update_viewport, state_viewport, page_down, page_up, y_pixels } from "$lib/stores/camera.svelte";
   import { onMount } from "svelte";
   import Interactable from "./Interactable.svelte";
+  import { min_box } from "$lib/stores/layout.svelte";
 
   
+  $effect(() => {
+    void min_box.value; // dependency tracking
+    update_viewport();
+  });
+
   onMount(() => {
     update_viewport();
     window.addEventListener('resize', update_viewport);

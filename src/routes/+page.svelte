@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { min_box, set_min_box } from '$lib/stores/layout';
+  import { min_box } from '$lib/stores/layout.svelte';
   import { theme_id } from '$lib/stores/theme';
   import ButtonPositional from '$lib/components/ButtonPositional.svelte';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
@@ -11,7 +11,7 @@
 </span>
 <span
   style="line-height: var(--min-box); font-size: calc(var(--min-box) * 0.8); color: var(--primary);"
-  >({$min_box}|{$theme_id})</span
+  >({min_box.value}|{$theme_id})</span
 >
 <div style="flex-direction: column; display: flex;">
 <Link href="/about">about</Link>
@@ -24,11 +24,11 @@
 }}>buton1</ButtonPositional>
 
 <ButtonPositional on_close={() => {
-  set_min_box($min_box * 0.8);
+  min_box.set(min_box.value * 0.8);
 }}>downsize</ButtonPositional>
 
 <ButtonPositional on_close={() => {
-  set_min_box($min_box * 1.25);
+  min_box.set(min_box.value * 1.25);
 }}>upsize</ButtonPositional>
 
 <ButtonPositional on_close={() => {

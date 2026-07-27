@@ -1,5 +1,3 @@
-import { get, writable } from "svelte/store";
-
 const DEFAULT_MIN_BOX = 48;
 const STORAGE_KEY = "min_box";
 
@@ -28,20 +26,16 @@ function applyMinBoxToDom(value: number) {
 }
 
 const initialMinBox = readStoredMinBox() ?? DEFAULT_MIN_BOX;
-const _min_box = writable(initialMinBox);
 
-export const min_box = {
-    subscribe: _min_box.subscribe
-};
-
-export function set_min_box(value: number) {
-    _min_box.set(value);
+export const min_box = $state({
+  value: initialMinBox,
+  set: (value: number) => {
+    min_box.value = value
 
     if (typeof window !== "undefined") {
         window.sessionStorage.setItem(STORAGE_KEY, `${value}`);
     }
 
     applyMinBoxToDom(value);
-}
-
-applyMinBoxToDom(get(_min_box));
+  }
+})

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { min_box } from '$lib/stores/layout';
+  import { min_box } from '$lib/stores/layout.svelte';
 
   let viewport_width = $state(0);
   let viewport_height = $state(0);
@@ -23,7 +23,7 @@
     };
   });
 
-  let box = $derived(Math.max(1, $min_box || 1));
+  let box = $derived(Math.max(1, min_box.value || 1));
   let columns = $derived(Math.max(1, Math.floor(viewport_width / box)));
   let rows = $derived(Math.max(1, Math.floor(viewport_height / box)));
   let cells = $derived(Array.from({ length: columns * rows }, (_, index) => index + 1));
