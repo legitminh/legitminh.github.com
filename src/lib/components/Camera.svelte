@@ -26,7 +26,7 @@
     <div
       bind:this={state_viewport.world}
         class="world"
-        style:transform={`translateY(-${y_pixels()}px)`}
+        style:transform={`translateY(-${y_pixels.current}px)`}
     >
       <Interactable on_close={page_down} priority={-2}>
         &rightarrow;

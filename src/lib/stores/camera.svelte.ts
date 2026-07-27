@@ -1,4 +1,12 @@
 import { min_box } from '$lib/stores/layout.svelte';
+import {
+    cubicOut,
+    // quintOut,
+    // expoOut,
+    // quartOut,
+    // cubicInOut
+} from "svelte/easing";
+import { Tween } from "svelte/motion";
 
 class StateViewport{
   viewport_width = $state(0); // min_box
@@ -10,7 +18,10 @@ class StateViewport{
 }
 export const state_viewport = new StateViewport();
 
-export const y_pixels = () => (state_viewport.y * state_viewport.viewport_height * min_box.value);
+export const y_pixels = new Tween(0, {
+  duration: 300,
+  easing: cubicOut
+});
 
 export const update_viewport = () => {
   if (typeof window === 'undefined') {
@@ -36,12 +47,14 @@ export const page_down = () => {
   update_viewport(); //this updates before paging down to prevent situation of world dom internal changing between screen resizes
   state_viewport.y += 1;
   state_viewport.y = Math.min(state_viewport.y, state_viewport.world_height - 1);
-  // console.log("downing!", min_box.value, state_viewport.y, state_viewport.world_height);
+  y_pixels.target = state_viewport.y * state_viewport.viewport_height * min_box.value;
+  // console.log("downing!", y_pixels.target , state_viewport.y, "/", state_viewport.world_height);
 }
 export const page_up = () => {
   update_viewport();
   state_viewport.y -= 1;
   state_viewport.y = Math.max(state_viewport.y, 0);
+  y_pixels.target = state_viewport.y * state_viewport.viewport_height * min_box.value;
 }
 
 
