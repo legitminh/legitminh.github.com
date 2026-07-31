@@ -1,5 +1,3 @@
-import { writable } from "svelte/store";
-
 interface Theme {
   name: string;
   name_to_color: Record<string,string>
@@ -54,16 +52,20 @@ function apply_theme_to_dom(value: number) {
       };
     }
 }
-const _theme_id = writable(read_stored_theme_id() ?? DEFAULT_THEME_ID);
 
-export const theme_id = {
-    subscribe: _theme_id.subscribe
-};
+class StateTheme{
+  theme_id = $state(read_stored_theme_id() ?? DEFAULT_THEME_ID)
+}
+export const state_theme= new StateTheme();
 
 export function set_theme_id(value: number) {
-    _theme_id.set(value);
+    state_theme.theme_id = value;
     if (typeof window !== "undefined") {
       window.sessionStorage.setItem(KEY_THEME_ID, `${value}`)
     }
     apply_theme_to_dom(value);
+}
+
+export function get_current_theme(){
+  return themes.at(state_theme.theme_id);
 }

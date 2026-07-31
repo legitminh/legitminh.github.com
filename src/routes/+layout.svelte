@@ -14,7 +14,7 @@
     base_conversion_s_endian
   } from '$lib/stores/input';
   import { min_box } from "$lib/stores/layout.svelte";
-  import { set_theme_id, theme_id } from "$lib/stores/theme";
+  import { state_theme, set_theme_id } from "$lib/stores/theme.svelte";
   import Camera from "$lib/components/Camera.svelte";
   import ScrollIndicator from "$lib/components/ScrollIndicator.svelte";
   import { update_viewport } from "$lib/stores/camera.svelte";
@@ -60,7 +60,7 @@
 
     // #region activate store ui effects
     min_box.set(min_box.value);
-    set_theme_id($theme_id);
+    set_theme_id(state_theme.theme_id);
 
     // #endregion
     update_viewport();

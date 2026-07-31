@@ -1,6 +1,6 @@
 <script lang="ts">
   import { min_box } from '$lib/stores/layout.svelte';
-  import { theme_id } from '$lib/stores/theme';
+  import { state_theme } from '$lib/stores/theme.svelte';
   import ButtonPositional from '$lib/components/ButtonPositional.svelte';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import Link from '$lib/components/Link.svelte';
@@ -11,7 +11,7 @@
 </span>
 <span
   style="line-height: var(--min-box); font-size: calc(var(--min-box) * 0.8); color: var(--primary);"
-  >({min_box.value}|{$theme_id})</span
+  >({min_box.value}|{state_theme.theme_id})</span
 >
 <div style="flex-direction: column; display: flex;">
 <Link href="/about">about</Link>
