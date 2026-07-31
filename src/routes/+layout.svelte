@@ -48,16 +48,6 @@
     window.addEventListener('keyup', handleKeyUp);
     // #endregion
 
-    // #region mouse events
-    window.addEventListener("wheel", (e) => {
-      e.preventDefault();
-      if (e.deltaY > 0) {
-        console.log('down');
-      } else {
-        console.log('up');
-      }
-    }, { passive: false });
-
     // #region activate store ui effects
     min_box.set(min_box.value);
     set_theme_id(state_theme.theme_id);
