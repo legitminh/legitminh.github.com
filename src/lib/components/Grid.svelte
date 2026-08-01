@@ -79,18 +79,18 @@
   /**
    * Size of each "+".
    */
-  const CROSS_SIZE = $derived(min_box.value/4);
+  let CROSS_SIZE = $derived(min_box.value/4);
 
   /**
    * Thickness.
    */
-  const LINE_WIDTH = 1;
+  let LINE_WIDTH = $derived(min_box.value/32);
 
   /**
    * Colors.
    */
   let BG = $derived(get_current_theme()?.name_to_color["--background"]);
-  const FG = $derived(get_current_theme()?.name_to_color["--secondary"]);
+  let FG = $derived(get_current_theme()?.name_to_color["--secondary"]);
 
   // -----------------------------------------------------------------------
   // Grid generation
@@ -126,7 +126,6 @@
   // -----------------------------------------------------------------------
 
   function update() {
-    const spacing = min_box.value;
 
     /**
      * Used to normalize distance.
@@ -174,7 +173,7 @@
     ctx.fillStyle = BG ?? "#f0f0f0";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = FG;
+    ctx.strokeStyle = FG ?? "#f0f0f0";
     ctx.lineWidth = LINE_WIDTH;
 
     ctx.beginPath();
