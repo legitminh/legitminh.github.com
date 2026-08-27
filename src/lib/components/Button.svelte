@@ -2,9 +2,9 @@
   button that displays key route and only exist if visible
 -->
 <script lang="ts">
-  let { children, on_close } = $props();
+  let { children, on_close, priority = undefined } = $props();
 
-  import InteractablePositional from '$lib/components/InteractablePositional.svelte';
+  import Interactable from '$lib/components/Interactable.svelte';
 
   import {
     _available_keys,
@@ -45,9 +45,9 @@
   );
 </script>
 
-<InteractablePositional bind:myToken={positionalToken} on_close={on_close}>
+<Interactable bind:priority={priority} bind:myToken={positionalToken} on_close={on_close}>
   <div class="button">
-   {#if entered_key_route}
+    {#if entered_key_route}
     <div class="enter_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
       {entered_key_route}
     </div>
@@ -63,7 +63,7 @@
     </div>
     {/if}
   </div>
-</InteractablePositional>
+</Interactable>
 
 <style>
 .button {

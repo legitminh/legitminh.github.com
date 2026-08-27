@@ -18,7 +18,7 @@
   } from '$lib/stores/input';
   import { state_viewport } from '$lib/stores/camera.svelte';
 
-  let { children = undefined, on_close, priority = undefined, myToken = $bindable<InputToken>() } = $props();
+  let { children = undefined, on_close, priority = $bindable<undefined>(), myToken = $bindable<InputToken>() } = $props();
   let internalToken = $state<InputToken>({
     priority: 0,
     on_close: () => on_close?.(),

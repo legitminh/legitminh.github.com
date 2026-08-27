@@ -1,23 +1,30 @@
 <script lang="ts">
   import { page_down, page_up, state_viewport } from "$lib/stores/camera.svelte";
   import { onMount } from "svelte";
-  import Interactable from "./Interactable.svelte";
+  import Button from "./Button.svelte";
 
   onMount(() => {
      // #region mouse / touch events
 
     function wheelHandler(e: WheelEvent) {
       e.preventDefault();
-      if (e.deltaY > 0) {
-        page_down();
-      } else {
-        page_up();
-      }
+      if (Date.now() - last_scroll_time > scroll_delay) {
+          if (e.deltaY > 0) {
+            page_down();
+          } else {
+            page_up();
+          }
+          last_scroll_time = Date.now();
+        }
+      
     }
 
     // Touch-based swipe -> trigger single page up/down per gesture on mobile.
     let touchStartY: number | null = null;
     let lastTouchY: number | null = null;
+    const scroll_delay = 400; // ms
+    let last_scroll_time = 0;
+
 
     function touchStart(e: TouchEvent) {
       if (!e.touches || e.touches.length === 0) return;
@@ -49,10 +56,13 @@
       const THRESHOLD = 40; // px required to count as a page gesture
 
       if (Math.abs(delta) >= THRESHOLD) {
-        if (delta > 0) {
-          page_down();
-        } else {
-          page_up();
+        if (Date.now() - last_scroll_time > scroll_delay) {
+          if (delta > 0) {
+            page_down();
+          } else {
+            page_up();
+          }
+          last_scroll_time = Date.now();
         }
       }
 
@@ -75,12 +85,12 @@
 </script>
 {#if (state_viewport.world_height !== 1)}
 <div class="scroll">
-  <Interactable on_close={page_down} priority={-2}>
+  <Button on_close={page_down} priority={-2}>
     &downarrow;
-  </Interactable>
-  <Interactable on_close={page_up} priority={-1}>
+  </Button>
+  <Button on_close={page_up} priority={-1}>
     &uparrow;
-  </Interactable>
+  </Button>
 </div>
 {/if}
 
