@@ -9,6 +9,7 @@ export const themes: Theme[] = [
     name_to_color: {
       "--primary": "#000000",
       "--secondary": "#1a1a1a",
+      "--tertiary": "#7c7c7c",
       "--background": "#ffffff",
     }
   },
@@ -17,6 +18,7 @@ export const themes: Theme[] = [
     name_to_color: {
       "--primary": "#ffffff",
       "--secondary": "#f0f0f0",
+      "--tertiary": "#7c7c7c",
       "--background": "#000000",
     }
   },

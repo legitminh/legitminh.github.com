@@ -90,7 +90,7 @@
    * Colors.
    */
   let BG = $derived(get_current_theme()?.name_to_color["--background"]);
-  let FG = $derived(get_current_theme()?.name_to_color["--secondary"]);
+  let FG = $derived(get_current_theme()?.name_to_color["--tertiary"]);
 
   // -----------------------------------------------------------------------
   // Grid generation

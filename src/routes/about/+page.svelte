@@ -1,9 +1,10 @@
 <script lang="ts">
   import Link from "$lib/components/Link.svelte";
+  import Document from "$lib/components/scroll/vertical/Document.svelte";
 
 
 </script>
-<div class="document">
+<Document>
   <Link href="/">
     home
   </Link>
@@ -14,10 +15,6 @@ the reason art is more powerful with a human component -- creator or references 
 
 let define life's fullness using the depth of experiences (some variance of cogniemotion over time). you do not, technically, need a highly artistic environment to live the fullest life. an environment can sustain inexpensive novel first-hand attainment of science and emotion supersedes one of second-hand art consumption. however, art is efficient to gain cogniemotion understading, which correlates to learn rate and variance. secondly, art is information dense thanks to references to existing biological and cultural basis of cogniemotion; often more practical than traveling, networking, or learning. moreover, art is a vehicle for imagination and experimentation, making life fuller through experiences through the mind's "vacation". when playing wuthering waves, the strategic interaction of audio and visuals build a coherent fictional "place" that cannot be felt outside of the game. various cogniemotion states -- aesthetic frisson or fictional suffering sympathy-- cannot be easily reached without art. the cogniemotion variance enables and its embodiment in an artistic medium facilitates self-understanding/realization through formalized record-keeping. while it is not impossible for a person to understand themself through linguistic retrospection, brain scans, and assessments; current science are far from grasphing the sophistication of the cogniemotion, where art's approximative power shines. in practice, you need art to live a fullest life.
   </div>
-</div>
+</Document>
 <style>
-  .document{
-    display: flex;
-    flex-direction: column;
-  }
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page_down, page_up, state_viewport } from "$lib/stores/camera.svelte";
   import { onMount } from "svelte";
-  import Button from "./Button.svelte";
+  import Button from "../../Button.svelte";
 
   onMount(() => {
      // #region mouse / touch events

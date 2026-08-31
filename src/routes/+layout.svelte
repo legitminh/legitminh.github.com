@@ -2,7 +2,6 @@
   import { get } from "svelte/store";
   import { onMount } from 'svelte';
   import favicon from '$lib/assets/favicon.svg';
-  import Grid from '$lib/components/Grid.svelte';
   import '../app.css';
   let { children } = $props();
   import {
@@ -15,8 +14,6 @@
   } from '$lib/stores/input';
   import { min_box } from "$lib/stores/layout.svelte";
   import { state_theme, set_theme_id } from "$lib/stores/theme.svelte";
-  import Camera from "$lib/components/Camera.svelte";
-  import ScrollIndicator from "$lib/components/ScrollIndicator.svelte";
   import { update_viewport } from "$lib/stores/camera.svelte";
 
   onMount(() => {
@@ -62,11 +59,7 @@
 </svelte:head>
 
 <div class="app-shell">
-  <Grid />
-  <Camera>
-    {@render children()}
-  </Camera>
-  <ScrollIndicator></ScrollIndicator>
+  {@render children()}
 </div>
 
 <style>
