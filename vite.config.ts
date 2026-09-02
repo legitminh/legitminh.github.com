@@ -2,7 +2,13 @@ import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
+// Ensure Vite's base matches the deployed subpath. VITE uses a trailing slash for base;
+// if BASE_PATH is provided (e.g. '/archive.legitminh.github.com'), append a trailing slash for Vite.
+const basePath = process.env.BASE_PATH ?? '/';
+const viteBase = basePath === '' || basePath === '/' ? '/' : (basePath.endsWith('/') ? basePath : `${basePath}/`);
+
 export default defineConfig({
+	base: viteBase,
 	plugins: [
 		sveltekit({
 			compilerOptions: {
