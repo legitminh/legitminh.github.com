@@ -4,6 +4,7 @@
   import Document from "$lib/components/scroll/vertical/Document.svelte";
   import LineText from "$lib/components/LineText.svelte";
   import Video from "$lib/components/Video.svelte";
+  
 </script>
 <Document>
   <Link href="/">
