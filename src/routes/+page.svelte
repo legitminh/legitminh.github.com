@@ -10,9 +10,7 @@
 </script>
 <Document>
   <div class="content">
-    <span>
-      minh.website
-    </span>
+    <LineText> minh.website </LineText>
     <div style="flex-direction: column; display: flex;">
     <LineText>settings</LineText>
     <Indent>
@@ -26,10 +24,8 @@
         min_box.set(min_box.value * 1.25);
       }}>zoom in</ButtonPositional></LineText>
     </Indent>
-    <Link href="/about">about</Link>
-
-    <Link href="/project">project</Link>
-
+    <LineText><Link href="/about">about</Link></LineText>
+    <LineText><Link href="/project">project</Link></LineText>
     </div>
   </div>
 </Document>

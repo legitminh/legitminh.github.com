@@ -2,15 +2,17 @@
   let { href } = $props();
 </script>
 
-<video
-  src={href}
-  autoplay
-  muted
-  loop
-  playsinline
-  class="video"
->
-</video>
+<center class="video-container">
+  <video
+    src={href}
+    autoplay
+    muted
+    loop
+    playsinline
+    class="video"
+  >
+  </video>
+</center>
 
 <style>
   .video {
@@ -19,5 +21,8 @@
     max-width: 75vw;
     max-height: 75vh;
     object-fit: contain;
+  }
+  .video-container{
+    align-content: center;
   }
 </style>
