@@ -212,14 +212,8 @@
     mouse.y = cy - rect.top;
   }
 
-  function pointerOut(e: PointerEvent) {
+  function pointerOut() {
     // When relatedTarget is null, the pointer left the page/window.
-    if (e.relatedTarget == null) {
-      const rect = canvas.getBoundingClientRect();
-
-      mouse.x = rect.left + rect.width/2;
-      mouse.y = rect.top + rect.height/2;
-    }
   }
 
   // -----------------------------------------------------------------------
