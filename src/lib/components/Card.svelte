@@ -1,25 +1,39 @@
 <!-- A summary card with name and visualization -->
 <script lang="ts">
-  let {name, href, visualization} = $props();
+  let {name, href, visualization = null} = $props();
   import Link from "$lib/components/Link.svelte";
 </script>
+<!-- <a href={href} > -->
 <div class="card">
-  <Link href={href}>{name}</Link>
+  {#if visualization}
   <img src={visualization} alt={name}/>
+  {/if}
+  <div class="label">
+    <Link href={href}>{name}</Link>
+  </div>
 </div>
+<!-- </a> -->
 
 <style>
   img {
-    /* constraining to the card's width, not the viewport */
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    grid-area: 1 / 1;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    z-index: 0;
   }
   .card {
-    display: flex;
-    flex-direction: column;
-    /* keep a reasonable max-width for cards, measured in multiples of --min-box */
-    max-width: calc(var(--min-box) * 6);
+    position: relative;
+    display: grid;
+    width: min(calc(6 * var(--min-box)), 100%);
+    height: fit-content;
+    overflow: hidden;
     box-sizing: border-box;
+  }
+  .label {
+    grid-area: 1 / 1;
+    z-index: 1;
+    width: 100%;
+    background: hsl(from var(--background) h s l / 0.75);
   }
 </style>

@@ -15,7 +15,7 @@
   text-align: left; 
   background-color: var(--background);
   color: var(--primary);
-  word-break: break-all;
+  word-break: break-word;
 }
 /* 
 .char {

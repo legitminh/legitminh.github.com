@@ -7,8 +7,12 @@
   <Header/> 
   <div class="cards">
     <div class="interior">
+      <Card href="https://legitminh.github.io/archive.legitminh.github.com/" name="previous personal site" />
+      <Card href="https://github.com/legitminh/FocusFlow" name="focus flow" />
+      <Card href="https://minhn.itch.io/journeytothenest" name="journey to the nest" visualization="/images/projects/journey_to_the_nest.cover.png" />
+      <Card href="https://github.com/legitminh/BeyondHope" name="beyond hope" />
       <Card href="/project/astrofest" name="astrofest" visualization="/images/projects/astro-fest.png" />
-      <Card href="/project/astrofest" name="astrofest" visualization="/images/projects/astro-fest.png" />
+      <Card href="/project/net_zero_hero" name="net zero hero" visualization="/images/projects/net_zero_hero.cover.png" />
     </div>
   </div>
 
@@ -21,8 +25,9 @@
     /* ensure left and right spacing from viewport are exactly the desired value */
     padding-left: calc(var(--min-box) / 4);
     padding-right: calc(var(--min-box) / 4);
+    padding-top: calc(var(--min-box) / 4);
   }
-  .cards .interior {
+  .interior {
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--min-box) / 2);

@@ -11,7 +11,7 @@ export function visibility(
 ) {
     const observer = new IntersectionObserver(
       ([entry]) => {
-          if (entry.intersectionRatio === 1) {
+          if (entry.intersectionRatio > 0.1) {
               onFullyVisible?.();
           }
           else{

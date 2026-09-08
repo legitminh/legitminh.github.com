@@ -3,7 +3,7 @@
   import Link from "./Link.svelte";
 </script>
 <div class = "header">
-<LineText> <Link href="/"> Home</Link> </LineText>
+<LineText> <Link href="/"> home</Link> </LineText>
 </div>
 <style>
   .header {

@@ -7,19 +7,19 @@ export const themes: Theme[] = [
   {
     name: "dark",
     name_to_color: {
-      "--primary": "#000000",
-      "--secondary": "#1a1a1a",
-      "--tertiary": "#7c7c7c",
-      "--background": "#ffffff",
+      "--primary": "hsl(0, 0%, 20%)",
+      "--secondary": "hsl(0, 0%, 10%)",
+      "--tertiary": "hsl(0, 0%, 50%)",
+      "--background": "hsl(0, 0%, 100%)",
     }
   },
   {
     name: "light",
     name_to_color: {
-      "--primary": "#ffffff",
-      "--secondary": "#f0f0f0",
-      "--tertiary": "#7c7c7c",
-      "--background": "#000000",
+      "--primary": "hsl(0, 0%, 80%)",
+      "--secondary": "hsl(0, 0%, 90%)",
+      "--tertiary": "hsl(0, 0%, 50%)",
+      "--background": "hsl(0, 0%, 0%)",
     }
   },
 ];
