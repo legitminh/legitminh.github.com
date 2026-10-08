@@ -32,7 +32,7 @@
       }
       const chosen_action = base_conversion_s_endian(get(_list_key_strokes), get(_available_keys).length);
       if (chosen_action >= get(_list_input_token).length) {
-        alert('invalid key strokes');
+        // alert('invalid key strokes');
         reset_key_strokes();
         return;
       }

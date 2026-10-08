@@ -6,7 +6,6 @@
 </script>
 <Document>
   <Header/> 
-  <Video href="/videos/NetZeroHero.mp4"></Video>
-  
-  <LineText>an unpolished game I did in a few hours for Hackgwinnett gamejam. The polished game will be released in 2024.</LineText>
+  <Video href="/videos/RushE.mp4"></Video>
+  <LineText>any song can be played, including Rush E! That is, as long as you have the midi file.</LineText>
 </Document>
