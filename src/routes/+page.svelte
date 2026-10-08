@@ -26,6 +26,7 @@
     </Indent>
     <LineText><Link href="/about">about</Link></LineText>
     <LineText><Link href="/project">project</Link></LineText>
+    <LineText><Link href="/blog">blog</Link></LineText>
     </div>
   </div>
 </Document>
