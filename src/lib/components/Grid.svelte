@@ -66,11 +66,18 @@
 
   /**
    * Mouse position in canvas coordinates.
+   *
+   * Starts at the canvas center (set in rebuildGrid) so the effect is
+   * visible before the first pointer event. An off-screen sentinel would
+   * push every vertex far off-canvas, since displacement grows with distance.
    */
   const mouse = {
-    x: -10000,
-    y: -10000
+    x: 0,
+    y: 0
   };
+
+  /** Whether a real pointer position has been received yet. */
+  let has_pointer = false;
 
   // -----------------------------------------------------------------------
   // Physics parameters
@@ -103,6 +110,11 @@
 
     canvas.width = columns * spacing;
     canvas.height = rows * spacing;
+
+    if (!has_pointer) {
+      mouse.x = canvas.width / 2;
+      mouse.y = canvas.height / 2;
+    }
 
     for (let y = 0; y <= rows; y++) {
       for (let x = 0; x <= columns; x++) {
@@ -210,6 +222,7 @@
     // intercept pointer events targeted at the canvas itself.
     mouse.x = cx - rect.left;
     mouse.y = cy - rect.top;
+    has_pointer = true;
   }
 
   function pointerOut() {
