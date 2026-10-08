@@ -45,7 +45,7 @@
 <div class="button">
   <div class="route">
   {#if entered_key_route}
-  <div class="enter_route" style={`color: var(--secondary); background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
+  <div class="enter_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
     {entered_key_route}
   </div>
   {/if}
@@ -73,6 +73,7 @@
   display: flex;
   flex: none;
   white-space: nowrap;
+  color: var(--tertiary);
 }
 .content {
   /* take the remaining space and wrap its own text before forcing a line break */
