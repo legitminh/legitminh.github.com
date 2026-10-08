@@ -79,6 +79,28 @@
   /** Whether a real pointer position has been received yet. */
   let has_pointer = false;
 
+  /**
+   * The point the grid actually reacts to.
+   *
+   * It chases the mouse instead of snapping to it, moving with a speed
+   * proportional to its distance from the mouse. It slows as it closes
+   * in and never overshoots.
+   *
+   *      mouse ●
+   *             \
+   *              ○ tracker   speed = FOLLOW_RATE * distance
+   */
+  const tracker = {
+    x: 0,
+    y: 0
+  };
+
+  /** Follow rate (1/s). Higher = tighter follow. */
+  const FOLLOW_RATE = 6;
+
+  /** Timestamp of the previous frame, for frame-rate-independent physics. */
+  let last_time: number | null = null;
+
   // -----------------------------------------------------------------------
   // Physics parameters
   // -----------------------------------------------------------------------
@@ -114,6 +136,8 @@
     if (!has_pointer) {
       mouse.x = canvas.width / 2;
       mouse.y = canvas.height / 2;
+      tracker.x = mouse.x;
+      tracker.y = mouse.y;
     }
 
     for (let y = 0; y <= rows; y++) {
@@ -137,6 +161,15 @@
   // Physics
   // -----------------------------------------------------------------------
 
+  function updateTracker(dt: number) {
+    // Exact solution of dx/dt = FOLLOW_RATE * (mouse - x) over dt, so the
+    // step never overshoots regardless of frame rate.
+    const t = 1 - Math.exp(-FOLLOW_RATE * dt);
+
+    tracker.x += (mouse.x - tracker.x) * t;
+    tracker.y += (mouse.y - tracker.y) * t;
+  }
+
   function update() {
 
     /**
@@ -149,8 +182,8 @@
     const normalizer = canvas.width + canvas.height;
 
     for (const v of vertices) {
-      const dx = v.homeX - mouse.x;
-      const dy = v.homeY - mouse.y;
+      const dx = v.homeX - tracker.x;
+      const dy = v.homeY - tracker.y;
 
       const distance = Math.hypot(dx, dy);
 
@@ -201,7 +234,12 @@
     ctx.stroke();
   }
 
-  function frame() {
+  function frame(time: number) {
+    // Clamp dt so a backgrounded tab doesn't produce one huge step.
+    const dt = last_time === null ? 0 : Math.min((time - last_time) / 1000, 1 / 30);
+    last_time = time;
+
+    updateTracker(dt);
     update();
     render();
     requestAnimationFrame(frame);

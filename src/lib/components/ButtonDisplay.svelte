@@ -45,7 +45,7 @@
 <div class="button">
   <div class="route">
   {#if entered_key_route}
-  <div class="enter_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
+  <div class="enter_route" style={`color: var(--secondary); background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
     {entered_key_route}
   </div>
   {/if}
