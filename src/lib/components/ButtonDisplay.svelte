@@ -2,7 +2,7 @@
   displays the key route and content of a button given its input token
 -->
 <script lang="ts">
-  let { children = undefined, token } = $props();
+  let { children = undefined, token, flood: floods = false } = $props();
 
   import {
     _available_keys,
@@ -12,6 +12,7 @@
     type InputToken,
   } from '$lib/stores/input';
   import { get } from 'svelte/store';
+  import { flood } from '$lib/actions/flood';
 
   let my_numeric_route : number[] = $derived(
     $map_numeric_route.get(token as InputToken) ?? []
@@ -40,10 +41,14 @@
   let my_hsl = $derived(
     ($list_input_token.findIndex((t) => t === token) * min_step_hsl) % 360
   );
+  // the last key of the route is down, so this button is about to trigger
+  let is_route_complete = $derived(
+    my_numeric_route.length > 0 && partial_index === my_numeric_route.length
+  );
 </script>
 
 <div class="button">
-  <div class="route">
+  <div class="route" use:flood={{ enabled: floods, active: is_route_complete, color: `hsla(${my_hsl}, 100%, 50%, 0.75)` }}>
   {#if entered_key_route}
   <div class="enter_route" style={`background-color: hsla(${my_hsl}, 100%, 50%, 0.75);`}>
     {entered_key_route}

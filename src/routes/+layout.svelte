@@ -15,10 +15,13 @@
   import { min_box } from "$lib/stores/layout.svelte";
   import { state_theme, set_theme_id } from "$lib/stores/theme.svelte";
   import { update_viewport } from "$lib/stores/camera.svelte";
+  import FloodOverlay from "$lib/components/FloodOverlay.svelte";
 
   onMount(() => {
     // #region key events
     const handleKeyDown = (event: KeyboardEvent) => {
+      // holding a key auto-repeats keydown; only the first press is a stroke, so keys can be held indefinitely
+      if (event.repeat) return;
       // exit key clears the current key path so a mistyped sequence can be undone
       if (event.key === 'Escape') {
         reset_key_strokes();
@@ -66,6 +69,7 @@
 <div class="app-shell">
   {@render children()}
 </div>
+<FloodOverlay />
 
 <style>
   .app-shell {
