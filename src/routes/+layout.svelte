@@ -19,6 +19,11 @@
   onMount(() => {
     // #region key events
     const handleKeyDown = (event: KeyboardEvent) => {
+      // exit key clears the current key path so a mistyped sequence can be undone
+      if (event.key === 'Escape') {
+        reset_key_strokes();
+        return;
+      }
       add_key_strokes(event.key);
     };
 
