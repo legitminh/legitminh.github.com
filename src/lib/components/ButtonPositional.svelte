@@ -2,7 +2,7 @@
   button that displays key route and only exist if visible
 -->
 <script lang="ts">
-  let { children, on_close } = $props();
+  let { children, on_close, flood = false } = $props();
 
   import InteractablePositional from '$lib/components/InteractablePositional.svelte';
   import ButtonDisplay from '$lib/components/ButtonDisplay.svelte';
@@ -12,5 +12,5 @@
 </script>
 
 <InteractablePositional bind:myToken={positionalToken} on_close={on_close}>
-  <ButtonDisplay token={positionalToken} {children}/>
+  <ButtonDisplay token={positionalToken} {flood} {children}/>
 </InteractablePositional>

@@ -10,9 +10,10 @@
       <Card href="/blog/detachment" name="detachment" />
       <Card href="/blog/hag" name="hag" />
       <Card href="/blog/nan" name="nan" />
-      <Card href="/blog/infinity" name="infinity" visualization="/images/blog/infinity.png" />
-      <Card href="/blog/10_grade_campaign" name="#10 grade student council campaign" visualization="/images/avatar.jpg" />
-      <Card href="/blog/9_grade_campaign" name="#9 grade student council campaign" visualization="/images/hamiltonCampaign.png" />
+      <Card href="/blog/chocolate_fondue" name="chocolate fondue" />
+      <!-- <Card href="/blog/infinity" name="infinity" visualization="/images/blog/infinity.png" /> -->
+      <!-- <Card href="/blog/10_grade_campaign" name="#10 grade student council campaign" visualization="/images/avatar.jpg" />
+      <Card href="/blog/9_grade_campaign" name="#9 grade student council campaign" visualization="/images/hamiltonCampaign.png" /> -->
     </div>
   </div>
 
