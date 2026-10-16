@@ -103,11 +103,16 @@
     <LineText><strong>developer use</strong></LineText>
     <Indent>
       <LineText>additions/modifications to the base nhalang is allowed, developers will define their own functions to extend the language for their specific use case</LineText>
-      <LineText>= function_name number_of_arguments [</LineText>
+      <LineText>` function_name number_of_arguments [</LineText>
       <Indent>
-        <LineText>function&apos;s body, note that &quot;=0&quot; represents the first argument, &quot;=1&quot; second, etc &quot;until = number_of_arguments-1&quot;</LineText>
+        <LineText>function&apos;s body, note that &quot;`0&quot; represents the first argument, &quot;`1&quot; second, etc &quot;until = number_of_arguments-1&quot;</LineText>
       </Indent>
       <LineText>]</LineText>
+      <LineText><strong>shorthand for defining a function</strong></LineText>
+      <Indent>
+        <LineText>= f [] // define a function with 0 argument</LineText>
+        <LineText>~ f [] // define a function with 1 argument</LineText>
+      </Indent>
       <LineText>recursion allowed!</LineText>
       <LineText><strong>example:</strong></LineText>
       <Indent>
@@ -135,17 +140,49 @@
             <LineText>`1</LineText>
           </Indent>
           <LineText>]</LineText>
-          <LineText>` is_raining 0 [</LineText>
-          <Indent>
-            <LineText>true</LineText>
-          </Indent>
-          <LineText>]</LineText>
+          <LineText>= is_raining true</LineText>
           <LineText>is_raining bring2 i umbrella void -&gt; true bring2 i umbrella void -&gt; bring2 i umbrella</LineText>
         </Indent>
-        <LineText><strong>summation</strong></LineText>
+        <LineText><strong>not</strong></LineText>
+        <Indent>
+          <LineText>` func_2_util_swap_arg 3 [</LineText>
+          <Indent>
+            <LineText>`0 `2 `1</LineText>
+          </Indent>
+          <LineText>]</LineText>
+          <LineText>` not 1 [</LineText>
+          <Indent>
+            <LineText>func_2_util_swap_arg `0</LineText>
+          </Indent>
+          <LineText>]</LineText>
+          <LineText>not [ true ] a b -&gt; func_2_util_swap_arg true a b -&gt; true b a -&gt; b</LineText>
+        </Indent>
+        <LineText><strong>subtraction</strong></LineText>
+        <Indent>
+          <LineText>` subtract 2 [</LineText>
+          <Indent>
+            <LineText>// built in functionality</LineText>
+          </Indent>
+          <LineText>]</LineText>
+        </Indent>
+        <LineText><strong>equality (numeric)</strong></LineText>
+        <Indent>
+          <LineText>` == 2 [</LineText>
+          <Indent>
+            <LineText>iszero - `0 `1 //iszero built-in</LineText>
+          </Indent>
+          <LineText>]</LineText>
+        </Indent>
+        <LineText><strong>summation (0 to n)</strong></LineText>
         <Indent>
           <LineText>` summation 1 [</LineText>
-          <br/>
+          <Indent>
+            <LineText>== `0 0</LineText>
+            <Indent>
+              <LineText>0</LineText>
+              <LineText>sum `0 summation subtract `0 1</LineText>
+            </Indent>
+          </Indent>
           <LineText>]</LineText>
         </Indent>
       </Indent>
