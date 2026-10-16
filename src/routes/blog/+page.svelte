@@ -7,6 +7,8 @@
   <Header/> 
   <div class="cards">
     <div class="interior">
+      <Card href="/blog/nhalang_low_abstraction" name="nhalang low abstraction" />
+      <Card href="/blog/nhalang_high_abstraction" name="nhalang high abstraction" />
       <Card href="/blog/detachment" name="detachment" />
       <Card href="/blog/hag" name="hag" />
       <Card href="/blog/nan" name="nan" />
