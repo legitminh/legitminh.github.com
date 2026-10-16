@@ -12,7 +12,7 @@ export type Flood = {
 
 let next_id = 0;
 
-export const FLOOD_SPREAD_MS = 700; // origin box to covered screen
+export const FLOOD_SPREAD_MS = 400; // origin box to covered screen
 
 export const state_flood = $state<{ floods: Flood[] }>({ floods: [] });
 
