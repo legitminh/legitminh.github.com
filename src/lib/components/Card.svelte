@@ -2,9 +2,10 @@
 <script lang="ts">
   let {name, href, visualization = null} = $props();
   import Link from "$lib/components/Link.svelte";
+  import { must_view } from "$lib/actions/must_view";
 </script>
 <!-- <a href={href} > -->
-<div class="card">
+<div class="card" use:must_view>
   {#if visualization}
   <img src={visualization} alt={name}/>
   {/if}

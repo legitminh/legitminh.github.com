@@ -1,8 +1,9 @@
 <script lang="ts">
   let { href } = $props();
+  import { must_view } from "$lib/actions/must_view";
 </script>
 
-<center class="video-container">
+<center class="video-container" use:must_view>
   <video
     src={href}
     autoplay

@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { must_view } from "$lib/actions/must_view";
 
   let { children } =  $props();
 </script>
-<div class="line">
+<div class="line" use:must_view>
   {@render children?.()}
 </div>
 <style>

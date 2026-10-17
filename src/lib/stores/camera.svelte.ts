@@ -12,8 +12,9 @@ class StateViewport{
   viewport_width = $state(0); // min_box
   viewport = $state<HTMLDivElement | undefined>(undefined); //div that describe the viewport the camera is capable of viewing
   viewport_height = $state(0); // min_box
-  y = $state(0) // min_box_blocks
+  y = $state(0) // pixels from the top of the world to the top of the viewport
   world_height = $state(0); // height in min_box_blocks
+  world_pixels = $state(0); // height in pixels
   world = $state<HTMLDivElement | undefined>(undefined); //div that describe the world the camera is capable of viewing
 
 }
@@ -24,6 +25,36 @@ export const y_pixels = new Tween(0, {
   easing: cubicOut
 });
 
+// elements on the page that paging should avoid cutting at the bottom edge, registered by the must_view action
+const must_views = new Set<HTMLElement>();
+export const register_must_view = (node: HTMLElement) => {
+  must_views.add(node);
+  return () => {
+    must_views.delete(node);
+  };
+};
+
+// start and end of every must view element, in pixels from the top of the world
+const must_view_spans = () => {
+  if (!state_viewport.world) return [];
+  const world_top = state_viewport.world.getBoundingClientRect().top;
+  return [...must_views].map((node) => {
+    const rect = node.getBoundingClientRect();
+    return { start: rect.top - world_top, end: rect.bottom - world_top };
+  });
+};
+
+// one page is the viewport height rounded down to whole min_boxes
+const page_pixels = () => state_viewport.viewport_height * min_box.value;
+
+// the furthest the camera may go while still showing some of the world
+const max_y = () => Math.max(0, state_viewport.world_pixels - min_box.value);
+
+const move_to = (y: number) => {
+  state_viewport.y = Math.max(0, Math.min(y, max_y()));
+  y_pixels.target = state_viewport.y;
+};
+
 export const update_viewport = () => {
   if (state_viewport.viewport && state_viewport.world){
     const viewport_rect = state_viewport.viewport.getBoundingClientRect();
@@ -31,30 +62,40 @@ export const update_viewport = () => {
     const viewport_height = Math.floor(viewport_rect.height / min_box.value); // in min_box rounded down
 
     state_viewport.viewport_height = viewport_height;
-  
+
+    state_viewport.world_pixels = state_viewport.world.getBoundingClientRect().height;
     state_viewport.world_height = Math.ceil(
-      state_viewport.world.getBoundingClientRect().height 
+      state_viewport.world_pixels
       / viewport_height
       / min_box.value
     );
-    state_viewport.y = Math.max(0,Math.min(state_viewport.y, state_viewport.world_height - 1));
-    // console.log($state.snapshot(min_box.value),viewport_height,state_viewport.world.getBoundingClientRect().height )
-    // console.log("loc",state_viewport.y,"/",state_viewport.world_height);
+    if (state_viewport.y > max_y()) move_to(state_viewport.y);
   }
 };
 
+// goes to whichever is closer: the start of an element cut by the bottom edge, or one full page down.
+// an element is only snapped to if it starts below the top edge, so elements taller than the page still get paged through
 export const page_down = () => {
   update_viewport(); //this updates before paging down to prevent situation of world dom internal changing between screen resizes
-  state_viewport.y += 1;
-  state_viewport.y = Math.min(state_viewport.y, state_viewport.world_height - 1);
-  y_pixels.target = state_viewport.y * state_viewport.viewport_height * min_box.value;
-  // console.log("downing!", y_pixels.target , state_viewport.y, "/", state_viewport.world_height);
+  const top = state_viewport.y;
+  const bottom = top + page_pixels();
+  if (bottom >= state_viewport.world_pixels) return; // nothing below the viewport
+  let target = bottom;
+  for (const { start, end } of must_view_spans()) {
+    if (start > top && start < bottom && end > bottom) target = Math.min(target, start);
+  }
+  move_to(target);
 }
+// mirror of page_down: goes to whichever is closer: putting the end of an element cut by the top edge at the bottom, or one full page up
 export const page_up = () => {
   update_viewport();
-  state_viewport.y -= 1;
-  state_viewport.y = Math.max(state_viewport.y, 0);
-  y_pixels.target = state_viewport.y * state_viewport.viewport_height * min_box.value;
+  const top = state_viewport.y;
+  const bottom = top + page_pixels();
+  let target = top - page_pixels();
+  for (const { start, end } of must_view_spans()) {
+    if (end < bottom && end > top && start < top) target = Math.max(target, end - page_pixels());
+  }
+  move_to(target);
 }
 
 
