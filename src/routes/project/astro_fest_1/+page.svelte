@@ -26,9 +26,9 @@
   </Indent>
   <LineText>multiplayer fast-paced shooting game, inspired by astro party.</LineText>
   <LineText>future updates include art, turrets, maps, sound effect, online multiplayer, and more...</LineText>
-  <div class="game">
+  <!-- <div class="game">
     <iframe title="astro fest" allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated" frameborder="0" allowfullscreen scrolling="no" src="https://html-classic.itch.zone/html/7383859/Astronomia/index.html"></iframe>
-  </div>
+  </div> -->
   <LineText>thank you for checking this out.</LineText>
   <LineText>if you want to support me and/or download the game, check out the <Link href="https://minhn.itch.io/astrofest">itch page</Link>.</LineText>
 </Document>
