@@ -7,6 +7,7 @@
   <Header/> 
   <div class="cards">
     <div class="interior">
+      <Card href="https://devpost.com/software/waypoint-sc6dbi" name="big red hacks 2026. waypoint" />
       <Card href="https://legitminh.github.io/archive.legitminh.github.com/" name="previous personal site" />
       <Card href="https://github.com/legitminh/FocusFlow" name="focus flow" />
       <Card href="https://minhn.itch.io/journeytothenest" name="journey to the nest" visualization="/images/projects/journey_to_the_nest.cover.png" />
