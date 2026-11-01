@@ -13,6 +13,7 @@
   <LineText>contacts</LineText>
   <div class="cards">
     <div class="interior">
+      <Card href="https://github.com/" name="github" visualization="/images/github.png" />
       <Card href="https://minhn.itch.io/" name="itch.io" visualization="/images/itchio.png" />
       <Card href="https://discord.gg/gwGQM5MjmY" name="discord server" visualization="/images/discord1.webp" />
       <Card href="https://www.instagram.com/legitminh/" name="instagram" visualization="/images/instagram1.webp" />
