@@ -6,28 +6,35 @@
   import Link from '$lib/components/Link.svelte';
   import Grid from '$lib/components/Grid.svelte';
   import Document from '$lib/components/scroll/vertical/Document.svelte';
-  import Indent from '$lib/components/Indent.svelte';
+  import Project from '$lib/components/Project.svelte';
 </script>
 <Document>
   <div class="content">
-    <LineText> minh.website </LineText>
-    <div style="flex-direction: column; display: flex;">
-    <LineText>settings</LineText>
-    <Indent>
-      <LineText><ThemeToggle></ThemeToggle></LineText>
-
-      <LineText><ButtonPositional on_close={() => {
-        min_box.set(min_box.value * 0.8);
-      }}>zoom out</ButtonPositional></LineText>
-
-      <LineText><ButtonPositional on_close={() => {
-        min_box.set(min_box.value * 1.25);
-      }}>zoom in</ButtonPositional></LineText>
-    </Indent>
+    <LineText> <h1>minh.website</h1> </LineText>
+    <div style="flex-direction: row; display: flex;">
     <LineText><Link href="/about">about</Link></LineText>
-    <LineText><Link href="/project">project</Link></LineText>
+    <LineText><Link href="#project">project</Link></LineText>
     <LineText><Link href="/blog">blog</Link></LineText>
+    <LineText><Link href="#setting">setting</Link></LineText>
     </div>
+  </div>
+  <div id="project">
+    <LineText><h2>project</h2></LineText>
+    <Project>
+
+    </Project>
+  </div>
+  <div  id="setting">
+    <LineText><h2>setting</h2></LineText>
+    <LineText><ThemeToggle></ThemeToggle></LineText>
+
+    <LineText><ButtonPositional on_close={() => {
+      min_box.set(min_box.value * 0.8);
+    }}>zoom out</ButtonPositional></LineText>
+
+    <LineText><ButtonPositional on_close={() => {
+      min_box.set(min_box.value * 1.25);
+    }}>zoom in</ButtonPositional></LineText>
   </div>
 </Document>
 <Grid />

@@ -5,10 +5,15 @@ Unlocks scrollability for content within the world
 <script lang="ts">
   let { children } = $props();
 
-  import { update_viewport, state_viewport, y_pixels } from "$lib/stores/camera.svelte";
-  import { onMount } from "svelte";
+  import { update_viewport, sync_native_scroll, scroll_to_hash, state_viewport, y_pixels } from "$lib/stores/camera.svelte";
+  import { afterNavigate } from '$app/navigation';
+  import { onMount, tick } from "svelte";
   import { min_box } from "$lib/stores/layout.svelte";
 
+  afterNavigate(async () => {
+    await tick(); // wait for the initial layout (including the saved zoom)
+    scroll_to_hash();
+  });
   
   $effect(() => {
     void min_box.value; // dependency tracking
@@ -26,6 +31,7 @@ Unlocks scrollability for content within the world
 
 <div 
     bind:this={state_viewport.viewport}
+    onscroll={sync_native_scroll}
     class="viewport">
   <div
     bind:this={state_viewport.world}

@@ -1,4 +1,5 @@
 import { min_box } from '$lib/stores/layout.svelte';
+import { flushSync } from 'svelte';
 import {
     cubicOut,
     // quintOut,
@@ -55,6 +56,44 @@ const move_to = (y: number) => {
   y_pixels.target = state_viewport.y;
 };
 
+// Fragment navigation can scroll an overflow-hidden viewport independently of
+// our transform. Absorb that offset so paging continues from the visible position.
+export const sync_native_scroll = () => {
+  const viewport = state_viewport.viewport;
+  if (!viewport || viewport.scrollTop === 0) return;
+
+  const y = Math.max(0, Math.min(y_pixels.current + viewport.scrollTop, max_y()));
+  flushSync(() => {
+    state_viewport.y = y;
+    void y_pixels.set(y, { duration: 0 });
+  });
+  viewport.scrollTop = 0;
+};
+
+export const scroll_to_hash = () => {
+  const { viewport, world } = state_viewport;
+  if (!viewport || !world || !window.location.hash) return;
+  let id: string;
+  try {
+    id = decodeURIComponent(window.location.hash.slice(1));
+  } catch {
+    return;
+  }
+  const target = document.getElementById(id);
+  if (!target || !world.contains(target)) return;
+
+  update_viewport();
+  const y = Math.max(0, Math.min(
+    target.getBoundingClientRect().top - world.getBoundingClientRect().top,
+    max_y()
+  ));
+  flushSync(() => {
+    state_viewport.y = y;
+    void y_pixels.set(y, { duration: 0 });
+  });
+  viewport.scrollTop = 0;
+};
+
 export const update_viewport = () => {
   if (state_viewport.viewport && state_viewport.world){
     const viewport_rect = state_viewport.viewport.getBoundingClientRect();
@@ -77,6 +116,7 @@ export const update_viewport = () => {
 // an element is only snapped to if it starts below the top edge, so elements taller than the page still get paged through
 export const page_down = () => {
   update_viewport(); //this updates before paging down to prevent situation of world dom internal changing between screen resizes
+  sync_native_scroll();
   const top = state_viewport.y;
   const bottom = top + page_pixels();
   if (bottom >= state_viewport.world_pixels) return; // nothing below the viewport
@@ -89,6 +129,7 @@ export const page_down = () => {
 // mirror of page_down: goes to whichever is closer: putting the end of an element cut by the top edge at the bottom, or one full page up
 export const page_up = () => {
   update_viewport();
+  sync_native_scroll();
   const top = state_viewport.y;
   const bottom = top + page_pixels();
   let target = top - page_pixels();
