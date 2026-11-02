@@ -13,19 +13,19 @@
     <LineText> <h1>minh.website</h1> </LineText>
     <div style="flex-direction: row; display: flex;">
     <LineText><Link href="/about">about</Link></LineText>
-    <LineText><Link href="#project">project</Link></LineText>
+    <LineText><Link href="#list.project">list.project</Link></LineText>
     <LineText><Link href="/blog">blog</Link></LineText>
-    <LineText><Link href="#setting">setting</Link></LineText>
+    <LineText><Link href="#list.setting">list.setting</Link></LineText>
     </div>
   </div>
-  <div id="project">
-    <LineText><h2>project</h2></LineText>
+  <div id="list.project">
+    <LineText><h2>list.project</h2></LineText>
     <Project>
 
     </Project>
   </div>
-  <div  id="setting">
-    <LineText><h2>setting</h2></LineText>
+  <div id="list.setting">
+    <LineText><h2>list.setting</h2></LineText>
     <LineText><ThemeToggle></ThemeToggle></LineText>
 
     <LineText><ButtonPositional on_close={() => {
