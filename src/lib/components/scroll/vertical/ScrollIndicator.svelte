@@ -1,9 +1,10 @@
 <script lang="ts">
   import { page_down, page_up, state_viewport } from "$lib/stores/camera.svelte";
-  import { onMount } from "svelte";
+  import { lockstep_scrolling } from "$lib/stores/scroll.svelte";
   import Button from "../../Button.svelte";
 
-  onMount(() => {
+  $effect(() => {
+    if (!lockstep_scrolling.enabled) return;
      // #region mouse / touch events
 
     function wheelHandler(e: WheelEvent) {
@@ -83,7 +84,7 @@
     };
   });
 </script>
-{#if (state_viewport.world_height !== 1)}
+{#if lockstep_scrolling.enabled && (state_viewport.world_height !== 1)}
 <div class="scroll">
   <Button on_close={page_down} priority={-2}>
     &downarrow;

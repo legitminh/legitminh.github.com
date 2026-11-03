@@ -1,4 +1,5 @@
 import { min_box } from '$lib/stores/layout.svelte';
+import { lockstep_scrolling } from '$lib/stores/scroll.svelte';
 import { flushSync } from 'svelte';
 import {
     cubicOut,
@@ -49,7 +50,9 @@ const must_view_spans = () => {
 const page_pixels = () => state_viewport.viewport_height * min_box.value;
 
 // the furthest the camera may go while still showing some of the world
-const max_y = () => Math.max(0, state_viewport.world_pixels - min_box.value);
+const max_y = () => Math.max(0, state_viewport.world_pixels - (
+  lockstep_scrolling.enabled ? min_box.value : (state_viewport.viewport?.clientHeight ?? 0)
+));
 
 const move_to = (y: number) => {
   state_viewport.y = Math.max(0, Math.min(y, max_y()));
@@ -60,7 +63,12 @@ const move_to = (y: number) => {
 // our transform. Absorb that offset so paging continues from the visible position.
 export const sync_native_scroll = () => {
   const viewport = state_viewport.viewport;
-  if (!viewport || viewport.scrollTop === 0) return;
+  if (!viewport) return;
+  if (!lockstep_scrolling.enabled) {
+    state_viewport.y = viewport.scrollTop;
+    return;
+  }
+  if (viewport.scrollTop === 0) return;
 
   const y = Math.max(0, Math.min(y_pixels.current + viewport.scrollTop, max_y()));
   flushSync(() => {
@@ -87,6 +95,11 @@ export const scroll_to_hash = () => {
     target.getBoundingClientRect().top - world.getBoundingClientRect().top,
     max_y()
   ));
+  if (!lockstep_scrolling.enabled) {
+    viewport.scrollTop = y;
+    state_viewport.y = viewport.scrollTop;
+    return;
+  }
   flushSync(() => {
     state_viewport.y = y;
     void y_pixels.set(y, { duration: 0 });
@@ -115,6 +128,7 @@ export const update_viewport = () => {
 // goes to whichever is closer: the start of an element cut by the bottom edge, or one full page down.
 // an element is only snapped to if it starts below the top edge, so elements taller than the page still get paged through
 export const page_down = () => {
+  if (!lockstep_scrolling.enabled) return;
   update_viewport(); //this updates before paging down to prevent situation of world dom internal changing between screen resizes
   sync_native_scroll();
   const top = state_viewport.y;
@@ -128,6 +142,7 @@ export const page_down = () => {
 }
 // mirror of page_down: goes to whichever is closer: putting the end of an element cut by the top edge at the bottom, or one full page up
 export const page_up = () => {
+  if (!lockstep_scrolling.enabled) return;
   update_viewport();
   sync_native_scroll();
   const top = state_viewport.y;

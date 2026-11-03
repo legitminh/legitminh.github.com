@@ -1,6 +1,7 @@
 <script lang="ts">
   import LineText from '$lib/components/LineText.svelte';
   import { min_box } from '$lib/stores/layout.svelte';
+  import { lockstep_scrolling } from '$lib/stores/scroll.svelte';
   import ButtonPositional from '$lib/components/ButtonPositional.svelte';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import Link from '$lib/components/Link.svelte';
@@ -27,6 +28,10 @@
   <div id="list.setting">
     <LineText><h2>list.setting</h2></LineText>
     <LineText><ThemeToggle></ThemeToggle></LineText>
+
+    <LineText><ButtonPositional on_close={() => {
+      lockstep_scrolling.set(!lockstep_scrolling.enabled);
+    }}>{lockstep_scrolling.enabled ? 'deactivate' : 'activate'} lockstep scroll</ButtonPositional></LineText>
 
     <LineText><ButtonPositional on_close={() => {
       min_box.set(min_box.value * 0.8);
