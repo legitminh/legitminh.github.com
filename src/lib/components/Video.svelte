@@ -1,6 +1,6 @@
 <script lang="ts">
   let { href } = $props();
-  import { must_view } from "$lib/actions/must_view";
+  import { must_view } from '@legitminh/keyflow';
 </script>
 
 <center class="video-container" use:must_view>

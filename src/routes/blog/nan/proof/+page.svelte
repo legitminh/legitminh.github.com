@@ -1,8 +1,5 @@
 <script lang="ts">
-  import Indent from "$lib/components/Indent.svelte";
-  import Link from "$lib/components/Link.svelte";
-  import Document from "$lib/components/scroll/vertical/Document.svelte";
-  import LineText from "$lib/components/LineText.svelte";
+  import { Indent, Link, Document, LineText } from '@legitminh/keyflow';
   import Header from "$lib/components/Header.svelte";
 </script>
 <Document>

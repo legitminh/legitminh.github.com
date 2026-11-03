@@ -1,7 +1,7 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
   import Header from "$lib/components/Header.svelte";
-  import Document from "$lib/components/scroll/vertical/Document.svelte";
+  import { Document } from '@legitminh/keyflow';
 </script>
 <Document>
   <Header/> 

@@ -1,7 +1,5 @@
 <script lang="ts">
-  import Button from "$lib/components/Button.svelte";
-  import Document from "$lib/components/scroll/vertical/Document.svelte";
-  import LineText from "$lib/components/LineText.svelte";
+  import { Button, Document, LineText } from '@legitminh/keyflow';
   import Header from "$lib/components/Header.svelte";
 
   let mp3_url = $state<string | null>(null);

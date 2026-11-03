@@ -34,9 +34,7 @@
    */
 
   import { onMount } from "svelte";
-  import { min_box } from "$lib/stores/layout.svelte";
-  import { state_viewport } from "$lib/stores/camera.svelte";
-  import { get_current_theme } from "$lib/stores/theme.svelte";
+  import { min_box, state_viewport, get_current_theme } from '@legitminh/keyflow';
 
   // Number of boxes visible on screen.
   let columns = $derived(state_viewport.viewport_width);

@@ -1,8 +1,7 @@
 <!-- A summary card with name and visualization -->
 <script lang="ts">
   let {name, href, visualization = null} = $props();
-  import Link from "$lib/components/Link.svelte";
-  import { must_view } from "$lib/actions/must_view";
+  import { Link, must_view } from '@legitminh/keyflow';
 </script>
 <!-- <a href={href} > -->
 <div class="card" use:must_view>

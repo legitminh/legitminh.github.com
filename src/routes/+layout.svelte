@@ -1,64 +1,16 @@
 <script lang="ts">
-  import { get } from "svelte/store";
-  import { onMount } from 'svelte';
+  import { tick } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
+  import { Keyflow, scroll_to_hash } from '@legitminh/keyflow';
+  import '@legitminh/keyflow/styles.css';
   import favicon from '$lib/assets/favicon.svg';
-  import '../app.css';
+
   let { children } = $props();
-  import {
-    add_key_strokes,
-    reset_key_strokes,
-    _list_key_strokes,
-    _list_input_token,
-    _available_keys,
-    base_conversion_s_endian
-  } from '$lib/stores/input';
-  import { min_box } from "$lib/stores/layout.svelte";
-  import { state_theme, set_theme_id } from "$lib/stores/theme.svelte";
-  import { update_viewport } from "$lib/stores/camera.svelte";
-  import FloodOverlay from "$lib/components/FloodOverlay.svelte";
 
-  onMount(() => {
-    // #region key events
-    const handleKeyDown = (event: KeyboardEvent) => {
-      // holding a key auto-repeats keydown; only the first press is a stroke, so keys can be held indefinitely
-      if (event.repeat) return;
-      // exit key clears the current key path so a mistyped sequence can be undone
-      if (event.key === 'Escape') {
-        reset_key_strokes();
-        return;
-      }
-      add_key_strokes(event.key);
-    };
-
-    const handleKeyUp = () => {
-      // console.log(get(_list_key_strokes), get(_available_keys), get(_list_input_token));
-      if (get(_list_key_strokes).length === 0) {
-        return;
-      }
-      if (get(_available_keys).length ** get(_list_key_strokes).length < get(_list_input_token).length) {
-        return;
-      }
-      const chosen_action = base_conversion_s_endian(get(_list_key_strokes), get(_available_keys).length);
-      if (chosen_action >= get(_list_input_token).length) {
-        // alert('invalid key strokes');
-        reset_key_strokes();
-        return;
-      }
-      // viable action
-      get(_list_input_token)[chosen_action].on_close();
-      // correct stroke count
-      reset_key_strokes();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-    // #endregion
-
-    // #region activate store ui effects
-    min_box.set(min_box.value);
-    set_theme_id(state_theme.theme_id);
-
-    // #endregion
-    update_viewport();
+  // Router integration belongs to the host; Keyflow also supports plain Svelte apps.
+  afterNavigate(async () => {
+    await tick();
+    scroll_to_hash();
   });
 </script>
 
@@ -66,18 +18,6 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="app-shell">
+<Keyflow options={{ storagePrefix: '' }}>
   {@render children()}
-</div>
-<FloodOverlay />
-
-<style>
-  .app-shell {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 100dvh;
-    height: 100dvh;
-    overflow: hidden;
-  }
-</style>
+</Keyflow>

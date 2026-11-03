@@ -1,12 +1,6 @@
 <script lang="ts">
-  import LineText from '$lib/components/LineText.svelte';
-  import { min_box } from '$lib/stores/layout.svelte';
-  import { lockstep_scrolling } from '$lib/stores/scroll.svelte';
-  import ButtonPositional from '$lib/components/ButtonPositional.svelte';
-  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-  import Link from '$lib/components/Link.svelte';
+  import { LineText, min_box, lockstep_scrolling, ButtonPositional, ThemeToggle, Link, Document } from '@legitminh/keyflow';
   import Grid from '$lib/components/Grid.svelte';
-  import Document from '$lib/components/scroll/vertical/Document.svelte';
   import Project from '$lib/components/Project.svelte';
 </script>
 <Document>

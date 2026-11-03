@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Document from "$lib/components/scroll/vertical/Document.svelte";
-  import LineText from "$lib/components/LineText.svelte";
+  import { Document, LineText } from '@legitminh/keyflow';
   import Header from "$lib/components/Header.svelte";
 </script>
 <Document>
