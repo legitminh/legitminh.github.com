@@ -3,6 +3,7 @@
 </script>
   <div class="cards">
     <div class="interior">
+      <Card href="https://legitminh.github.io/notework" name="note app: notework" />
       <Card href="https://devpost.com/software/waypoint-sc6dbi" name="big red hacks 2026. waypoint" />
       <Card href="https://legitminh.github.io/archive.legitminh.github.com/" name="previous personal site" />
       <Card href="https://github.com/legitminh/FocusFlow" name="focus flow" />
