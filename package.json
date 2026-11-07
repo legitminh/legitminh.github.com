@@ -35,7 +35,7 @@
 		"vite": "^8.0.16"
 	},
 	"dependencies": {
-		"@legitminh/keyflow": "file:vendor/legitminh-keyflow-0.1.1.tgz",
+		"@legitminh/keyflow": "file:vendor/legitminh-keyflow-0.2.0.tgz",
 		"gh-pages": "^6.3.0"
 	}
 }
