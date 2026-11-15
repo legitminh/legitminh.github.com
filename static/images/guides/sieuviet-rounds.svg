@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="240" viewBox="0 0 880 240" role="img" aria-labelledby="title desc">
+<title id="title">Four choices make one Vietnamese syllable</title>
+<desc id="desc">In ASCII+ input, m chooses the initial, s chooses a, e chooses an empty final, and d chooses the sắc tone. The result is má and a space.</desc>
+<rect width="880" height="240" fill="#fff"/>
+<g fill="#111" font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+<text x="28" y="35" font-size="12" letter-spacing="2">ASCII+ / ONE SYLLABLE</text>
+<g fill="none" stroke="#111"><rect x="28" y="58" width="150" height="118"/><rect x="204" y="58" width="150" height="118"/><rect x="380" y="58" width="150" height="118"/><rect x="556" y="58" width="150" height="118"/></g>
+<g font-size="12" fill="#555"><text x="42" y="82">01 INITIAL</text><text x="218" y="82">02 VOWEL</text><text x="394" y="82">03 FINAL</text><text x="570" y="82">04 TONE</text></g>
+<g font-size="35"><text x="42" y="126">m</text><text x="218" y="126">a</text><text x="394" y="126">∅</text><text x="570" y="126">sắc</text></g>
+<g font-size="13" fill="#555"><text x="42" y="157">key: m</text><text x="218" y="157">key: s</text><text x="394" y="157">key: e</text><text x="570" y="157">key: d</text></g>
+<g font-size="20"><text x="183" y="121">→</text><text x="359" y="121">→</text><text x="535" y="121">→</text><text x="716" y="121">→</text></g>
+<text x="755" y="126" font-size="35">má</text><text x="755" y="155" font-size="12" fill="#555">+ space</text>
+<text x="28" y="213" font-size="13">Choose a sound each round. The tone completes the word.</text>
+</g></svg>

@@ -23,6 +23,12 @@ Links, the theme toggle, and the home page's settings use visibility-based posit
 
 Site content, project cards, media, navigation destinations, and the decorative `Grid` effect stay in this repository.
 
+## Project guides
+
+The name-only cards for siêu việt, Notework, Keyflow, and Discrete open screens within the home page. Hashes such as `#project/notework/installation/ios` support direct links, reloads, and browser Back without project subpages. Usage, configuration, and installation are separate screens. Content lives in `src/lib/data/projects.ts`.
+
+siêu việt downloads read public assets from `legitminh/vietmoi` GitHub Releases and select the newest release containing a build for the chosen system. Until assets are published, the site explicitly labels provisional `releases/latest/download/…` links. Their expected filenames are in `plannedBuilds`; published asset URLs override those names automatically. API failures retain the provisional links and the release-list fallback.
+
 To update Keyflow from a published release, download its installable archive into `vendor/` (use the new version):
 
 ```sh

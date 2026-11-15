@@ -1,15 +1,22 @@
 <!-- A summary card with name and visualization -->
 <script lang="ts">
-  let {name, href, visualization = null} = $props();
-  import { Link, must_view } from '@legitminh/keyflow';
+  let {name, href = '', visualization = null, onselect, projectId}: {
+    name: string; href?: string; visualization?: string | null;
+    onselect?: () => void; projectId?: string;
+  } = $props();
+  import { Link, ButtonPositional, must_view } from '@legitminh/keyflow';
 </script>
 <!-- <a href={href} > -->
-<div class="card" use:must_view>
+<div class="card" data-project={projectId} use:must_view>
   {#if visualization}
   <img src={visualization} alt={name}/>
   {/if}
   <div class="label">
-    <Link href={href}>{name}</Link>
+    {#if onselect}
+      <ButtonPositional on_close={onselect}>{name}</ButtonPositional>
+    {:else}
+      <Link href={href}>{name}</Link>
+    {/if}
   </div>
 </div>
 <!-- </a> -->

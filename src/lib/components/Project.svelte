@@ -1,10 +1,16 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
+  import { type ProjectId } from '$lib/data/projects';
+  let { onselect }: { onselect: (id: ProjectId) => void } = $props();
 </script>
   <div class="cards">
     <div class="interior">
-      <Card href="https://legitminh.github.io/notework" name="note app: notework" />
+      <Card name="siêu việt" projectId="sieuviet" onselect={() => onselect('sieuviet')} />
+      <Card name="notework" projectId="notework" onselect={() => onselect('notework')} />
+      <Card name="keyflow" projectId="keyflow" onselect={() => onselect('keyflow')} />
+      <Card name="discrete" projectId="discrete" onselect={() => onselect('discrete')} />
       <Card href="https://devpost.com/software/waypoint-sc6dbi" name="big red hacks 2026. waypoint" />
+      <!-- <Card href="https://legitminh.github.io/notework" name="encryption suite" /> -->
       <Card href="https://legitminh.github.io/archive.legitminh.github.com/" name="previous personal site" />
       <Card href="https://github.com/legitminh/FocusFlow" name="focus flow" />
       <Card href="https://minhn.itch.io/journeytothenest" name="journey to the nest" visualization="/images/projects/journey_to_the_nest.cover.png" />
