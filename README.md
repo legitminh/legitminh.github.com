@@ -26,6 +26,6 @@ bản dựng tĩnh nằm trong `build/`. đẩy vào nhánh `main` sẽ chạy q
 
 ## keyflow và liên kết phát hành
 
-trang dùng keyflow 0.8.3, khớp bản phát hành hiện tại. giữ gói trong `vendor/`, `package.json`, tệp khóa và tài liệu nhất quán khi cập nhật. đọc `skills/minh-website-maintenance/SKILL.md` trước khi chỉnh sửa.
+trang dùng keyflow 0.9.0, khớp bản phát hành hiện tại. giữ gói trong `vendor/`, `package.json`, tệp khóa và tài liệu nhất quán khi cập nhật. đọc `skills/minh-website-maintenance/SKILL.md` trước khi chỉnh sửa.
 
 liên kết tải siêu việt dùng các tệp đã phát hành thực tế, gồm gói ubuntu 26.04 amd64/arm64. nếu api github không khả dụng, trang vẫn giữ liên kết có phiên bản đã xác minh thay vì phỏng đoán tên tệp. giữ nguyên các mã băm và url cũ khi đổi văn bản.

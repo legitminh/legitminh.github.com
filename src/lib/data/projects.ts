@@ -131,7 +131,7 @@ export const projects: ProjectGuide[] = [
     configuration: [
       { title: 'set application defaults', text: 'pass options to the keyflow root. use a storage prefix to separate saved preferences between apps. saved preferences take precedence over the initial defaults.', code: `<Keyflow options={{\n  storagePrefix: 'my-app:',\n  keys: key_presets.alphanumeric,\n  minBox: 40,\n  lockstep: false\n}}>\n  <!-- page content -->\n</Keyflow>`, link: { label: 'theme, key, and layout options', href: 'https://github.com/legitminh/keyflow#configure-the-flow' } },
       { title: 'scope shortcuts', text: 'create an inputframe for each menu or dialog. push it when opening; pop it when closing. only the top frame responds. keep static bindings unique and prefix-free within a frame.', link: { label: 'input frames and virtual keyboards', href: 'https://github.com/legitminh/keyflow/blob/main/docs/input-frames-and-keyboards.md' } },
-      { title: 'choose scrolling and key labels', text: 'set lockstep: false for native scrolling. set platform to auto, mac, windows, or linux for modifier labels. use key_presets or a custom keys array for automatic shortcuts. import key_presets from the package when using the example above.' }
+      { title: 'choose scrolling and key labels', text: 'set lockstep: false for native mouse and touch scrolling. this preference only changes pointer gestures; overflowing documents keep their keyboard paging controls. customize paging keys on the document, or omit the controls. set platform to auto, mac, windows, or linux for modifier labels. use key_presets or a custom keys array for automatic shortcuts. import key_presets from the package when using the example above.' }
     ]
   },
   {

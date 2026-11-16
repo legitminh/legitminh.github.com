@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
   import { t, localizedImage } from '$lib/i18n.svelte';
-  import { ButtonPositional, StaticButton, LineText, Link, Image, state_viewport, y_pixels, update_viewport, lockstep_scrolling, scroll_to_hash } from '@legitminh/keyflow';
+  import { ButtonPositional, StaticButton, LineText, Link, Image, state_viewport, scroll_to, scroll_to_hash } from '@legitminh/keyflow';
   import Project from './Project.svelte';
   import GuideSection from './GuideSection.svelte';
   import ReleaseDownloads from './ReleaseDownloads.svelte';
@@ -48,18 +48,14 @@
     if (contentScreen) await contentScreen.load().catch(() => {});
     if (currentHash !== hash) return;
     await tick();
-    // Keyflow uses a transformed camera for lockstep scrolling. Reset both the
-    // camera and native offset when swapping screens; restore the card list on Back.
+    // Restore screen positions through the shared Keyflow scrolling API.
     if (!active && hash === '#list.setting') {
       scroll_to_hash();
       return;
     }
     if (active || wasActive) {
-      update_viewport();
       const y = scrollPositions.get(hash) ?? (active ? 0 : listScroll);
-      state_viewport.y = y;
-      await y_pixels.set(y, { duration: 0 });
-      if (state_viewport.viewport) state_viewport.viewport.scrollTop = lockstep_scrolling.enabled ? 0 : y;
+      scroll_to(y, 'instant');
       heading?.focus({ preventScroll: true });
       if (!active) document.querySelector<HTMLButtonElement>(`[data-project="${wasActive}"] button`)?.focus({ preventScroll: true });
     }
@@ -119,7 +115,7 @@
               'install the release archive with the command below.',
               'follow usage to mount the root and add a button. configuration covers defaults and input frames.'
             ],
-            code: 'pnpm add https://github.com/legitminh/keyflow/releases/download/v0.8.3/legitminh-keyflow-0.8.3.tgz',
+            code: 'pnpm add https://github.com/legitminh/keyflow/releases/download/v0.9.0/legitminh-keyflow-0.9.0.tgz',
             link: { label: 'current releases', href: `${project.github}/releases` }
           }} />
         {:else}
