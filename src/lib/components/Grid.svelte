@@ -98,6 +98,7 @@
 
   /** Timestamp of the previous frame, for frame-rate-independent physics. */
   let last_time: number | null = null;
+  let animationFrame = 0;
 
   // -----------------------------------------------------------------------
   // Physics parameters
@@ -240,7 +241,7 @@
     updateTracker(dt);
     update();
     render();
-    requestAnimationFrame(frame);
+    animationFrame = requestAnimationFrame(frame);
   }
 
   // Use window-level pointer events so the canvas background can "pierce"
@@ -291,9 +292,10 @@
     window.addEventListener("pointermove", pointerMove);
     window.addEventListener("pointerout", pointerOut);
 
-    requestAnimationFrame(frame);
+    animationFrame = requestAnimationFrame(frame);
 
     return () => {
+      cancelAnimationFrame(animationFrame);
       // canvas.removeEventListener("mousemove", mouseMove);
       // canvas.removeEventListener("mouseleave", mouseLeave);
       window.removeEventListener("pointermove", pointerMove);
@@ -302,4 +304,4 @@
   });
 </script>
 
-<canvas bind:this={canvas} style="position: absolute;" ></canvas>
+<canvas data-main-grid aria-hidden="true" bind:this={canvas} style="position: absolute;" ></canvas>

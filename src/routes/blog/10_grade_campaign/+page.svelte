@@ -1,10 +1,4 @@
 <script lang="ts">
-  import { Document, LineText } from '@legitminh/keyflow';
-  import Header from "$lib/components/Header.svelte";
+  import ScreenRedirect from '$lib/components/ScreenRedirect.svelte';
 </script>
-<Document>
-  <Header/> 
-  <LineText>avatar campaign</LineText>
-  <br/>
-  <LineText>nothing to see here. Campaign Credit: Aswin K</LineText>
-</Document>
+<ScreenRedirect screen="blog/10_grade_campaign" />

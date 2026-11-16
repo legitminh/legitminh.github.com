@@ -1,18 +1,18 @@
 <script lang="ts">
   import { LineText, min_box, lockstep_scrolling, ButtonPositional, ThemeToggle, Link, Document } from '@legitminh/keyflow';
   import Grid from '$lib/components/Grid.svelte';
-  import ProjectBrowser from '$lib/components/ProjectBrowser.svelte';
-  import type { ProjectId } from '$lib/data/projects';
-  let active = $state<ProjectId | null>(null);
+  import ScreenBrowser from '$lib/components/ScreenBrowser.svelte';
+  import type { ScreenId } from '$lib/data/screens';
+  let active = $state<ScreenId | null>(null);
 </script>
 <Document>
   {#if !active}
   <div class="content">
     <LineText> <h1>minh.website</h1> </LineText>
     <nav class="home-nav" aria-label="main navigation">
-    <LineText><Link href="/about">about</Link></LineText>
+    <LineText><Link href="#about">about</Link></LineText>
     <LineText><Link href="#list.project">list.project</Link></LineText>
-    <LineText><Link href="/blog">blog</Link></LineText>
+    <LineText><Link href="#blog">blog</Link></LineText>
     <LineText><Link href="#list.setting">list.setting</Link></LineText>
     </nav>
   </div>
@@ -20,7 +20,7 @@
     <LineText><h2>list.project</h2></LineText>
   </div>
   {/if}
-  <ProjectBrowser bind:active />
+  <ScreenBrowser bind:active />
   {#if !active}
   <div id="list.setting">
     <LineText><h2>list.setting</h2></LineText>
@@ -40,7 +40,7 @@
   </div>
   {/if}
 </Document>
-<Grid />
+{#if !active}<Grid />{/if}
 <style>
   .content {
     display: flex;

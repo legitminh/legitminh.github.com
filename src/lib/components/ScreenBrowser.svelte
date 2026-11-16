@@ -4,19 +4,22 @@
   import Project from './Project.svelte';
   import GuideSection from './GuideSection.svelte';
   import ReleaseDownloads from './ReleaseDownloads.svelte';
+  import { contentScreens, isContentScreen, type ScreenId } from '$lib/data/screens';
   import {
     projects, platforms, pwaInstallation, nativeInstallation, discreteInstallation,
     type ProjectId, type GuideTab, type Platform
   } from '$lib/data/projects';
 
-  let { active = $bindable(null) }: { active?: ProjectId | null } = $props();
+  let { active = $bindable(null) }: { active?: ScreenId | null } = $props();
   let tab = $state<GuideTab>('usage');
   let platform = $state<Platform>('macos');
   let project = $derived(projects.find(p => p.id === active));
+  let contentScreen = $derived(active && isContentScreen(active) ? contentScreens[active] : null);
   let heading = $state<HTMLHeadingElement>();
   let count = $state(0);
   let currentHash = '';
   let listScroll = 0;
+  const scrollPositions = new Map<string, number>();
 
   function detectPlatform(): Platform {
     const ua = navigator.userAgent;
@@ -31,19 +34,24 @@
     const hash = window.location.hash;
     const match = hash.match(/^#project\/(notework|sieuviet|keyflow|discrete)(?:\/(usage|configuration|installation))?(?:\/(macos|windows|linux|ios|android))?$/);
     const wasActive = active;
-    if (!wasActive && match) listScroll = state_viewport.y;
-    active = match ? match[1] as ProjectId : null;
+    const contentId = hash.slice(1);
+    const nextActive = match ? match[1] as ProjectId : isContentScreen(contentId) ? contentId : null;
+    if (currentHash !== hash && !initial) scrollPositions.set(currentHash, state_viewport.y);
+    if (!wasActive && nextActive) listScroll = state_viewport.y;
+    active = nextActive;
     tab = match?.[2] as GuideTab || 'usage';
     if (match?.[3]) platform = match[3] as Platform;
     const changed = currentHash !== hash;
     currentHash = hash;
     if (!changed && !initial) return;
+    if (contentScreen) await contentScreen.load().catch(() => {});
+    if (currentHash !== hash) return;
     await tick();
     // Keyflow uses a transformed camera for lockstep scrolling. Reset both the
     // camera and native offset when swapping screens; restore the card list on Back.
     if (active || wasActive) {
       update_viewport();
-      const y = active ? 0 : listScroll;
+      const y = scrollPositions.get(hash) ?? (active ? 0 : listScroll);
       state_viewport.y = y;
       await y_pixels.set(y, { duration: 0 });
       if (state_viewport.viewport) state_viewport.viewport.scrollTop = lockstep_scrolling.enabled ? 0 : y;
@@ -57,7 +65,7 @@
   }
 
   function back() {
-    window.location.hash = 'list.project';
+    window.location.hash = contentScreen ? contentScreen.parent : 'list.project';
   }
 
   onMount(() => {
@@ -71,8 +79,8 @@
 </script>
 
 <svelte:head>
-  <title>{project ? `${project.name} · ${tab} · minh.website` : 'minh.website'}</title>
-  <meta name="description" content={project?.goal ?? 'projects by minh: notework, siêu việt, keyflow, discrete, and more.'} />
+  <title>{project ? `${project.name} · ${tab} · minh.website` : contentScreen ? `${contentScreen.name} · minh.website` : 'minh.website'}</title>
+  <meta name="description" content={project?.goal ?? contentScreen?.name ?? 'projects by minh: notework, siêu việt, keyflow, discrete, and more.'} />
 </svelte:head>
 
 {#if project}
@@ -106,7 +114,7 @@
               'install the release archive with the command below.',
               'follow usage to mount the root and add a button. configuration covers defaults and input frames.'
             ],
-            code: 'pnpm add https://github.com/legitminh/keyflow/releases/download/v0.8.2/legitminh-keyflow-0.8.2.tgz',
+            code: 'pnpm add https://github.com/legitminh/keyflow/releases/download/v0.8.3/legitminh-keyflow-0.8.3.tgz',
             link: { label: 'current releases', href: `${project.github}/releases` }
           }} />
         {:else}
@@ -144,12 +152,25 @@
       {/if}
     </div>
   </article>
+{:else if contentScreen}
+  <article class="content-screen">
+    <LineText><StaticButton keys="esc" on_close={back}>← {contentScreen.parent === 'list.project' ? 'all projects' : contentScreen.parent === 'blog/nan' ? 'nan' : contentScreen.parent || 'home'}</StaticButton></LineText>
+    <LineText><h1 bind:this={heading} tabindex="-1">{contentScreen.name}</h1></LineText>
+    {#await contentScreen.load()}
+      <LineText><p role="status">loading…</p></LineText>
+    {:then module}
+      {@const Screen = module.default}
+      <Screen />
+    {:catch}
+      <LineText><p>this screen could not be loaded.</p><ButtonPositional on_close={() => window.location.reload()}>retry</ButtonPositional></LineText>
+    {/await}
+  </article>
 {:else}
   <Project onselect={open} />
 {/if}
 
 <style>
-  .project-screen { padding-bottom: var(--min-box); }
+  .project-screen, .content-screen { padding-bottom: var(--min-box); }
   h1:focus { outline: none; }
   .project-actions, .guide-nav, .platform-nav {
     display: flex;

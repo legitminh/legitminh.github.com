@@ -2,7 +2,7 @@
   import { LineText, Link } from '@legitminh/keyflow';
 </script>
 <div class = "header">
-<LineText> <Link href="/"> home</Link> </LineText>
+<LineText> <Link href="#"> home</Link> </LineText>
 </div>
 <style>
   .header {

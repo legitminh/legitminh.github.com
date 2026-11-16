@@ -1,18 +1,4 @@
 <script lang="ts">
-  import { Document, LineText } from '@legitminh/keyflow';
-  import Header from "$lib/components/Header.svelte";
+  import ScreenRedirect from '$lib/components/ScreenRedirect.svelte';
 </script>
-<Document>
-  <Header/> 
-  <LineText>website I am making for Passion Exploration Project, a non-profit organization based in Gwinnett County.</LineText>
-  <iframe title="pep website" src="https://www.pepgeorgia.org/"></iframe>
-</Document>
-<style>
-  iframe {
-    display: block;
-    width: 100%;
-    height: 500px;
-    border: 1px solid var(--primary);
-    box-sizing: border-box;
-  }
-</style>
+<ScreenRedirect screen="project/pep_website" />

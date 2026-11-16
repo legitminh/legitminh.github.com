@@ -15,14 +15,14 @@
       <Card href="https://github.com/legitminh/FocusFlow" name="focus flow" />
       <Card href="https://minhn.itch.io/journeytothenest" name="journey to the nest" visualization="/images/projects/journey_to_the_nest.cover.png" />
       <Card href="https://github.com/legitminh/BeyondHope" name="beyond hope" />
-      <Card href="/project/astro_fest_1" name="astro fest 1" visualization="/images/projects/astro-fest.png" />
-      <!-- <Card href="/project/audio_player" name="audio player" visualization="/images/youtube.webp" /> -->
-      <Card href="/project/pep_website" name="pep website" visualization="/images/projects/acba.webp" />
-      <Card href="/project/net_zero_hero" name="net zero hero" visualization="/images/projects/net_zero_hero.cover.png" />
-      <!-- <Card href="/project/youtube_randomize" name="youtube randomize" visualization="/images/youtube.webp" /> -->
-      <Card href="/project/piano_game" name="piano game" visualization="/images/projects/TypingPiano.png" />
+      <Card href="#project/astro_fest_1" projectId="project/astro_fest_1" name="astro fest 1" visualization="/images/projects/astro-fest.png" />
+      <!-- <Card href="#project/audio_player" projectId="project/audio_player" name="audio player" visualization="/images/youtube.webp" /> -->
+      <Card href="#project/pep_website" projectId="project/pep_website" name="pep website" visualization="/images/projects/acba.webp" />
+      <Card href="#project/net_zero_hero" projectId="project/net_zero_hero" name="net zero hero" visualization="/images/projects/net_zero_hero.cover.png" />
+      <!-- <Card href="#project/youtube_randomize" projectId="project/youtube_randomize" name="youtube randomize" visualization="/images/youtube.webp" /> -->
+      <Card href="#project/piano_game" projectId="project/piano_game" name="piano game" visualization="/images/projects/TypingPiano.png" />
       <Card href="https://minhn.itch.io/rsasteinography" name="rsa steinography" />
-      <Card href="/project/astrofest" name="astrofest" visualization="/images/projects/astro-fest.png" />
+      <Card href="#project/astrofest" projectId="project/astrofest" name="astrofest" visualization="/images/projects/astro-fest.png" />
       <Card href="https://minhn.itch.io/thirteen" name="thirteen" visualization="/images/projects/thirteen-beta.png" />
       <Card href="https://minhn.itch.io/mazegame" name="maze game" visualization="/images/projects/maze-game.png" />
       <Card href="https://minhn.itch.io/projectilemotioncalculator" name="projectile motion calculator" visualization="/images/projects/projectile-calculator.jpg" />

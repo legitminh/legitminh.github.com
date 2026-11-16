@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Document } from '@legitminh/keyflow';
-  import ProjectBrowser from '$lib/components/ProjectBrowser.svelte';
+  import ScreenRedirect from '$lib/components/ScreenRedirect.svelte';
 </script>
-<Document><ProjectBrowser /></Document>
+<ScreenRedirect screen="list.project" />
