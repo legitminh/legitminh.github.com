@@ -6,7 +6,6 @@
   } = $props();
   import { Link, ButtonPositional, must_view } from '@legitminh/keyflow';
 </script>
-<!-- <a href={href} > -->
 <div class="card" data-project={projectId} use:must_view>
   {#if visualization}
   <img src={visualization} alt={name}/>
@@ -19,7 +18,6 @@
     {/if}
   </div>
 </div>
-<!-- </a> -->
 
 <style>
   img {

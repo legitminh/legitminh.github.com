@@ -1,19 +1,25 @@
 <script lang="ts">
   import type { GuideSection } from '$lib/data/projects';
+  import { LineText, Link } from '@legitminh/keyflow';
   let { section }: { section: GuideSection } = $props();
 </script>
 
 <section class="guide-section">
-  <h2>{section.title}</h2>
-  {#if section.text}<p>{section.text}</p>{/if}
+  <LineText><h2>{section.title}</h2></LineText>
+  {#if section.text}<LineText><p>{section.text}</p></LineText>{/if}
   {#if section.steps}
-    <ol>{#each section.steps as step}<li>{step}</li>{/each}</ol>
+    <ol>{#each section.steps as step}<li><LineText>{step}</LineText></li>{/each}</ol>
   {/if}
   {#if section.items}
-    <ul>{#each section.items as item}<li>{item}</li>{/each}</ul>
+    <ul>{#each section.items as item}<li><LineText>{item}</LineText></li>{/each}</ul>
   {/if}
-  {#if section.code}<pre><code>{section.code}</code></pre>{/if}
+  {#if section.code}<LineText><pre><code>{section.code}</code></pre></LineText>{/if}
   {#if section.link}
-    <a href={section.link.href} target="_blank" rel="noreferrer">{section.link.label} ↗</a>
+    <LineText><Link href={section.link.href}>{section.link.label} ↗</Link></LineText>
   {/if}
 </section>
+
+<style>
+  li { margin-block: calc(var(--min-box) / 4); }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+</style>

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="280" viewBox="0 0 880 280" role="img" aria-labelledby="title desc">
-<title id="title">Link notes and embed drawings in Notework</title>
-<desc id="desc">An index note contains a wiki link to ideas and an svgpage directive that embeds sketch.svg. Files remain separate.</desc>
+<title id="title">link notes and embed drawings in notework</title>
+<desc id="desc">an index note contains a wiki link to ideas and an svgpage directive that embeds sketch.svg. files remain separate.</desc>
 <rect width="880" height="280" fill="#fff"/>
 <g fill="#111" font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
-<text x="28" y="35" font-size="12" letter-spacing="2">NOTEWORK / CONNECTED FILES</text>
+<text x="28" y="35" font-size="12" letter-spacing="2">notework / connected files</text>
 <g fill="none" stroke="#111"><rect x="28" y="62" width="355" height="180"/><rect x="540" y="62" width="312" height="72"/><rect x="540" y="159" width="312" height="83"/></g>
 <text x="48" y="92" font-size="14">index.txt</text><path d="M28 107H383" stroke="#bbb"/>
 <text x="48" y="143" font-size="18">[[ideas]]</text><text x="48" y="193" font-size="16">\svgpage[sketch.svg]</text>

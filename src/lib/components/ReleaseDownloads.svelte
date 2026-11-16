@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { LineText, Link } from '@legitminh/keyflow';
   import { plannedBuilds, platforms, type Platform } from '$lib/data/projects';
   import { platformAssets, releasesUrl, type Release } from '$lib/data/releases';
 
@@ -32,17 +33,17 @@
 
 <aside class="release-downloads" aria-label={`${label} downloads`}>
   {#if builds}
-    <p class="release-status">{builds.release.tag_name}{builds.release.prerelease ? ' · preview' : ''}</p>
+    <LineText><p>{builds.release.tag_name.toLowerCase()}{builds.release.prerelease ? ' · preview' : ''}</p></LineText>
     {#each builds.assets as asset}
-      <a class="action" href={asset.browser_download_url}>Download {asset.name} ↓</a>
+      <LineText><Link href={asset.browser_download_url}>download {asset.name.toLowerCase()} ↓</Link></LineText>
     {/each}
-    <a class="release-notes" href={builds.release.html_url} target="_blank" rel="noreferrer">Release notes ↗</a>
+    <LineText><Link href={builds.release.html_url}>release notes ↗</Link></LineText>
   {:else}
-    <p class="release-status" role="status">
-      {status === 'loading' ? 'Checking GitHub Releases…' : status === 'unavailable' ? 'Release list unavailable · provisional link' : 'Release upload pending'}
-    </p>
-    <a class="action" href={`${releasesUrl}/latest/download/${plannedBuilds[platform]}`}>Planned {label} download ↓</a>
-    <p class="release-detail">Provisional filename: <code>{plannedBuilds[platform]}</code>. This link will work after the build is published. Published assets replace it automatically.</p>
-    <a href={releasesUrl} target="_blank" rel="noreferrer">All GitHub releases ↗</a>
+    <LineText><p role="status">
+      {status === 'loading' ? 'checking github releases…' : status === 'unavailable' ? 'release list unavailable · provisional link' : 'release upload pending'}
+    </p></LineText>
+    <LineText><Link href={`${releasesUrl}/latest/download/${plannedBuilds[platform]}`}>planned {label} download ↓</Link></LineText>
+    <LineText><p>provisional filename: <code>{plannedBuilds[platform]}</code>. this link will work after the build is published. published assets replace it automatically.</p></LineText>
+    <LineText><Link href={releasesUrl}>all github releases ↗</Link></LineText>
   {/if}
 </aside>

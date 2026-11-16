@@ -9,7 +9,7 @@
   {#if !active}
   <div class="content">
     <LineText> <h1>minh.website</h1> </LineText>
-    <nav class="home-nav" aria-label="Main navigation">
+    <nav class="home-nav" aria-label="main navigation">
     <LineText><Link href="/about">about</Link></LineText>
     <LineText><Link href="#list.project">list.project</Link></LineText>
     <LineText><Link href="/blog">blog</Link></LineText>
@@ -28,7 +28,7 @@
 
     <LineText><ButtonPositional on_close={() => {
       lockstep_scrolling.set(!lockstep_scrolling.enabled);
-    }}>{lockstep_scrolling.enabled ? 'deactivate' : 'activate'} lockstep scroll</ButtonPositional></LineText>
+    }}>{lockstep_scrolling.enabled ? 'deactivate' : 'activate'} mouse lockstep scroll</ButtonPositional></LineText>
 
     <LineText><ButtonPositional on_close={() => {
       min_box.set(min_box.value * 0.8);
@@ -47,9 +47,4 @@
     flex-direction: column;
   }
   .home-nav { display: flex; flex-wrap: wrap; }
-  .content :global(h1) { font-size: clamp(32px, 7vw, 76px); line-height: 1.2; letter-spacing: -.05em; }
-  @media (max-width: 600px) {
-    .home-nav :global(button) { font-size: 18px; line-height: 32px; }
-    :global(#list.project h2) { font-size: 30px; line-height: 1.3; }
-  }
 </style>

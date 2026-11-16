@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
-  import { ButtonPositional, state_viewport, y_pixels, update_viewport, lockstep_scrolling } from '@legitminh/keyflow';
+  import { ButtonPositional, StaticButton, LineText, Link, Image, state_viewport, y_pixels, update_viewport, lockstep_scrolling } from '@legitminh/keyflow';
   import Project from './Project.svelte';
   import GuideSection from './GuideSection.svelte';
   import ReleaseDownloads from './ReleaseDownloads.svelte';
@@ -68,38 +68,30 @@
     return () => window.removeEventListener('hashchange', handleHash);
   });
 
-  function escape(event: KeyboardEvent) {
-    if (!active || event.key !== 'Escape' || event.altKey || event.ctrlKey || event.metaKey) return;
-    event.preventDefault();
-    if (tab !== 'usage') window.location.hash = `project/${active}/usage`;
-    else back();
-  }
 </script>
 
-<svelte:window onkeydown={escape} />
 <svelte:head>
   <title>{project ? `${project.name} · ${tab} · minh.website` : 'minh.website'}</title>
-  <meta name="description" content={project?.goal ?? 'Projects by Minh: Notework, siêu việt, Keyflow, Discrete, and more.'} />
+  <meta name="description" content={project?.goal ?? 'projects by minh: notework, siêu việt, keyflow, discrete, and more.'} />
 </svelte:head>
 
 {#if project}
   <article class="project-screen">
-    <div class="back-control"><ButtonPositional on_close={back}>← all projects</ButtonPositional></div>
+    <LineText><StaticButton keys="esc" on_close={back}>← all projects</StaticButton></LineText>
     <header>
-      <p class="eyebrow">{project.kind}</p>
-      <h1 bind:this={heading} tabindex="-1">{project.name}</h1>
-      <p class="goal">{project.goal}</p>
-      <div class="project-actions">
-        {#if project.app}<a class="action primary" href={project.app} target="_blank" rel="noreferrer">Open {project.name} ↗</a>{/if}
-        <a class="action" href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>
-      </div>
+      <LineText><h1 bind:this={heading} tabindex="-1">{project.name}</h1></LineText>
+      <LineText><p>{project.goal}</p></LineText>
+      <LineText><div class="project-actions">
+        {#if project.app}<Link href={project.app}>open {project.name} ↗</Link>{/if}
+        <Link href={project.github}>github ↗</Link>
+      </div></LineText>
     </header>
 
-    <nav class="guide-nav" aria-label={`${project.name} guide`}>
+    <LineText><nav class="guide-nav" aria-label={`${project.name} guide`}>
       {#each ['usage', 'configuration', 'installation'] as item}
-        <a href={`#project/${project.id}/${item}`} aria-current={tab === item ? 'page' : undefined}>{item}</a>
+        <span class:current={tab === item} aria-current={tab === item ? 'page' : undefined}><Link href={`#project/${project.id}/${item}`}>{item}</Link></span>
       {/each}
-    </nav>
+    </nav></LineText>
 
     <div class="guide-content">
       {#if tab === 'installation'}
@@ -107,27 +99,27 @@
           {#each discreteInstallation as section}<GuideSection {section} />{/each}
         {:else if project.id === 'keyflow'}
           <GuideSection section={{
-            title: 'Install in a Svelte 5 project',
-            text: 'Keyflow is a developer library, not an app to install on a phone. Use the same package on macOS, Windows, or Linux. It is distributed through GitHub Releases, not the npm registry.',
+            title: 'install in a svelte 5 project',
+            text: 'keyflow is a developer library, not an app to install on a phone. use the same package on macos, windows, or linux. it is distributed through github releases, not the npm registry.',
             steps: [
-              'Create or open a Svelte 5 project. For the repository demo, use Node 24 and pnpm.',
-              'Install the release archive with the command below.',
-              'Follow Usage to mount the root and add a button. Configuration covers defaults and input frames.'
+              'create or open a svelte 5 project. for the repository demo, use node 24 and pnpm.',
+              'install the release archive with the command below.',
+              'follow usage to mount the root and add a button. configuration covers defaults and input frames.'
             ],
-            code: 'pnpm add https://github.com/legitminh/keyflow/releases/download/v0.8.0/legitminh-keyflow-0.8.0.tgz',
-            link: { label: 'Current releases', href: `${project.github}/releases` }
+            code: 'pnpm add https://github.com/legitminh/keyflow/releases/download/v0.8.2/legitminh-keyflow-0.8.2.tgz',
+            link: { label: 'current releases', href: `${project.github}/releases` }
           }} />
         {:else}
-          <p class="intro">{project.id === 'notework' ? 'Install from your browser. No app-store download or account required.' : 'Choose your system. Builds are distributed through GitHub Releases.'}</p>
-          <nav class="platform-nav" aria-label="Operating system">
+          <LineText><p>{project.id === 'notework' ? 'install from your browser. no app-store download or account required.' : 'choose your system. builds are distributed through github releases.'}</p></LineText>
+          <LineText><nav class="platform-nav" aria-label="operating system">
             {#each platforms as system}
-              <a href={`#project/${project.id}/installation/${system.id}`} aria-current={platform === system.id ? 'page' : undefined}>{system.label}</a>
+              <span class:current={platform === system.id} aria-current={platform === system.id ? 'page' : undefined}><Link href={`#project/${project.id}/installation/${system.id}`}>{system.label}</Link></span>
             {/each}
-          </nav>
+          </nav></LineText>
           {#if project.id === 'notework'}
-            <a class="action primary" href={project.app} target="_blank" rel="noreferrer">Open Notework to install ↗</a>
+            <LineText><Link href={project.app!}>open notework to install ↗</Link></LineText>
             <GuideSection section={pwaInstallation[platform]} />
-            <GuideSection section={{ title: 'First launch and offline use', text: 'Let the app load once online. Afterward, browser-stored notes can be created and edited offline; GitHub sync needs a connection. Installed apps may use separate browser storage, so set up notes in the app you plan to use. If installation is unavailable, use the same URL in a regular browser tab.' }} />
+            <GuideSection section={{ title: 'first launch and offline use', text: 'let the app load once online. afterward, browser-stored notes can be created and edited offline; github sync needs a connection. installed apps may use separate browser storage, so set up notes in the app you plan to use. if installation is unavailable, use the same url in a regular browser tab.' }} />
           {:else}
             <ReleaseDownloads {platform} />
             <GuideSection section={nativeInstallation[platform]} />
@@ -136,81 +128,38 @@
       {:else}
         {#if tab === 'usage' && project.image}
           <figure>
-            <img src={project.image.src} alt={project.image.alt} width="880" height={project.id === 'sieuviet' ? 240 : 280} />
-            <figcaption>{project.image.caption}</figcaption>
+            <Image href={project.image.src} alt={project.image.alt} width="100%" maxWidth="100%" />
+            <LineText><figcaption>{project.image.caption}</figcaption></LineText>
           </figure>
         {/if}
         {#each project[tab] as section, index}
           <GuideSection {section} />
           {#if project.id === 'keyflow' && tab === 'usage' && index === 0}
-            <div class="try-control">
-              <ButtonPositional on_close={() => count++}>Try Keyflow · count: {count}</ButtonPositional>
-              <p aria-live="polite">{count === 0 ? 'Click, tap, or use the displayed shortcut.' : `${count} ${count === 1 ? 'activation' : 'activations'}.`}</p>
-            </div>
+            <LineText><div class="try-control">
+              <ButtonPositional on_close={() => count++}>try keyflow · count: {count}</ButtonPositional>
+              <p aria-live="polite">{count === 0 ? 'click, tap, or use the displayed shortcut.' : `${count} ${count === 1 ? 'activation' : 'activations'}.`}</p>
+            </div></LineText>
           {/if}
         {/each}
       {/if}
     </div>
-    <footer><a href="#list.project">← all projects</a><span>Esc {tab === 'usage' ? 'returns to projects' : 'returns to usage'}</span></footer>
   </article>
 {:else}
   <Project onselect={open} />
 {/if}
 
 <style>
-  .project-screen {
-    width: min(100%, 960px);
-    box-sizing: border-box;
-    padding: 24px clamp(16px, 4vw, 48px) 80px;
-    margin: 0 auto;
-    background: var(--background);
-    font-size: clamp(15px, calc(var(--min-box) * .38), 21px);
-    line-height: 1.65;
-  }
-  .project-screen :global(*) { box-sizing: border-box; }
-  .project-screen :global(a) { color: inherit; text-underline-offset: .22em; overflow-wrap: anywhere; }
-  .project-screen :global(a:hover) { text-decoration-thickness: 2px; }
-  .project-screen :global(:focus-visible) { outline: 2px solid var(--primary); outline-offset: 5px; }
-  .project-screen :global(button) { font-size: inherit; line-height: inherit; }
-  .back-control { margin-bottom: 48px; }
-  .back-control :global(button) { padding: 4px 0; }
-  .eyebrow { margin: 0 0 8px; font-size: .8em; color: var(--tertiary); }
-  h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 500; line-height: 1.15; letter-spacing: -.055em; margin: 0 0 24px; }
+  .project-screen { padding-bottom: var(--min-box); }
   h1:focus { outline: none; }
-  .goal { max-width: 64ch; margin: 0; }
-  .project-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 36px; }
-  .project-screen :global(.action) { display: inline-block; border: 1px solid var(--primary); padding: 9px 15px; font-size: .9em; text-decoration: none; }
-  .project-screen :global(.action:hover) { background: color-mix(in srgb, var(--primary) 8%, var(--background)); }
-  .primary { background: var(--primary); color: var(--background) !important; }
-  .project-screen :global(.primary:hover) { background: var(--primary); opacity: .8; }
-  .guide-nav { display: flex; flex-wrap: wrap; gap: 0 28px; border-bottom: 1px solid var(--tertiary); }
-  .guide-nav a { padding: 12px 0; text-decoration: none; border-bottom: 3px solid transparent; }
-  .guide-nav a[aria-current] { border-color: var(--primary); font-weight: 700; }
-  .guide-content { padding: 16px 0 0; }
-  .project-screen :global(.guide-section) { margin: 32px 0; }
-  .project-screen :global(h2) { font-size: 1.1em; line-height: 1.4; margin: 0 0 12px; font-weight: 650; letter-spacing: -.02em; }
-  .project-screen :global(p) { margin-top: 0; }
-  .project-screen :global(li) { padding-left: 6px; margin-bottom: 12px; }
-  .project-screen :global(ol), .project-screen :global(ul) { padding-left: 24px; margin: 0; }
-  .project-screen :global(pre) { border: 1px solid var(--tertiary); padding: 18px; overflow-x: auto; font-size: .85em; line-height: 1.7; tab-size: 2; white-space: pre; }
-  .project-screen :global(code) { font-family: inherit; overflow-wrap: anywhere; }
-  figure { margin: 20px 0 36px; }
-  figure img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--tertiary); }
-  figcaption { margin-top: 10px; font-size: .8em; }
-  .intro { margin: 12px 0; }
-  .platform-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
-  .platform-nav a { border: 1px solid var(--tertiary); text-decoration: none; padding: 6px 12px; font-size: .85em; }
-  .platform-nav a[aria-current] { background: var(--primary); color: var(--background); border-color: var(--primary); }
-  .project-screen :global(.release-downloads), .try-control { border: 1px solid var(--tertiary); padding: 20px; margin: 24px 0; }
-  .project-screen :global(.release-status) { font-size: .8em; margin-bottom: 12px; }
-  .project-screen :global(.release-detail) { font-size: .8em; margin: 14px 0; }
-  .project-screen :global(.release-notes) { display: block; margin-top: 12px; }
-  .try-control p { font-size: .8em; margin: 12px 0 0; }
-  footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--tertiary); padding-top: 24px; margin-top: 48px; font-size: .8em; }
-  footer span { color: var(--tertiary); }
-  @media (max-width: 500px) {
-    .back-control { margin-bottom: 32px; }
-    .guide-nav { gap: 0 18px; font-size: .85em; }
-    .project-screen :global(pre) { padding: 12px; }
+  .project-actions, .guide-nav, .platform-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 calc(var(--min-box) / 4);
+  }
+  .guide-nav, .platform-nav { margin-block: calc(var(--min-box) / 2); }
+  .current { text-decoration: underline; text-underline-offset: .2em; }
+  figure {
+    max-width: calc(var(--min-box) * 20);
+    margin: var(--min-box) calc(var(--min-box) / 4);
   }
 </style>
