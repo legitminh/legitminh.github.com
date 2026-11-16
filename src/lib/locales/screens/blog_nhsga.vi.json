@@ -1,0 +1,17 @@
+{
+  "the national high school game academy": "học viện trò chơi dành cho học sinh trung học toàn quốc",
+  "notation": "ký hiệu",
+  "date": "ngày",
+  "date is shown in \\mxdy format, where m is month, x is the month number, d is day, y is the day number": "ngày được viết theo dạng \\mxdy, trong đó m là tháng, x là số tháng, d là ngày, y là số ngày",
+  "example: m6d22 means june 22nd": "ví dụ: m6d22 nghĩa là ngày 22 tháng 6",
+  "time": "giờ",
+  "time is shown in \\hxmy format, where h is hour, x is the hour number (0 to 24), m is minute, y is the minute number": "giờ được viết theo dạng \\hxmy, trong đó h là giờ, x là số giờ từ 0 đến 24, m là phút, y là số phút",
+  "example: h16m4 means 4:04pm": "ví dụ: h16m4 nghĩa là 16:04",
+  "variable": "biến",
+  "variable is shown in \\varname=varvalue format, where varname is the name of the variable, varvalue is the value of the variable": "biến được viết theo dạng \\varname=varvalue, trong đó varname là tên biến, varvalue là giá trị",
+  "the national high school game academy (nhsga) is a 6-week residential summer camp for game design at carnegie mellon university.": "national high school game academy, nhsga, là trại hè nội trú sáu tuần về thiết kế trò chơi tại đại học carnegie mellon.",
+  "timeline": "dòng thời gian",
+  "\\startdate=\\m6d22": "\\startdate=\\m6d22",
+  "\\m6d21": "\\m6d21",
+  "\\startdate-1, saturday": "\\startdate-1, thứ bảy"
+}

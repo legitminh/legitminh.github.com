@@ -14,7 +14,7 @@ export interface GuideSection {
 export const platforms: { id: Platform; label: string }[] = [
   { id: 'macos', label: 'macos' },
   { id: 'windows', label: 'windows' },
-  { id: 'linux', label: 'linux' },
+  { id: 'linux', label: 'ubuntu 26.04' },
   { id: 'ios', label: 'iphone / ipad' },
   { id: 'android', label: 'android' }
 ];
@@ -101,7 +101,7 @@ export const projects: ProjectGuide[] = [
         'use ascii mode for literal text, abbreviations, or another language.'
       ] },
       { title: 'iphone touch controls', items: [
-        'hold ⇧ while typing for uppercase. hold and release without typing to capitalize the next key.',
+        'hold ⇧ while typing for uppercase. releasing it immediately restores normal typing; it does not capitalize a later key.',
         'double-tap ⇧ for caps lock; tap again to turn it off.',
         'tap 123 or #+= to switch panels. hold either for temporary numbers or symbols; release to return.',
         'use the globe key to select another system keyboard.'
@@ -209,7 +209,7 @@ export const pwaInstallation: Record<Platform, GuideSection> = {
 };
 
 export const nativeInstallation: Record<Platform, GuideSection> = {
-  macos: { title: 'macos · input method', steps: [
+  macos: { title: 'macos · input method', text: 'macos 13 or later, intel or apple silicon. the universal app is ad-hoc signed and is not notarized with developer id.', steps: [
     'download the macos build from github releases. follow that release’s installation notes; keep the existing input source when updating.',
     'for first-time setup: system settings → keyboard → text input → edit → +. add siêu việt. log out and back in if it is not listed.',
     'select siêu việt in the input menu. open the siêu việt app for settings.'
@@ -225,7 +225,7 @@ export const nativeInstallation: Record<Platform, GuideSection> = {
     'choose select keyboard in the app and select siêu việt. use the app’s practice editor to try it.'
   ], text: 'android 10 or later. review the release notes for supported devices and architectures.' },
   linux: { title: 'linux · ibus / fcitx 5', steps: [
-    'choose the linux build matching your architecture and distribution. install its package and dependencies using the release notes.',
+    'download the ubuntu 26.04 .deb matching your architecture, amd64 or arm64. install it with sudo apt install ./filename.deb, using the downloaded filename.',
     'log in again or restart your input framework.',
     'add siêu việt in gnome input sources (ibus) or fcitx 5 configuration. use one input framework per session; open sieuviet-settings to configure it.'
   ], text: 'development builds have been exercised on ubuntu 26.04, x11, arm64 and x64. other distributions and wayland still need qualification.' },
@@ -233,11 +233,5 @@ export const nativeInstallation: Record<Platform, GuideSection> = {
     'choose a release for your architecture, x64 or arm64. keep the extracted package at its final installation path.',
     'follow the release’s registration instructions. the development package uses install.ps1 in matching-architecture powershell; registration needs administrator access.',
     'select siêu việt with win+space. open sieuvietsettings.exe for settings and practice.'
-  ], text: 'preview status: binaries cross-compile, but native windows engine loading and system typing are not yet verified. wait for a qualified release for everyday use.' }
-};
-
-// Provisional names until the first public builds arrive. Live release assets override these.
-export const plannedBuilds: Record<Platform, string> = {
-  macos: 'sieuviet-macos.zip', windows: 'sieuviet-windows.zip',
-  linux: 'sieuviet-linux.tar.gz', ios: 'sieuviet-ios.ipa', android: 'sieuviet-android.apk'
+  ], text: 'development release: native x64 and arm64 builds pass packaged-engine checks. interactive tsf typing in real applications still needs qualification.' }
 };

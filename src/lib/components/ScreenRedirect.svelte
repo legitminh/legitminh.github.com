@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { t } from '$lib/i18n.svelte';
   import { onMount } from 'svelte';
   import { Document, LineText, Link } from '@legitminh/keyflow';
   let { screen }: { screen: string } = $props();
@@ -11,4 +12,4 @@
   <link rel="canonical" href="/" />
 </svelte:head>
 
-<Document><LineText><Link href={destination}>open this screen on the home page</Link></LineText></Document>
+<Document><LineText><Link href={destination}>{t("open this screen on the home page")}</Link></LineText></Document>

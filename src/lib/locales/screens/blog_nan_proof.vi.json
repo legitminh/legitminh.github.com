@@ -1,0 +1,22 @@
+{
+  "rock paper scissor expected rounds": "số vòng kỳ vọng của oẳn tù tì",
+  "given p players": "cho p người chơi",
+  "r is remaining players": "r là số người còn lại",
+  "the probability c for r to remain given p after one round is:": "xác suất c để còn r người sau một vòng với p người là:",
+  "if p = 1: 0 because the game ends": "nếu p = 1: 0 vì trò chơi đã kết thúc",
+  "if r = 0: 0 because its impossible": "nếu r = 0: 0 vì không thể xảy ra",
+  "if r = p: (3^p - 3*(2^p-2) )/3^p": "nếu r = p: (3^p - 3*(2^p-2) )/3^p",
+  "explanation: there are 3^p total possible player option (rock, paper, or scissor for each player). the round ties (r=p) if all players play the same or all three options utilized. the number of ways the players only uses two options is 3*(2^p-2) because two options restriction gives 2^p ways for players to choose, in which we need to exclude 2 cases when the all pick the same in the two options. therefore there are 3^p - (2^p-2) ways to tie out of 3^p total options.": "giải thích: tổng cộng có 3^p cách chọn, mỗi người chọn búa, bao hoặc kéo. vòng hòa (r=p) nếu mọi người ra giống nhau hoặc cả ba lựa chọn đều xuất hiện. số cách chỉ dùng hai lựa chọn là 3*(2^p−2), vì giới hạn hai lựa chọn cho 2^p cách, bỏ hai trường hợp tất cả cùng ra một lựa chọn. do đó có 3^p−(2^p−2) cách hòa trên tổng 3^p cách.",
+  "e is the expected number of rounds for x players": "e là số vòng kỳ vọng với x người",
+  "it is not feasible to simulate infinite rounds, so a certain number of rounds is tracked (l)": "không thể mô phỏng vô hạn vòng, nên chỉ theo dõi số vòng hữu hạn l",
+  "there are 2 scenarios in one round, either tie or decreased number of player": "một vòng có hai trường hợp: hòa hoặc giảm số người chơi",
+  "if tie:": "nếu hòa:",
+  "the expected value is 1 + e(x, l-1)": "giá trị kỳ vọng là 1 + e(x, l−1)",
+  "if decreased number of player": "nếu giảm số người chơi",
+  "for each resulting player (n) from 1 to x-1 inclusive, the expected value is e(n, l-1)": "với mỗi số người còn lại n từ 1 đến x−1, giá trị kỳ vọng là e(n, l−1)",
+  "thus, the expected value e is (1 + e(x, l-1)) * c(x,x) - summation(n=1,x-1, e(n, l-1) * c(x,n))": "do đó giá trị kỳ vọng e là (1 + e(x, l-1)) * c(x,x) - summation(n=1,x-1, e(n, l-1) * c(x,n))",
+  "which can be simplified to c(x,x) - summation(n=1,x, e(n, l-1) * c(x,n))": "có thể rút gọn thành c(x,x) - summation(n=1,x, e(n, l-1) * c(x,n))",
+  "as e is recursively defined, one must define base case of e(x,0), where the expected value is 0": "vì e được định nghĩa đệ quy, phải đặt trường hợp cơ sở e(x,0) với kỳ vọng bằng 0",
+  "e(x,bignumber) should be a good estimation": "e(x,bignumber) có thể là ước lượng tốt",
+  "desmos link": "liên kết desmos"
+}

@@ -31,12 +31,14 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: build
         env:
           BASE_PATH: ''
         run: |
+          pnpm check:i18n
+          pnpm check
           pnpm build
 
       - name: Setup Pages

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="280" viewBox="0 0 880 280" role="img" aria-labelledby="title desc">
+<title id="title">liên kết ghi chú và nhúng bản vẽ trong notework</title>
+<desc id="desc">ghi chú mục lục có liên kết đến ideas và chỉ thị svgpage nhúng sketch.svg. các tệp vẫn độc lập.</desc>
+<rect width="880" height="280" fill="#fff"/>
+<g fill="#111" font-family="ui-monospace, SFMono-Regular, Consolas, monospace">
+<text x="28" y="35" font-size="12" letter-spacing="2">notework / các tệp liên kết</text>
+<g fill="none" stroke="#111"><rect x="28" y="62" width="355" height="180"/><rect x="540" y="62" width="312" height="72"/><rect x="540" y="159" width="312" height="83"/></g>
+<text x="48" y="92" font-size="14">index.txt</text><path d="M28 107H383" stroke="#bbb"/>
+<text x="48" y="143" font-size="18">[[ideas]]</text><text x="48" y="193" font-size="16">\svgpage[sketch.svg]</text>
+<g stroke="#111" fill="none"><path d="M383 139H458V98H528m-8-5 8 5-8 5"/><path d="M383 189H486V200H528m-8-5 8 5-8 5"/></g>
+<text x="560" y="92" font-size="17">ideas</text><text x="560" y="116" font-size="12" fill="#555">một ghi chú riêng</text>
+<text x="560" y="188" font-size="17">sketch.svg</text><text x="560" y="216" font-size="12" fill="#555">bản vẽ trong ghi chú</text>
+</g></svg>

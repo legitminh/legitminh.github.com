@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
-  import { ButtonPositional, StaticButton, LineText, Link, Image, state_viewport, y_pixels, update_viewport, lockstep_scrolling } from '@legitminh/keyflow';
+  import { t, localizedImage } from '$lib/i18n.svelte';
+  import { ButtonPositional, StaticButton, LineText, Link, Image, state_viewport, y_pixels, update_viewport, lockstep_scrolling, scroll_to_hash } from '@legitminh/keyflow';
   import Project from './Project.svelte';
   import GuideSection from './GuideSection.svelte';
   import ReleaseDownloads from './ReleaseDownloads.svelte';
@@ -49,6 +50,10 @@
     await tick();
     // Keyflow uses a transformed camera for lockstep scrolling. Reset both the
     // camera and native offset when swapping screens; restore the card list on Back.
+    if (!active && hash === '#list.setting') {
+      scroll_to_hash();
+      return;
+    }
     if (active || wasActive) {
       update_viewport();
       const y = scrollPositions.get(hash) ?? (active ? 0 : listScroll);
@@ -79,25 +84,25 @@
 </script>
 
 <svelte:head>
-  <title>{project ? `${project.name} · ${tab} · minh.website` : contentScreen ? `${contentScreen.name} · minh.website` : 'minh.website'}</title>
-  <meta name="description" content={project?.goal ?? contentScreen?.name ?? 'projects by minh: notework, siêu việt, keyflow, discrete, and more.'} />
+  <title>{project ? `${t(project.name)} · ${t(tab)} · minh.website` : contentScreen ? `${t(contentScreen.name)} · minh.website` : 'minh.website'}</title>
+  <meta name="description" content={t(project?.goal ?? contentScreen?.name ?? 'projects by minh: notework, siêu việt, keyflow, discrete, and more.')} />
 </svelte:head>
 
 {#if project}
   <article class="project-screen">
-    <LineText><StaticButton keys="esc" on_close={back}>← all projects</StaticButton></LineText>
+    <LineText><StaticButton keys="esc" on_close={back}>← {t("all projects")}</StaticButton><Link href="#list.setting">{t("settings")}</Link></LineText>
     <header>
       <LineText><h1 bind:this={heading} tabindex="-1">{project.name}</h1></LineText>
-      <LineText><p>{project.goal}</p></LineText>
+      <LineText><p>{t(project.goal)}</p></LineText>
       <LineText><div class="project-actions">
-        {#if project.app}<Link href={project.app}>open {project.name} ↗</Link>{/if}
+        {#if project.app}<Link href={project.app}>{t("open")} {project.name} ↗</Link>{/if}
         <Link href={project.github}>github ↗</Link>
       </div></LineText>
     </header>
 
-    <LineText><nav class="guide-nav" aria-label={`${project.name} guide`}>
+    <LineText><nav class="guide-nav" aria-label={`${project.name} · ${t("guide")}`}>
       {#each ['usage', 'configuration', 'installation'] as item}
-        <span class:current={tab === item} aria-current={tab === item ? 'page' : undefined}><Link href={`#project/${project.id}/${item}`}>{item}</Link></span>
+        <span class:current={tab === item} aria-current={tab === item ? 'page' : undefined}><Link href={`#project/${project.id}/${item}`}>{t(item)}</Link></span>
       {/each}
     </nav></LineText>
 
@@ -118,14 +123,14 @@
             link: { label: 'current releases', href: `${project.github}/releases` }
           }} />
         {:else}
-          <LineText><p>{project.id === 'notework' ? 'install from your browser. no app-store download or account required.' : 'choose your system. builds are distributed through github releases.'}</p></LineText>
-          <LineText><nav class="platform-nav" aria-label="operating system">
+          <LineText><p>{t(project.id === 'notework' ? 'install from your browser. no app-store download or account required.' : 'choose your system. builds are distributed through github releases.')}</p></LineText>
+          <LineText><nav class="platform-nav" aria-label={t("operating system")}>
             {#each platforms as system}
-              <span class:current={platform === system.id} aria-current={platform === system.id ? 'page' : undefined}><Link href={`#project/${project.id}/installation/${system.id}`}>{system.label}</Link></span>
+              <span class:current={platform === system.id} aria-current={platform === system.id ? 'page' : undefined}><Link href={`#project/${project.id}/installation/${system.id}`}>{t(system.label)}</Link></span>
             {/each}
           </nav></LineText>
           {#if project.id === 'notework'}
-            <LineText><Link href={project.app!}>open notework to install ↗</Link></LineText>
+            <LineText><Link href={project.app!}>{t("open notework to install")} ↗</Link></LineText>
             <GuideSection section={pwaInstallation[platform]} />
             <GuideSection section={{ title: 'first launch and offline use', text: 'let the app load once online. afterward, browser-stored notes can be created and edited offline; github sync needs a connection. installed apps may use separate browser storage, so set up notes in the app you plan to use. if installation is unavailable, use the same url in a regular browser tab.' }} />
           {:else}
@@ -136,16 +141,16 @@
       {:else}
         {#if tab === 'usage' && project.image}
           <figure>
-            <Image href={project.image.src} alt={project.image.alt} width="100%" maxWidth="100%" />
-            <LineText><figcaption>{project.image.caption}</figcaption></LineText>
+            <Image href={localizedImage(project.image.src)} alt={t(project.image.alt)} width="100%" maxWidth="100%" />
+            <LineText><figcaption>{t(project.image.caption)}</figcaption></LineText>
           </figure>
         {/if}
         {#each project[tab] as section, index}
           <GuideSection {section} />
           {#if project.id === 'keyflow' && tab === 'usage' && index === 0}
             <LineText><div class="try-control">
-              <ButtonPositional on_close={() => count++}>try keyflow · count: {count}</ButtonPositional>
-              <p aria-live="polite">{count === 0 ? 'click, tap, or use the displayed shortcut.' : `${count} ${count === 1 ? 'activation' : 'activations'}.`}</p>
+              <ButtonPositional on_close={() => count++}>{t("try keyflow · count")}: {count}</ButtonPositional>
+              <p aria-live="polite">{count === 0 ? t('click, tap, or use the displayed shortcut.') : `${count} ${t(count === 1 ? 'activation' : 'activations')}.`}</p>
             </div></LineText>
           {/if}
         {/each}
@@ -154,15 +159,15 @@
   </article>
 {:else if contentScreen}
   <article class="content-screen">
-    <LineText><StaticButton keys="esc" on_close={back}>← {contentScreen.parent === 'list.project' ? 'all projects' : contentScreen.parent === 'blog/nan' ? 'nan' : contentScreen.parent || 'home'}</StaticButton></LineText>
-    <LineText><h1 bind:this={heading} tabindex="-1">{contentScreen.name}</h1></LineText>
+    <LineText><StaticButton keys="esc" on_close={back}>← {t(contentScreen.parent === 'list.project' ? 'all projects' : contentScreen.parent === 'blog/nan' ? 'nan' : contentScreen.parent || 'home')}</StaticButton></LineText>
+    <LineText><h1 bind:this={heading} tabindex="-1">{t(contentScreen.name)}</h1></LineText>
     {#await contentScreen.load()}
-      <LineText><p role="status">loading…</p></LineText>
+      <LineText><p role="status">{t("loading…")}</p></LineText>
     {:then module}
       {@const Screen = module.default}
       <Screen />
     {:catch}
-      <LineText><p>this screen could not be loaded.</p><ButtonPositional on_close={() => window.location.reload()}>retry</ButtonPositional></LineText>
+      <LineText><p>{t("this screen could not be loaded.")}</p><ButtonPositional on_close={() => window.location.reload()}>{t("retry")}</ButtonPositional></LineText>
     {/await}
   </article>
 {:else}

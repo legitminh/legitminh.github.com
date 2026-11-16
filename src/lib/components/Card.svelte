@@ -1,5 +1,6 @@
 <!-- A summary card with name and visualization -->
 <script lang="ts">
+  import { t } from '$lib/i18n.svelte';
   let {name, href = '', visualization = null, onselect, projectId}: {
     name: string; href?: string; visualization?: string | null;
     onselect?: () => void; projectId?: string;
@@ -8,13 +9,13 @@
 </script>
 <div class="card" data-project={projectId} use:must_view>
   {#if visualization}
-  <img src={visualization} alt={name}/>
+  <img src={visualization} alt={t(name)}/>
   {/if}
   <div class="label">
     {#if onselect}
-      <ButtonPositional on_close={onselect}>{name}</ButtonPositional>
+      <ButtonPositional on_close={onselect}>{t(name)}</ButtonPositional>
     {:else}
-      <Link href={href}>{name}</Link>
+      <Link href={href}>{t(name)}</Link>
     {/if}
   </div>
 </div>

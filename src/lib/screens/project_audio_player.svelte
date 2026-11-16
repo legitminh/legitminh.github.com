@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { t as translate } from '$lib/i18n.svelte';
+  import vietnamese from '$lib/locales/screens/project_audio_player.vi.json';
+  const t = (source: string) => translate(source, vietnamese);
   import { onDestroy } from 'svelte';
   import { Button, LineText } from '@legitminh/keyflow';
 
@@ -34,11 +37,11 @@
 </script>
 
    
-  <LineText>playlist1</LineText>
-  <LineText>plays a random song in my definitely-legally-acquired playlist (requires the local server on port 8000).</LineText>
+  <LineText>{t("playlist1")}</LineText>
+  <LineText>{t("plays a random song in my definitely-legally-acquired playlist (requires the local server on port 8000).")}</LineText>
   <LineText>
-    <Button on_close={previous}>prev mp3</Button>
-    <Button on_close={next}>new mp3</Button>
+    <Button on_close={previous}>{t("prev mp3")}</Button>
+    <Button on_close={next}>{t("new mp3")}</Button>
   </LineText>
   {#if mp3_url}
   <audio autoplay controls src={mp3_url} onended={next}></audio>

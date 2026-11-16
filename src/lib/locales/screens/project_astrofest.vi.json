@@ -1,0 +1,19 @@
+{
+  "objective: eliminate all opponents, the more damaged a ship is, the more transparent it is!": "mục tiêu: loại mọi đối thủ. tàu càng hỏng thì càng trong suốt!",
+  "read the screen for control. the dropdown is to select number of players.": "xem điều khiển trên màn hình. danh sách thả xuống dùng chọn số người chơi.",
+  "6 to return to main menu.": "nhấn 6 để về menu chính.",
+  "buttons are to turn left, shoot, and turn right in order from top to bottom.": "các nút từ trên xuống lần lượt là quay trái, bắn và quay phải.",
+  "screen can be maximized for better experience.": "có thể phóng to màn hình để chơi thuận tiện hơn.",
+  "powerups:": "vật phẩm hỗ trợ:",
+  "red = bomb": "đỏ = bom",
+  "blue = lazer": "xanh dương = laser",
+  "green = heal, if full hp then it is shield.": "xanh lá = hồi máu; nếu đầy máu thì tạo lá chắn.",
+  "yellow = triple gun": "vàng = súng ba nòng",
+  "cyan = scatter shot": "xanh lơ = đạn tản",
+  "magenta = homing missle": "hồng tím = tên lửa tự dẫn",
+  "multiplayer fast-paced shooting game, inspired by astro party.": "trò bắn súng nhiều người nhịp độ nhanh, lấy cảm hứng từ astro party.",
+  "future updates include art, turrets, maps, sound effect, online multiplayer, and more...": "cập nhật tương lai gồm hình ảnh, tháp súng, bản đồ, âm thanh, chơi trực tuyến và nhiều thứ nữa…",
+  "thank you for checking this out.": "cảm ơn bạn đã xem.",
+  "if you want to support me and/or download the game, check out the": "nếu muốn ủng hộ tôi hoặc tải trò chơi, hãy xem",
+  "itch page": "trang itch"
+}
