@@ -35,17 +35,17 @@ export function platformAssets(releases: Release[], platform: Platform) {
 
 // These are published before deploying the site; API failures retain working links.
 export const publishedRelease: Release = {
-  tag_name: 'v0.12.1',
-  html_url: `${releasesUrl}/tag/v0.12.1`,
+  tag_name: 'v0.12.2',
+  html_url: `${releasesUrl}/tag/v0.12.2`,
   prerelease: true,
   draft: false,
   assets: [
-    'sieuviet-0.12.1-macos-universal.zip',
-    'sieuviet-0.12.1-ios-unsigned.ipa',
-    'sieuviet-0.12.1-android-universal-debug.apk',
-    'sieuviet-0.12.1-windows-x64.zip',
-    'sieuviet-0.12.1-windows-arm64.zip',
-    'sieuviet-0.12.1-ubuntu-26.04-amd64.deb',
-    'sieuviet-0.12.1-ubuntu-26.04-arm64.deb'
-  ].map(name => ({ name, browser_download_url: `${releasesUrl}/download/v0.12.1/${name}` }))
+    'sieuviet-0.12.2-macos-universal.zip',
+    'sieuviet-0.12.2-ios-unsigned.ipa',
+    'sieuviet-0.12.2-android-universal-debug.apk',
+    'sieuviet-0.12.2-windows-x64.zip',
+    'sieuviet-0.12.2-windows-arm64.zip',
+    'sieuviet-0.12.2-ubuntu-26.04-amd64.deb',
+    'sieuviet-0.12.2-ubuntu-26.04-arm64.deb'
+  ].map(name => ({ name, browser_download_url: `${releasesUrl}/download/v0.12.2/${name}` }))
 };
