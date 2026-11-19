@@ -1,4 +1,4 @@
-[tiếng việt](README.md) · **english**
+**english** · [tiếng việt](README.vi.md)
 
 # minh.website
 
@@ -53,6 +53,6 @@ read `skills/minh-website-maintenance/SKILL.md` before editing. visitor-facing p
 
 ## languages
 
-vietnamese is the default. visitors switch to english in the home screen settings; the choice persists in `localStorage` under `minh.website.language`, independently of keyflow session preferences. `src/lib/i18n.svelte.ts` owns the language state. source strings supply english; the vietnamese catalog is in `src/lib/locales/`. article catalogs are imported by their lazy screen modules. the document language, metadata, captions, image variants, and accessibility labels follow the selected language. urls, filenames, code and existing media are preserved.
+english is the default. visitors choose english or tiếng việt from the language dropdown under ⚙ on the home screen; the choice persists in `localStorage` under `minh.website.language`, independently of keyflow session preferences. `src/lib/i18n.svelte.ts` owns the language state. source strings supply english; the vietnamese catalog is in `src/lib/locales/`. article catalogs are imported by their lazy screen modules. the document language, metadata, captions, image variants, and accessibility labels follow the selected language. urls, filenames, code and existing media are preserved.
 
 run `pnpm check:i18n`, `pnpm check`, and `pnpm build`. browser verification covers keyboard-only language selection, persistent preferences, both scroll modes, offscreen escape/back, hash reloads, api-unavailable download links, translated articles and narrow layouts.

@@ -5,6 +5,7 @@
   import Project from './Project.svelte';
   import GuideSection from './GuideSection.svelte';
   import ReleaseDownloads from './ReleaseDownloads.svelte';
+  import SettingsLink from './SettingsLink.svelte';
   import { contentScreens, isContentScreen, type ScreenId } from '$lib/data/screens';
   import {
     projects, platforms, pwaInstallation, nativeInstallation, discreteInstallation,
@@ -86,7 +87,7 @@
 
 {#if project}
   <article class="project-screen">
-    <LineText><StaticButton keys="esc" on_close={back}>← {t("all projects")}</StaticButton><Link href="#list.setting">{t("settings")}</Link></LineText>
+    <LineText><StaticButton keys="esc" on_close={back}>← {t("all projects")}</StaticButton><SettingsLink /></LineText>
     <header>
       <LineText><h1 bind:this={heading} tabindex="-1">{project.name}</h1></LineText>
       <LineText><p>{t(project.goal)}</p></LineText>

@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { LineText, min_box, lockstep_scrolling, ButtonPositional, themes, state_theme, set_theme_id, Link, Document } from '@legitminh/keyflow';
+  import { LineText, min_box, lockstep_scrolling, ButtonPositional, SubKeyframe, themes, state_theme, set_theme_id, Link, Document } from '@legitminh/keyflow';
   import { t, language, setLanguage } from '$lib/i18n.svelte';
   import Grid from '$lib/components/Grid.svelte';
   import ScreenBrowser from '$lib/components/ScreenBrowser.svelte';
+  import SettingsLink from '$lib/components/SettingsLink.svelte';
   import type { ScreenId } from '$lib/data/screens';
   let active = $state<ScreenId | null>(null);
   let themeName = $derived(state_theme.theme_id === 'system' ? 'system' : themes[state_theme.theme_id]?.colorScheme ?? 'system');
@@ -19,7 +20,7 @@
     <LineText><Link href="#about">{t("about")}</Link></LineText>
     <LineText><Link href="#list.project">{t("list.project")}</Link></LineText>
     <LineText><Link href="#blog">{t("blog")}</Link></LineText>
-    <LineText><Link href="#list.setting">{t("list.setting")}</Link></LineText>
+    <LineText><SettingsLink /></LineText>
     </nav>
   </div>
   <div id="list.project">
@@ -29,8 +30,19 @@
   <ScreenBrowser bind:active />
   {#if !active}
   <div id="list.setting">
-    <LineText><h2>{t("list.setting")}</h2></LineText>
-    <LineText><ButtonPositional on_close={() => setLanguage(language.current === 'vi' ? 'en' : 'vi')}>{t('language')}: {language.current === 'vi' ? 'tiếng việt → english' : 'english → tiếng việt'}</ButtonPositional></LineText>
+    <LineText><h2 aria-label={t('settings')}>⚙</h2></LineText>
+    <LineText><div class="language-selector"><SubKeyframe
+      label={`${t('language')}: ${language.current === 'vi' ? 'tiếng việt' : 'english'} ▾`}
+      backLabel={t('back')}
+      items={[
+        { id: 'en', label: 'english', on_select: () => setLanguage('en') },
+        { id: 'vi', label: 'tiếng việt', on_select: () => setLanguage('vi') }
+      ]}
+    >
+      {#snippet itemDisplay(item)}
+        <span lang={item.id} aria-current={language.current === item.id ? 'true' : undefined}>{item.label}{language.current === item.id ? ' ✓' : ''}</span>
+      {/snippet}
+    </SubKeyframe></div></LineText>
     <LineText><p aria-live="polite">{t('choose the site language. your choice is saved on this device.')}</p></LineText>
     <LineText><ButtonPositional on_close={toggleTheme}>{t('theme')}: {t(themeName)}</ButtonPositional></LineText>
 
@@ -55,4 +67,11 @@
     flex-direction: column;
   }
   .home-nav { display: flex; flex-wrap: wrap; }
+  .language-selector :global(.subkeyframe-panel) {
+    position: absolute;
+    z-index: 2;
+    box-sizing: border-box;
+    min-width: 100%;
+    max-width: calc(100vw - var(--min-box) / 2);
+  }
 </style>

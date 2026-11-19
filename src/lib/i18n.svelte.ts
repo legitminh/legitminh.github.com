@@ -1,7 +1,7 @@
 import vietnamese from './locales/vi.json';
 
 export type Language = 'vi' | 'en';
-export const language = $state<{ current: Language }>({ current: 'vi' });
+export const language = $state<{ current: Language }>({ current: 'en' });
 export const languageStorageKey = 'minh.website.language';
 const catalog: Record<string, string> = vietnamese;
 
@@ -21,10 +21,10 @@ export function setLanguage(value: Language): void {
 
 export function initializeLanguage(): () => void {
   try {
-    language.current = localStorage.getItem(languageStorageKey) === 'en' ? 'en' : 'vi';
-  } catch { language.current = 'vi'; }
+    language.current = localStorage.getItem(languageStorageKey) === 'vi' ? 'vi' : 'en';
+  } catch { language.current = 'en'; }
   const sync = (event: StorageEvent) => {
-    if (event.key === languageStorageKey) language.current = event.newValue === 'en' ? 'en' : 'vi';
+    if (event.key === languageStorageKey || event.key === null) language.current = event.newValue === 'vi' ? 'vi' : 'en';
   };
   window.addEventListener('storage', sync);
   return () => window.removeEventListener('storage', sync);
