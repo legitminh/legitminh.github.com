@@ -21,6 +21,6 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<Keyflow options={{ storagePrefix: '', keys: key_presets.alphanumeric }}>
+<Keyflow options={{ storagePrefix: '', keys: key_presets.alphanumeric, keypathVisible: 'auto' }}>
   {@render children()}
 </Keyflow>

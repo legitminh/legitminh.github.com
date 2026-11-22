@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LineText, min_box, lockstep_scrolling, ButtonPositional, SubKeyframe, themes, state_theme, set_theme_id, Link, Document } from '@legitminh/keyflow';
+  import { LineText, min_box, lockstep_scrolling, ButtonPositional, SubKeyframe, themes, state_theme, set_theme_id, Link, Document, KeypathToggle } from '@legitminh/keyflow';
   import { t, language, setLanguage } from '$lib/i18n.svelte';
   import Grid from '$lib/components/Grid.svelte';
   import ScreenBrowser from '$lib/components/ScreenBrowser.svelte';
@@ -45,6 +45,8 @@
     </SubKeyframe></div></LineText>
     <LineText><p aria-live="polite">{t('choose the site language. your choice is saved on this device.')}</p></LineText>
     <LineText><ButtonPositional on_close={toggleTheme}>{t('theme')}: {t(themeName)}</ButtonPositional></LineText>
+
+    <LineText><KeypathToggle shown_label={t('hide key labels')} hidden_label={t('show key labels')} /></LineText>
 
     <LineText><ButtonPositional on_close={() => {
       lockstep_scrolling.set(!lockstep_scrolling.enabled);
