@@ -1,4 +1,4 @@
-export type ProjectId = 'notework' | 'sieuviet' | 'keyflow' | 'discrete';
+export type ProjectId = 'notework' | 'keyflow' | 'discrete';
 export type GuideTab = 'usage' | 'configuration' | 'installation';
 export type Platform = 'macos' | 'windows' | 'linux' | 'ios' | 'android';
 
@@ -75,42 +75,6 @@ export const projects: ProjectGuide[] = [
         'app settings → autosave: save interval. export margins control spacing in exported files.'
       ] },
       { title: 'keep your notes', text: 'use keep browser storage in app settings, and keep backups of important files. clearing site data deletes browser-stored notes. installing the app does not sync notes between devices; connect a github repository for that workflow.' }
-    ]
-  },
-  {
-    id: 'sieuviet', name: 'siêu việt',
-    summary: 'build vietnamese syllables in four choices.',
-    goal: 'type vietnamese by its sounds: initial, vowel, final, and tone. use the same construction model on a physical or touch keyboard, with siêu việt or standard quốc ngữ output.',
-    github: 'https://github.com/legitminh/vietmoi',
-    image: {
-      src: '/images/guides/sieuviet-rounds.svg',
-      alt: 'four ascii+ keys build má: m chooses initial m; s chooses vowel a; e chooses no final; d adds the sắc tone and commits má followed by a space.',
-      caption: 'ascii+ example: m → s → e → d produces “má ”. a completed syllable includes one space.'
-    },
-    usage: [
-      { title: 'type one syllable', steps: [
-        'select siêu việt as your system keyboard. on touch, tap the displayed sound; on a physical keyboard, press its shown key.',
-        'choose the initial, then the combined onglide/vowel, then the final. choose ∅ when there is no initial or final.',
-        'choose the tone last. the keyboard commits the syllable and adds one space.'
-      ] },
-      { title: 'try these · default ascii+ layout', code: 'm s e s  →  ma\nm s e d  →  má\nx v n s  →  xin', text: 'the guide changes after each choice. these are four separate key presses, not a chord. with quốc ngữ output, spelling conversion happens on the last choice.' },
-      { title: 'correct and switch', items: [
-        'backspace undoes one round while composing; otherwise it deletes normally.',
-        'space keeps an unfinished word and adds a space. escape cancels unfinished input on a physical keyboard.',
-        'a quick isolated left shift tap switches vietnamese / literal ascii on physical keyboards. on iphone, quick-tap ⇧. the iphone remembers the mode across text fields.',
-        'use ascii mode for literal text, abbreviations, or another language.'
-      ] },
-      { title: 'iphone touch controls', items: [
-        'hold ⇧ while typing for uppercase. releasing it immediately restores normal typing; it does not capitalize a later key.',
-        'double-tap ⇧ for caps lock; tap again to turn it off.',
-        'tap 123 or #+= to switch panels. hold either for temporary numbers or symbols; release to return.',
-        'use the globe key to select another system keyboard.'
-      ] }
-    ],
-    configuration: [
-      { title: 'choose layout and spelling', text: 'open the siêu việt app → cài đặt (settings). choose ascii+ for letter-position mappings or grid4x8 for the grid. choose quốc ngữ for standard vietnamese spelling, or siêu việt for phonetic spelling. the first three rounds use the same phonetic preview.' },
-      { title: 'language and appearance', text: 'vietnamese is the default interface language; english is available in settings. the native apps follow the system’s light or dark appearance. select settings in the app, then return to your text field to use them.' },
-      { title: 'iphone keyboard access', text: 'full access is not required. password fields, some phone fields, and apps that disallow third-party keyboards use apple’s keyboard. switching back in a regular text field restores siêu việt.' }
     ]
   },
   {

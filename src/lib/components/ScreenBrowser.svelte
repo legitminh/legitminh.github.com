@@ -34,7 +34,7 @@
 
   async function readHash(initial = false) {
     const hash = window.location.hash;
-    const match = hash.match(/^#project\/(notework|sieuviet|keyflow|discrete)(?:\/(usage|configuration|installation))?(?:\/(macos|windows|linux|ios|android))?$/);
+    const match = hash.match(/^#project\/(notework|keyflow|discrete)(?:\/(usage|configuration|installation))?(?:\/(macos|windows|linux|ios|android))?$/);
     const wasActive = active;
     const contentId = hash.slice(1);
     const nextActive = match ? match[1] as ProjectId : isContentScreen(contentId) ? contentId : null;

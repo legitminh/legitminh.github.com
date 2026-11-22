@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@legitminh/keyflow':
-        specifier: file:vendor/legitminh-keyflow-0.9.0.tgz
-        version: file:vendor/legitminh-keyflow-0.9.0.tgz(svelte@5.56.10(@typescript-eslint/types@8.62.1))
+        specifier: file:vendor/legitminh-keyflow-0.10.0.tgz
+        version: file:vendor/legitminh-keyflow-0.10.0.tgz(svelte@5.56.10(@typescript-eslint/types@8.62.1))
       gh-pages:
         specifier: ^6.3.0
         version: 6.3.0
@@ -153,9 +153,9 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@legitminh/keyflow@file:vendor/legitminh-keyflow-0.9.0.tgz':
-    resolution: {integrity: sha512-k+KMAX2DzwdSwBP3b7FoirU6UgY1JZJXxZPGxce6rvgcJr64VLLZsuxsEwsXd8k76bjgTExvYtx6YpvTsfk7mw==, tarball: file:vendor/legitminh-keyflow-0.9.0.tgz}
-    version: 0.9.0
+  '@legitminh/keyflow@file:vendor/legitminh-keyflow-0.10.0.tgz':
+    resolution: {integrity: sha512-rG5TJMNHjiaKRj+9PTSxSUbDzrIdNMrzegSPtu1ufa4DkM5O+qScEHFmibc1+kLsEc9cJtD1nBR9PotLk9PZDw==, tarball: file:vendor/legitminh-keyflow-0.10.0.tgz}
+    version: 0.10.0
     engines: {node: '>=22'}
     peerDependencies:
       svelte: ^5.56.10
@@ -1263,7 +1263,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@legitminh/keyflow@file:vendor/legitminh-keyflow-0.9.0.tgz(svelte@5.56.10(@typescript-eslint/types@8.62.1))':
+  '@legitminh/keyflow@file:vendor/legitminh-keyflow-0.10.0.tgz(svelte@5.56.10(@typescript-eslint/types@8.62.1))':
     dependencies:
       svelte: 5.56.10(@typescript-eslint/types@8.62.1)
 

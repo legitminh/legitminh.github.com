@@ -5,7 +5,7 @@
 </script>
   <div class="cards">
     <div class="interior">
-      <Card name="siêu việt" projectId="sieuviet" onselect={() => onselect('sieuviet')} />
+      <Card name="siêu việt" href="https://legitminh.github.io/sieuviet.site/" />
       <Card name="notework" projectId="notework" onselect={() => onselect('notework')} />
       <Card name="keyflow" projectId="keyflow" onselect={() => onselect('keyflow')} />
       <Card name="discrete" projectId="discrete" onselect={() => onselect('discrete')} />
