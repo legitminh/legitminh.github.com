@@ -10,8 +10,9 @@ export interface Release {
 }
 
 export const releasesUrl = 'https://github.com/legitminh/vietmoi/releases';
+export const releasesUrlFor = (repo: string) => `https://github.com/legitminh/${repo}/releases`;
 
-export function platformAssets(releases: Release[], platform: Platform) {
+export function platformAssets(releases: Release[], platform: Platform, repo = 'vietmoi') {
   // Releases arrive newest first. Use the newest build for each platform, even
   // when platforms ship separately. Do not mistake source, tests, or checksums for builds.
   const patterns: Record<Platform, RegExp> = {
@@ -26,7 +27,7 @@ export function platformAssets(releases: Release[], platform: Platform) {
     const assets = release.assets.filter(asset =>
       patterns[platform].test(asset.name) &&
       !/(?:checksum|sha256|source|symbols|dsym|simulator|androidtest|test[-_.])/i.test(asset.name) &&
-      asset.browser_download_url.startsWith('https://github.com/legitminh/vietmoi/releases/download/')
+      asset.browser_download_url.startsWith(`${releasesUrlFor(repo)}/download/`)
     );
     if (assets.length) return { release, assets };
   }
@@ -48,4 +49,20 @@ export const publishedRelease: Release = {
     'sieuviet-0.12.2-ubuntu-26.04-amd64.deb',
     'sieuviet-0.12.2-ubuntu-26.04-arm64.deb'
   ].map(name => ({ name, browser_download_url: `${releasesUrl}/download/v0.12.2/${name}` }))
+};
+
+const noteworkReleases = releasesUrlFor('notework');
+// The first native notework release; the live release list replaces it when reachable.
+export const noteworkRelease: Release = {
+  tag_name: 'v0.1.0',
+  html_url: `${noteworkReleases}/tag/v0.1.0`,
+  prerelease: false,
+  draft: false,
+  assets: [
+    'notework-0.1.0-macos-universal.dmg',
+    'notework-0.1.0-macos-universal.app.zip',
+    'notework-0.1.0-windows-x64-setup.exe',
+    'notework-0.1.0-ubuntu-amd64.deb',
+    'notework-0.1.0-linux-x86_64.AppImage'
+  ].map(name => ({ name, browser_download_url: `${noteworkReleases}/download/v0.1.0/${name}` }))
 };

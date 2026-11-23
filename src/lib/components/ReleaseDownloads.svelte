@@ -3,18 +3,19 @@
   import { LineText, Link } from '@legitminh/keyflow';
   import { t } from '$lib/i18n.svelte';
   import { platforms, type Platform } from '$lib/data/projects';
-  import { platformAssets, publishedRelease, releasesUrl, type Release } from '$lib/data/releases';
+  import { platformAssets, publishedRelease, releasesUrlFor, type Release } from '$lib/data/releases';
 
-  let { platform }: { platform: Platform } = $props();
+  let { platform, repo = 'vietmoi', fallback = publishedRelease }: { platform: Platform; repo?: string; fallback?: Release } = $props();
+  let releasesUrl = $derived(releasesUrlFor(repo));
   let releases = $state<Release[]>([]);
   let status = $state<'loading' | 'ready' | 'unavailable'>('loading');
-  let builds = $derived(platformAssets(releases, platform) ?? platformAssets([publishedRelease], platform));
+  let builds = $derived(platformAssets(releases, platform, repo) ?? platformAssets([fallback], platform, repo));
   let label = $derived(platforms.find(p => p.id === platform)!.label);
 
   onMount(() => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 8000);
-    void fetch('https://api.github.com/repos/legitminh/vietmoi/releases?per_page=30', {
+    void fetch(`https://api.github.com/repos/legitminh/${repo}/releases?per_page=30`, {
       signal: controller.signal,
       headers: { Accept: 'application/vnd.github+json' }
     }).then(async response => {

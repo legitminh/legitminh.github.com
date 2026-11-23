@@ -7,8 +7,9 @@
   import ReleaseDownloads from './ReleaseDownloads.svelte';
   import SettingsLink from './SettingsLink.svelte';
   import { contentScreens, isContentScreen, type ScreenId } from '$lib/data/screens';
+  import { noteworkRelease } from '$lib/data/releases';
   import {
-    projects, platforms, pwaInstallation, nativeInstallation, discreteInstallation,
+    projects, platforms, pwaInstallation, nativeInstallation, discreteInstallation, noteworkInstallation,
     type ProjectId, type GuideTab, type Platform
   } from '$lib/data/projects';
 
@@ -120,14 +121,24 @@
             link: { label: 'current releases', href: `${project.github}/releases` }
           }} />
         {:else}
-          <LineText><p>{t(project.id === 'notework' ? 'install from your browser. no app-store download or account required.' : 'choose your system. builds are distributed through github releases.')}</p></LineText>
+          <LineText><p>{t(project.id === 'notework' ? 'download the app for your system, or use the web app in any browser.' : 'choose your system. builds are distributed through github releases.')}</p></LineText>
           <LineText><nav class="platform-nav" aria-label={t("operating system")}>
             {#each platforms as system}
               <span class:current={platform === system.id} aria-current={platform === system.id ? 'page' : undefined}><Link href={`#project/${project.id}/installation/${system.id}`}>{t(system.label)}</Link></span>
             {/each}
           </nav></LineText>
           {#if project.id === 'notework'}
-            <LineText><Link href={project.app!}>{t("open notework to install")} ↗</Link></LineText>
+            {#if platform === 'ios' || platform === 'android'}
+              <LineText><div class="store-buttons">
+                <ButtonPositional disabled>{t(platform === 'ios' ? 'app store · coming soon' : 'google play · coming soon')}</ButtonPositional>
+              </div></LineText>
+            {:else}
+              <ReleaseDownloads {platform} repo="notework" fallback={noteworkRelease} />
+            {/if}
+            <GuideSection section={noteworkInstallation[platform]} />
+            <LineText><h2 id="notework-web-app">{t("web app")}</h2></LineText>
+            <LineText><p>{t("no download needed. open notework in a browser, or install it as a web app (pwa) with the steps below.")}</p></LineText>
+            <LineText><Link href={project.app!}>{t("open the notework web app")} ↗</Link></LineText>
             <GuideSection section={pwaInstallation[platform]} />
             <GuideSection section={{ title: 'first launch and offline use', text: 'let the app load once online. afterward, browser-stored notes can be created and edited offline; github sync needs a connection. installed apps may use separate browser storage, so set up notes in the app you plan to use. if installation is unavailable, use the same url in a regular browser tab.' }} />
           {:else}

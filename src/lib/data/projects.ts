@@ -63,7 +63,7 @@ export const projects: ProjectGuide[] = [
       ] }
     ],
     configuration: [
-      { title: 'storage', text: 'new notes use this browser’s storage. to work on existing computer files, use chrome or edge and choose app settings → add existing folder/file. grant access to the files you want to connect. browser storage and connected computer files are separate sources.' },
+      { title: 'storage', text: 'new notes use the app’s own storage. to work on existing computer files, use the notework app, or chrome or edge, and choose app settings → add existing folder/file. select the folders or files you want to connect. app storage and connected computer files are separate sources.' },
       { title: 'github sync · optional', steps: [
         'create a fine-grained github token limited to your chosen repository, with contents: read and write.',
         'in app settings → github repositories, enter the repository, branch, and token. the branch needs an initial commit and must allow direct pushes.',
@@ -170,6 +170,27 @@ export const pwaInstallation: Record<Platform, GuideSection> = {
     'choose ⋮ → install and create shortcut → install. some versions show add to home screen → install.',
     'confirm, then open notework from the launcher. use browser storage or a connected github repository.'
   ], link: { label: 'chrome installation guide', href: 'https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&hl=en' } }
+};
+
+// The native notework apps. iphone/ipad and android are not in the stores yet.
+export const noteworkInstallation: Record<Platform, GuideSection> = {
+  macos: { title: 'install the macos app', text: 'macos 11 or later, intel or apple silicon. the universal app is ad-hoc signed and is not notarized with developer id.', steps: [
+    'download the .dmg above. open it and drag notework into applications.',
+    'on first launch, control-click notework in applications and choose open, then open again. or run the command below in terminal.',
+    'choose app settings → add existing folder/file to browse your computer and connect folders.'
+  ], code: 'xattr -dr com.apple.quarantine /Applications/Notework.app' },
+  windows: { title: 'install the windows app', text: 'windows 10 or later, x64. the installer is not code signed yet.', steps: [
+    'download the setup .exe above and run it.',
+    'if smartscreen appears, choose more info → run anyway.',
+    'open notework from start. choose app settings → add existing folder/file to connect folders.'
+  ] },
+  linux: { title: 'install the ubuntu app', text: 'ubuntu 22.04 or later, amd64.', steps: [
+    'download the .deb above. install it with sudo apt install ./filename.deb, using the downloaded filename.',
+    'or download the .appimage, make it executable with chmod +x, and run it.',
+    'open notework from the application menu. choose app settings → add existing folder/file to connect folders.'
+  ] },
+  ios: { title: 'iphone / ipad app', text: 'the app store listing is not published yet. use the web app below in the meantime.' },
+  android: { title: 'android app', text: 'the google play listing is not published yet. use the web app below in the meantime.' }
 };
 
 export const nativeInstallation: Record<Platform, GuideSection> = {

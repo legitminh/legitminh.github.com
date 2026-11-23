@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parse } from 'svelte/compiler';
-import { projects, pwaInstallation, nativeInstallation, discreteInstallation } from '../src/lib/data/projects.ts';
+import { projects, pwaInstallation, nativeInstallation, discreteInstallation, noteworkInstallation } from '../src/lib/data/projects.ts';
 import { contentScreens } from '../src/lib/data/screens.ts';
 
 const catalog = JSON.parse(fs.readFileSync('src/lib/locales/vi.json', 'utf8'));
@@ -15,7 +15,7 @@ function data(value, key = '') {
   else if (Array.isArray(value)) value.forEach(x => data(x, key));
   else if (value) Object.entries(value).forEach(([key, x]) => data(x, key));
 }
-data(projects); data(pwaInstallation); data(nativeInstallation); data(discreteInstallation);
+data(projects); data(pwaInstallation); data(nativeInstallation); data(discreteInstallation); data(noteworkInstallation);
 Object.values(contentScreens).forEach(screen => needed.add(screen.name));
 const raw = [];
 function scan(file) {
