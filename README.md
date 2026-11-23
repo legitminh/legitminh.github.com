@@ -17,7 +17,7 @@ the production build is a static site in `build/`. github pages deployment remai
 
 keyflow's standalone local repository is at `../keyflow`. this website consumes `@legitminh/keyflow` through the versioned archive in `vendor/`, so a clean checkout can build without the sibling repository or an npm publication.
 
-the site uses **keyflow 0.11.1**, vendored from its [github release](https://github.com/legitminh/keyflow/releases/tag/v0.11.1).
+the site uses **keyflow 0.11.2**, vendored from its [github release](https://github.com/legitminh/keyflow/releases/tag/v0.11.2).
 
 `src/routes/+layout.svelte` imports the package stylesheet and mounts `Keyflow`. it also supplies the sveltekit navigation hook. the empty storage prefix preserves existing visitors' saved preferences. `keypathVisible: 'auto'` shows shortcut key labels on computers and hides them on phones and tablets (key colors stay as an indicator); the settings list exposes keyflow's `KeypathToggle` so visitors can switch either way, and their choice is saved. `key_presets.alphanumeric` assigns shortcuts from all 36 alphanumeric keys, in the order `abcdefghijklmnopqrstuvwxyz0123456789`. pages import the shared `Document`, buttons, links, and layout primitives (`LineText`, `Indent`, and `Image`) directly from the package.
 
@@ -34,13 +34,13 @@ siêu việt downloads read public assets from `legitminh/vietmoi` github releas
 to update keyflow from a published release, download its installable archive into `vendor/` (use the new version):
 
 ```sh
-curl -fL https://github.com/legitminh/keyflow/releases/download/v0.11.1/legitminh-keyflow-0.11.1.tgz -o vendor/legitminh-keyflow-0.11.1.tgz
+curl -fL https://github.com/legitminh/keyflow/releases/download/v0.11.2/legitminh-keyflow-0.11.2.tgz -o vendor/legitminh-keyflow-0.11.2.tgz
 ```
 
 install the published archive from this website's directory (use its new version):
 
 ```sh
-pnpm add ./vendor/legitminh-keyflow-0.11.1.tgz
+pnpm add ./vendor/legitminh-keyflow-0.11.2.tgz
 pnpm check
 pnpm build
 ```
