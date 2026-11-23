@@ -24,3 +24,17 @@
 <Keyflow options={{ storagePrefix: '', keys: key_presets.alphanumeric, keypathVisible: 'auto' }}>
   {@render children()}
 </Keyflow>
+
+<style>
+  /* Headings inherit the body's one-box line-height, which is shorter than their
+     font size, so wrapped lines overlap. Give them two boxes per line and take the
+     extra half box off each margin, so a one-line heading sits exactly where it did. */
+  :global(h1) {
+    line-height: calc(var(--min-box) * 2);
+    margin-block: calc(0.67em - var(--min-box) / 2);
+  }
+  :global(h2) {
+    line-height: calc(var(--min-box) * 2);
+    margin-block: calc(0.83em - var(--min-box) / 2);
+  }
+</style>
